@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`validate-consistency > should exit 0 when schema files exist, index file is synchronized and model files are consistent > stderr 1`] = `""`;
+
+exports[`validate-consistency > should exit 0 when schema files exist, index file is synchronized and model files are consistent > stdout 1`] = `
+"✔ Validated model consistency!
+✔ Validated schema files existence!
+✔ Validated index file synchronization!
+✔ Validated latest schema consistency!"
+`;
+
+exports[`validate-consistency > should exit 0 when the latest version is official and matches the reference model > stdout 1`] = `"✔ Validated model consistency!"`;

@@ -1,0 +1,57 @@
+{
+	"name": "@com.mgmtp.a12.migrationtool/migrationtool-core",
+	"version": "2.1.2-SNAPSHOT",
+	"type": "module",
+	"description": "Migration Tool Core",
+	"author": "mgm technology partners",
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"sideEffects": false,
+	"scripts": {
+		"clean": "rimraf lib/**",
+		"compile": "tsc",
+		"start": "tsc --watch"
+	},
+	"exports": {
+		"./cli": {
+			"import": "./lib/cli/index.js",
+			"types": "./lib/cli/index.d.ts"
+		},
+		"./web": {
+			"import": "./lib/web/index.js",
+			"types": "./lib/web/index.d.ts"
+		},
+		"./types": {
+			"import": "./lib/types.js",
+			"types": "./lib/types.d.ts"
+		}
+	},
+	"files": [
+		"lib",
+		"src",
+		"cyclonedx.json",
+		"LICENSE",
+		"NOTICE",
+		"THIRD_PARTY_NOTICES",
+		"licenses"
+	],
+	"dependencies": {
+		"@com.mgmtp.a12.base/base-model-api": "^29.3.0",
+		"@com.mgmtp.a12.base/base-model-migration-api": "^29.3.0",
+		"ajv": "^8.18.0",
+		"babel-plugin-transform-assets-import-to-string": "^1.2.0",
+		"better-ajv-errors": "^1.2.0",
+		"chalk": "^5.4.1",
+		"glob": "^13.0.6",
+		"jiti": "^2.4.2",
+		"json5": "^2.2.3",
+		"semver": "^7.5.4",
+		"yargs": "^17.7.2"
+	},
+	"devDependencies": {
+		"@types/node": "catalog:",
+		"@types/semver": "catalog:",
+		"@types/yargs": "catalog:",
+		"rimraf": "catalog:",
+		"typescript": "catalog:"
+	}
+}

@@ -1,0 +1,156 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`basic > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`basic > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-1.json",
+]
+`;
+
+exports[`basic > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/basic/v30.0.0-1.json
+Migrated model target/temp/basic/v30.0.0-1.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`basic > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --debug
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`basic > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --debug
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-1.json",
+]
+`;
+
+exports[`basic > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --debug
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/basic/v30.0.0-1.json
+<color.blue>Page model found with version 30.0.0.</color>
+<color.blue>Migrating to version 31.0.0-alpha.1</color>
+<color.blue>Migrating to version 31.0.0-alpha.2</color>
+<color.blue>Migrating to version 31.0.0</color>
+<color.blue>Migrating to version 32.0.0</color>
+Migrated model target/temp/basic/v30.0.0-1.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;

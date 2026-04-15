@@ -1,0 +1,7 @@
+{
+	"stepsDirPath": "./steps",
+	"referenceModelPath": "./model.ts",
+	"stepModelFileName": "model.ts",
+	"modelInterfaceName": "Model",
+	"adjustModelFuncPath": "./adjust-model.js"
+}

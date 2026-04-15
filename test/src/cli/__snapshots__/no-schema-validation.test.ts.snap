@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`no-validate-schema > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model.json --no-validate-schema
+Workspace:
+<models-dir>/invalid-models/invalid-page-model.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/invalid-page-model.json
+Number field is not 42. Please update it to 42
+Migrated model target/temp/invalid-models/invalid-page-model.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;

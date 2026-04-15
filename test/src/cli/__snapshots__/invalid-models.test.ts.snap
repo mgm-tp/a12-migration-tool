@@ -1,0 +1,1159 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Has do-not-migrate annotation > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/do-not-migrate.json
+ 1`] = `
+"{
+	"header": {
+		"id": "do-not-migrate",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of bundles"
+			},
+			{
+				"locale": "de",
+				"text": "Paketliste"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainBundle"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			},
+			{
+				"name": "do-not-migrate",
+				"value": "true"
+			}
+		]
+	},
+	"content": {
+		"numberField": 30
+	}
+}
+"
+`;
+
+exports[`Has do-not-migrate annotation > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/do-not-migrate.json",
+]
+`;
+
+exports[`Has do-not-migrate annotation > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/do-not-migrate.json
+Skip target/temp/invalid-models/do-not-migrate.json because it has the 'do-not-migrate' annotation
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       1
+Errors  :       0"
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json.json
+Workspace:
+<models-dir>/invalid-models/invalid-json.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/invalid-json.json
+ 1`] = `
+"{
+  "header": {
+    "id": "invalid-json",
+    "modelType": "page",
+    "modelVersion": "30.0.0",
+    "locales": [
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of all products"
+      },
+      {
+        "locale": "de",
+        "text": "Liste aller Produkte"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-page",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainProduct"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      }
+    ]
+  },
+  "content": {}
+}
+"
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json.json
+Workspace:
+<models-dir>/invalid-models/invalid-json.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/invalid-json.json",
+]
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json.json
+Workspace:
+<models-dir>/invalid-models/invalid-json.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+<color.red>ERROR: target/temp/invalid-models/invalid-json.json is not a valid json file</color>
+<color.red>SyntaxError: JSON5: invalid character ':' at 7:15</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json.json --debug
+Workspace:
+<models-dir>/invalid-models/invalid-json.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+<color.red>ERROR: target/temp/invalid-models/invalid-json.json is not a valid json file</color>
+<color.red>SyntaxError: JSON5: invalid character ':' at 7:15</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json5.json
+Workspace:
+<models-dir>/invalid-models/invalid-json5.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/invalid-json5.json
+ 1`] = `
+"{
+  "compilerOptions": {
+    "noEmit": true
+
+}
+"
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json5.json
+Workspace:
+<models-dir>/invalid-models/invalid-json5.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/invalid-json5.json",
+]
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json5.json
+Workspace:
+<models-dir>/invalid-models/invalid-json5.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+<color.red>ERROR: target/temp/invalid-models/invalid-json5.json is not a valid json file</color>
+<color.red>SyntaxError: JSON5: invalid end of input at 6:1</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Invalid json file > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-json5.json --debug
+Workspace:
+<models-dir>/invalid-models/invalid-json5.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+<color.red>ERROR: target/temp/invalid-models/invalid-json5.json is not a valid json file</color>
+<color.red>SyntaxError: JSON5: invalid end of input at 6:1</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/invalid-page-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "invalid-page-model",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of bundles"
+			},
+			{
+				"locale": "de",
+				"text": "Paketliste"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainBundle"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			}
+		]
+	},
+	"content": {
+		"numberField": "42"
+	}
+}
+"
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/invalid-page-model.json",
+]
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/invalid-page-model.json
+<color.red>ERROR: target/temp/invalid-models/invalid-page-model.json is not a valid page model or can not be validated</color>
+<color.red>{</color>
+<color.red>  "start": {</color>
+<color.red>    "line": 40,</color>
+<color.red>    "column": 20,</color>
+<color.red>    "offset": 687</color>
+<color.red>  },</color>
+<color.red>  "end": {</color>
+<color.red>    "line": 40,</color>
+<color.red>    "column": 24,</color>
+<color.red>    "offset": 691</color>
+<color.red>  },</color>
+<color.red>  "error": "/content/numberField: type must be number",</color>
+<color.red>  "path": "/content/numberField"</color>
+<color.red>}</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model-2.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model-2.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/invalid-page-model-2.json
+ 1`] = `
+"{
+	"header": {
+		"id": "invalid-page-model-2",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of bundles"
+			},
+			{
+				"locale": "de",
+				"text": "Paketliste"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainBundle"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			}
+		]
+	},
+	"content": {
+		"numberField": "42",
+		"booleanField": false
+	}
+}
+"
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model-2.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model-2.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/invalid-page-model-2.json",
+]
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model-2.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model-2.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/invalid-page-model-2.json
+<color.red>ERROR: target/temp/invalid-models/invalid-page-model-2.json is not a valid page model or can not be validated</color>
+<color.red>{</color>
+<color.red>  "start": {</color>
+<color.red>    "line": 41,</color>
+<color.red>    "column": 5,</color>
+<color.red>    "offset": 699</color>
+<color.red>  },</color>
+<color.red>  "end": {</color>
+<color.red>    "line": 41,</color>
+<color.red>    "column": 19,</color>
+<color.red>    "offset": 713</color>
+<color.red>  },</color>
+<color.red>  "error": "/content Property booleanField is not expected to be here",</color>
+<color.red>  "path": "/content"</color>
+<color.red>}</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+ 1`] = `
+"{
+	"header": {
+		"id": "invalid-page-model-with-do-not-migrate",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": [
+			{
+				"name": "do-not-migrate"
+			}
+		]
+	},
+	"content": {}
+}
+"
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json",
+]
+`;
+
+exports[`Invalid page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/invalid-page-model-with-do-not-migrate.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/invalid-page-model-with-do-not-migrate.json
+Skip target/temp/invalid-models/invalid-page-model-with-do-not-migrate.json because it has the 'do-not-migrate' annotation
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       1
+Errors  :       0"
+`;
+
+exports[`Is not page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/document-model.json
+Workspace:
+<models-dir>/invalid-models/document-model.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/document-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "document-model",
+		"modelType": "document",
+		"modelVersion": "26.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"annotations": [
+			{
+				"name": "savedAt",
+				"value": "2020-12-10T16:54:15.622+07:00"
+			}
+		],
+		"modelReferences": []
+	},
+	"content": {
+		"modelInfo": {
+			"name": "product",
+			"immutable": false,
+			"comment": "This is a sample product model for a commerce PIM."
+		},
+		"modelConfig": {
+			"decimalSeparator": ".",
+			"timeZone": "America/New_York"
+		},
+		"modelRoot": {
+			"rootGroups": [
+				{
+					"id": "G2",
+					"type": "Group",
+					"name": "product",
+					"Group": {
+						"repeatability": 1,
+						"required": true,
+						"elements": [
+							{
+								"id": "F3",
+								"type": "Field",
+								"name": "number",
+								"internalDescription": [
+									{
+										"locale": "en",
+										"text": "The unique business identifier of the product."
+									}
+								],
+								"Field": {
+									"label": [
+										{
+											"locale": "de",
+											"text": "Nummer"
+										},
+										{
+											"locale": "en",
+											"text": "Number"
+										}
+									],
+									"required": true,
+									"fieldType": {
+										"type": "NumberType"
+									}
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}
+"
+`;
+
+exports[`Is not page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/document-model.json
+Workspace:
+<models-dir>/invalid-models/document-model.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/document-model.json",
+]
+`;
+
+exports[`Is not page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/document-model.json
+Workspace:
+<models-dir>/invalid-models/document-model.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/document-model.json
+<color.red>ERROR: target/temp/invalid-models/document-model.json is not a(n) page model file</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Is not page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/valid-json5.json
+Workspace:
+<models-dir>/invalid-models/valid-json5.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/valid-json5.json
+ 1`] = `
+"{
+	"compilerOptions": {
+		"noEmit": true
+	}
+}
+"
+`;
+
+exports[`Is not page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/valid-json5.json
+Workspace:
+<models-dir>/invalid-models/valid-json5.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/valid-json5.json",
+]
+`;
+
+exports[`Is not page model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/valid-json5.json
+Workspace:
+<models-dir>/invalid-models/valid-json5.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/valid-json5.json
+<color.red>ERROR: target/temp/invalid-models/valid-json5.json is not a(n) page model file</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Legacy model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/legacy.json
+Workspace:
+<models-dir>/invalid-models/legacy.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/legacy.json
+ 1`] = `
+"{
+	"header": {
+		"id": "legacy",
+		"modelType": "page",
+		"modelVersion": "28.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of all products"
+			},
+			{
+				"locale": "de",
+				"text": "Liste aller Produkte"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DocumentModel.xml"
+			}
+		]
+	},
+	"content": {}
+}
+"
+`;
+
+exports[`Legacy model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/legacy.json
+Workspace:
+<models-dir>/invalid-models/legacy.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/legacy.json",
+]
+`;
+
+exports[`Legacy model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/legacy.json
+Workspace:
+<models-dir>/invalid-models/legacy.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/legacy.json
+<color.red>ERROR: target/temp/invalid-models/legacy.json has version 28.0.0 which is lower than the minimum supported version 30.0.0. Please migrate the model to version 30.0.0 by the Java-based tool first</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Newer model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/newer.json
+Workspace:
+<models-dir>/invalid-models/newer.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/newer.json
+ 1`] = `
+"{
+	"header": {
+		"id": "newer",
+		"modelType": "page",
+		"modelVersion": "99.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of all products"
+			},
+			{
+				"locale": "de",
+				"text": "Liste aller Produkte"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainProduct"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			}
+		]
+	},
+	"content": {}
+}
+"
+`;
+
+exports[`Newer model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/newer.json
+Workspace:
+<models-dir>/invalid-models/newer.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/newer.json",
+]
+`;
+
+exports[`Newer model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/newer.json
+Workspace:
+<models-dir>/invalid-models/newer.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/newer.json
+Skip target/temp/invalid-models/newer.json because its version is newer than the latest one
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       1
+Errors  :       0"
+`;
+
+exports[`Un-exist models > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/un-exist.json
+Workspace:
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `[]`;
+
+exports[`Un-exist models > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/un-exist.json
+Workspace:
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+<color.red>ERROR: target/temp/invalid-models/un-exist.json may not exist</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Unknown version > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/unknown-version.json
+Workspace:
+<models-dir>/invalid-models/unknown-version.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/unknown-version.json
+ 1`] = `
+"{
+	"header": {
+		"id": "unknown-version",
+		"modelType": "page",
+		"modelVersion": "31.0.0-alpha.3",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of all products"
+			},
+			{
+				"locale": "de",
+				"text": "Liste aller Produkte"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainProduct"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			}
+		]
+	},
+	"content": {}
+}
+"
+`;
+
+exports[`Unknown version > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/unknown-version.json
+Workspace:
+<models-dir>/invalid-models/unknown-version.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/unknown-version.json",
+]
+`;
+
+exports[`Unknown version > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/unknown-version.json
+Workspace:
+<models-dir>/invalid-models/unknown-version.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/unknown-version.json
+<color.red>ERROR: target/temp/invalid-models/unknown-version.json has non-existent version 31.0.0-alpha.3</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`Up-to-date model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/up-to-date-page-model.json
+Workspace:
+<models-dir>/invalid-models/up-to-date-page-model.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/up-to-date-page-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "up-to-date-page-model",
+		"modelType": "page",
+		"modelVersion": "32.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"numberField": 42,
+		"stringField": "ABC",
+		"numberListFields": [3, 42]
+	}
+}
+"
+`;
+
+exports[`Up-to-date model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/up-to-date-page-model.json
+Workspace:
+<models-dir>/invalid-models/up-to-date-page-model.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/up-to-date-page-model.json",
+]
+`;
+
+exports[`Up-to-date model > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/up-to-date-page-model.json
+Workspace:
+<models-dir>/invalid-models/up-to-date-page-model.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/up-to-date-page-model.json
+Skip target/temp/invalid-models/up-to-date-page-model.json because it is up-to-date
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       1
+Errors  :       0"
+`;

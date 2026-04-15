@@ -1,0 +1,7 @@
+{
+	"$schema": "./node_modules/@com.mgmtp.a12.migrationtool/migrationtool-utils/config.schema.json",
+	"stepsDirPath": "./src/steps",
+	"referenceModelPath": "../page-engine/src/page-model.ts",
+	"stepModelFileName": "page-model.ts",
+	"modelInterfaceName": "PageModel"
+}

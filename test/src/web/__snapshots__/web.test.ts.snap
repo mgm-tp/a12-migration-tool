@@ -1,0 +1,509 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`web > should migrate successfully 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "numberField": 42,
+        "stringField": "Hello World",
+      },
+      "header": {
+        "annotations": [],
+        "id": "v30.0.0-1",
+        "labels": [],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [],
+        "modelType": "page",
+        "modelVersion": "32.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`web > should migrate successfully 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Page Migration Tool]",
+      "Page model found with version 30.0.0.",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0-alpha.1",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0-alpha.2",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 32.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'v30.0.0-1'",
+    ],
+  ],
+}
+`;
+
+exports[`web > should return correct migration results 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "numberField": 30,
+      },
+      "header": {
+        "annotations": [
+          {
+            "name": "roles",
+            "value": "admin",
+          },
+          {
+            "name": "do-not-migrate",
+            "value": "true",
+          },
+        ],
+        "id": "do-not-migrate",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of bundles",
+          },
+          {
+            "locale": "de",
+            "text": "Paketliste",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DomainBundle",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "30.0.0",
+      },
+    },
+    "skipMessage": "Skip Model do-not-migrate because it has the 'do-not-migrate' annotation",
+    "status": "skip",
+  },
+  {
+    "errorMessage": "Model legacy has version 28.0.0 which is lower than the minimum supported version 30.0.0. Please migrate the model to version 30.0.0 by the Java-based tool first",
+    "model": {
+      "content": {},
+      "header": {
+        "id": "legacy",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of all products",
+          },
+          {
+            "locale": "de",
+            "text": "Liste aller Produkte",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DocumentModel.xml",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "28.0.0",
+      },
+    },
+    "status": "error",
+  },
+  {
+    "model": {
+      "content": {},
+      "header": {
+        "annotations": [
+          {
+            "name": "roles",
+            "value": "admin",
+          },
+        ],
+        "id": "newer",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of all products",
+          },
+          {
+            "locale": "de",
+            "text": "Liste aller Produkte",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DomainProduct",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "99.0.0",
+      },
+    },
+    "skipMessage": "Skip Model newer because its version is newer than the latest one",
+    "status": "skip",
+  },
+  {
+    "errorMessage": "Model unknown-version has non-existent version 31.0.0-alpha.3",
+    "model": {
+      "content": {},
+      "header": {
+        "annotations": [
+          {
+            "name": "roles",
+            "value": "admin",
+          },
+        ],
+        "id": "unknown-version",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of all products",
+          },
+          {
+            "locale": "de",
+            "text": "Liste aller Produkte",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DomainProduct",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "31.0.0-alpha.3",
+      },
+    },
+    "status": "error",
+  },
+  {
+    "errorMessage": "Model invalid-page-model is not a valid page model or can not be validated. The field/object at path "/content/numberField" must be number",
+    "model": {
+      "content": {
+        "numberField": "42",
+      },
+      "header": {
+        "annotations": [
+          {
+            "name": "roles",
+            "value": "admin",
+          },
+        ],
+        "id": "invalid-page-model",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of bundles",
+          },
+          {
+            "locale": "de",
+            "text": "Paketliste",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DomainBundle",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "30.0.0",
+      },
+    },
+    "status": "error",
+  },
+  {
+    "errorMessage": "Model invalid-page-model-2 is not a valid page model or can not be validated. The field/object at path "/content" must NOT have additional properties",
+    "model": {
+      "content": {
+        "booleanField": false,
+        "numberField": "42",
+      },
+      "header": {
+        "annotations": [
+          {
+            "name": "roles",
+            "value": "admin",
+          },
+        ],
+        "id": "invalid-page-model-2",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of bundles",
+          },
+          {
+            "locale": "de",
+            "text": "Paketliste",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DomainBundle",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "30.0.0",
+      },
+    },
+    "status": "error",
+  },
+  {
+    "model": {
+      "content": {
+        "numberField": 41,
+        "stringField": "Hello World",
+      },
+      "header": {
+        "annotations": [
+          {
+            "name": "roles",
+            "value": "admin",
+          },
+        ],
+        "id": "page-model-with-step-message",
+        "labels": [
+          {
+            "locale": "en",
+            "text": "List of bundles",
+          },
+          {
+            "locale": "de",
+            "text": "Paketliste",
+          },
+        ],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [
+          {
+            "alias": "DM",
+            "modelType": "document",
+            "purpose": "document-model-for-page",
+            "reference": "DomainBundle",
+          },
+        ],
+        "modelType": "page",
+        "modelVersion": "32.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`web > should return correct migration results 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Page Migration Tool]",
+      "Page model found with version 30.0.0.",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0-alpha.1",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0-alpha.2",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 32.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'do-not-migrate'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'legacy'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'newer'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'unknown-version'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'invalid-page-model'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'invalid-page-model-2'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'page-model-with-step-message'",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Number field is not 42. Please update it to 42",
+    ],
+  ],
+}
+`;
+
+exports[`web > should return correct migration results with user config 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "numberField": 126,
+        "stringField": "Hello World",
+      },
+      "header": {
+        "annotations": [],
+        "id": "v30.0.0-1",
+        "labels": [],
+        "locales": [
+          {
+            "code": "en",
+          },
+          {
+            "code": "de",
+          },
+        ],
+        "modelReferences": [],
+        "modelType": "page",
+        "modelVersion": "31.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`web > should return correct migration results with user config 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Page Migration Tool]",
+      "Page model found with version 30.0.0.",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0-alpha.1",
+    ],
+    [
+      "[Page Migration Tool]",
+      "Migrating to version 31.0.0",
+    ],
+    [
+      "[Page Migration Tool]",
+      "{
+  "multiplier": 3
+}",
+    ],
+  ],
+  "log": [
+    [
+      "[Page Migration Tool]",
+      "Migrating model with id 'v30.0.0-1'",
+    ],
+  ],
+}
+`;

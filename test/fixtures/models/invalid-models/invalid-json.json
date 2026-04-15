@@ -1,0 +1,39 @@
+{
+  "header": {
+    "id": "invalid-json",
+    "modelType": "page",
+    "modelVersion": "30.0.0",
+    "locales": [
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of all products"
+      },
+      {
+        "locale": "de",
+        "text": "Liste aller Produkte"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-page",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainProduct"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      }
+    ]
+  },
+  "content": {}
+}

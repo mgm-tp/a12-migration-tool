@@ -1,0 +1,289 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Generate step > when given adjusting model function > should adjust the reference model > 31.0.0-pre.2/model.ts 1`] = `
+"/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+export interface Model {
+	readonly numberField: number;
+	readonly booleanField: BooleanType;
+	readonly stringField: string;
+}
+
+export type BooleanType = true | false;
+"
+`;
+
+exports[`Generate step > when given adjusting model function > should adjust the reference model > 31.0.0-pre.2/transform.ts 1`] = `
+"import * as OldModel from "../version-31.0.0-pre.1/model.js";
+import * as NewModel from "./model.js";
+
+export default function transform(oldModel: OldModel.Model): NewModel.Model {
+	throw new Error("Not implemented");
+}
+"
+`;
+
+exports[`Generate step > when latest version is a minor pre (30.1.0-pre.2) > should generate scenario correctly > scenario 1`] = `
+{
+  "latestVersion": "30.1.0-pre.2",
+  "versionChoices": [
+    {
+      "name": "30.1.0-pre.3",
+      "value": "30.1.0-pre.3",
+    },
+    {
+      "name": "30.1.0",
+      "value": "30.1.0",
+    },
+  ],
+}
+`;
+
+exports[`Generate step > when latest version is a minor pre (30.1.0-pre.2) > when choose the next minor pre version with transformation > should copy the reference model and create transform file > 30.1.0-pre.3/model.ts 1`] = `
+"/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+export interface Model {
+	readonly numberField: number;
+	readonly stringField?: string;
+	readonly booleanField?: boolean;
+}
+"
+`;
+
+exports[`Generate step > when latest version is a minor pre (30.1.0-pre.2) > when choose the next minor pre version with transformation > should copy the reference model and create transform file > 30.1.0-pre.3/transform.ts 1`] = `
+"import * as OldModel from "../version-30.1.0-pre.2/model.js";
+import * as NewModel from "./model.js";
+
+export default function transform(oldModel: OldModel.Model): NewModel.Model {
+	throw new Error("Not implemented");
+}
+"
+`;
+
+exports[`Generate step > when latest version is a minor pre (30.1.0-pre.2) > when choose the next minor pre version without transformation > should copy the reference model and not create transform file > 30.1.0-pre.3/model.ts 1`] = `
+"/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+export interface Model {
+	readonly numberField: number;
+	readonly stringField?: string;
+	readonly booleanField?: boolean;
+}
+"
+`;
+
+exports[`Generate step > when latest version is a minor pre (30.1.0-pre.2) > when choose the official version > should reference to the latest pre model and not create transform file > 30.1.0/model.ts 1`] = `
+"export * from "../version-30.1.0-pre.2/model";
+"
+`;
+
+exports[`Generate step > when latest version is an official major (30.0.0) > should generate scenario correctly > scenario 1`] = `
+{
+  "latestVersion": "30.0.0",
+  "versionChoices": [
+    {
+      "name": "30.1.0-pre.1",
+      "value": "30.1.0-pre.1",
+    },
+    {
+      "name": "31.0.0-pre.1",
+      "value": "31.0.0-pre.1",
+    },
+  ],
+}
+`;
+
+exports[`Generate step > when latest version is an official major (30.0.0) > when user chooses the next major pre version with transformation > should copy the reference model and create transform file > 31.0.0-pre.1/model.ts 1`] = `
+"/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+export interface Model {
+	readonly numberField: number;
+	readonly newStringField?: string;
+}
+"
+`;
+
+exports[`Generate step > when latest version is an official major (30.0.0) > when user chooses the next major pre version with transformation > should copy the reference model and create transform file > 31.0.0-pre.1/transform.ts 1`] = `
+"import * as OldModel from "../version-30.0.0/model.js";
+import * as NewModel from "./model.js";
+
+export default function transform(oldModel: OldModel.Model): NewModel.Model {
+	throw new Error("Not implemented");
+}
+"
+`;
+
+exports[`Generate step > when latest version is an official major (30.0.0) > when user chooses the next minor pre version without transformation > should copy the reference model and not create transform file > 30.1.0-pre.1/model.ts 1`] = `
+"/*
+ * SPDX-License-Identifier: EUPL-1.2 OR LicenseRef-commercial
+ *
+ * Copyright (c) 2012-2026 mgm technology partners GmbH
+ *
+ * Dual License
+ * ------------
+ * This source file is part of the mgm A12 Platform and available under
+ * a choice of two different licenses:
+ *
+ * 1. Open-Source License - EUPL v1.2
+ *    You may redistribute and/or modify this file under the terms of the
+ *    European Union Public License, version 1.2 - see https://eupl.eu/.
+ *
+ * 2. Commercial License
+ *    Alternatively, you may obtain a commercial license from
+ *    mgm technology partners GmbH, that permits use of this software
+ *    under different terms (including support and maintenance services).
+ *
+ *    Please contact a12-license@mgm-tp.com for more information.
+ *
+ * You must select and comply with exactly one of the above license options.
+ *
+ * Warranty Disclaimer (applies to either option)
+ * ----------------------------------------------
+ * THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT WARRANTY OF ANY KIND,
+ * WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
+ * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
+ */
+
+export interface Model {
+	readonly numberField: number;
+	readonly newStringField?: string;
+}
+"
+`;
+
+exports[`Generate step > when latest version is an official minor (version-30.1.0) > should generate scenario correctly > scenario 1`] = `
+{
+  "latestVersion": "30.1.0",
+  "versionChoices": [
+    {
+      "name": "30.2.0-pre.1",
+      "value": "30.2.0-pre.1",
+    },
+    {
+      "name": "31.0.0-pre.1",
+      "value": "31.0.0-pre.1",
+    },
+  ],
+}
+`;

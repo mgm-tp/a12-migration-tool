@@ -1,0 +1,508 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File <models-dir>/directory-mode/document-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "DomainProduct",
+		"modelType": "document",
+		"modelVersion": "26.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"annotations": [
+			{
+				"name": "savedAt",
+				"value": "2020-12-10T16:54:15.622+07:00"
+			}
+		],
+		"modelReferences": []
+	},
+	"content": {
+		"modelInfo": {
+			"name": "product",
+			"immutable": false,
+			"comment": "This is a sample product model for a commerce PIM."
+		},
+		"modelConfig": {
+			"decimalSeparator": ".",
+			"timeZone": "America/New_York"
+		},
+		"modelRoot": {
+			"rootGroups": [
+				{
+					"id": "G2",
+					"type": "Group",
+					"name": "product",
+					"Group": {
+						"repeatability": 1,
+						"required": true,
+						"elements": [
+							{
+								"id": "F3",
+								"type": "Field",
+								"name": "number",
+								"internalDescription": [
+									{
+										"locale": "en",
+										"text": "The unique business identifier of the product."
+									}
+								],
+								"Field": {
+									"label": [
+										{
+											"locale": "de",
+											"text": "Nummer"
+										},
+										{
+											"locale": "en",
+											"text": "Number"
+										}
+									],
+									"required": true,
+									"fieldType": {
+										"type": "NumberType"
+									}
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}
+"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File <models-dir>/directory-mode/v30.0.0.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0.json",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of all products"
+      },
+      {
+        "locale": "de",
+        "text": "Liste aller Produkte"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-overview",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainProduct"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      }
+    ]
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File <models-dir>/directory-mode/v31.0.0-alpha-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v31.0.0-alpha-1.json",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of all products"
+      },
+      {
+        "locale": "de",
+        "text": "Liste aller Produkte"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-overview",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainProduct"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      }
+    ]
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Joe"
+  }
+}
+"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/directory-mode/v31.0.0-alpha-1.json",
+  "<models-dir>/directory-mode/v30.0.0.json",
+  "<models-dir>/directory-mode/document-model.json",
+]
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Migrating all page models in directory target/temp/directory-mode
+
+Reading target/temp/directory-mode/v31.0.0-alpha-1.json
+Migrated model target/temp/directory-mode/v31.0.0-alpha-1.json successfully
+
+Reading target/temp/directory-mode/v30.0.0.json
+Migrated model target/temp/directory-mode/v30.0.0.json successfully
+
+
+Migration Summary
+=================
+Migrated:       2
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode --debug
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File <models-dir>/directory-mode/document-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "DomainProduct",
+		"modelType": "document",
+		"modelVersion": "26.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"annotations": [
+			{
+				"name": "savedAt",
+				"value": "2020-12-10T16:54:15.622+07:00"
+			}
+		],
+		"modelReferences": []
+	},
+	"content": {
+		"modelInfo": {
+			"name": "product",
+			"immutable": false,
+			"comment": "This is a sample product model for a commerce PIM."
+		},
+		"modelConfig": {
+			"decimalSeparator": ".",
+			"timeZone": "America/New_York"
+		},
+		"modelRoot": {
+			"rootGroups": [
+				{
+					"id": "G2",
+					"type": "Group",
+					"name": "product",
+					"Group": {
+						"repeatability": 1,
+						"required": true,
+						"elements": [
+							{
+								"id": "F3",
+								"type": "Field",
+								"name": "number",
+								"internalDescription": [
+									{
+										"locale": "en",
+										"text": "The unique business identifier of the product."
+									}
+								],
+								"Field": {
+									"label": [
+										{
+											"locale": "de",
+											"text": "Nummer"
+										},
+										{
+											"locale": "en",
+											"text": "Number"
+										}
+									],
+									"required": true,
+									"fieldType": {
+										"type": "NumberType"
+									}
+								}
+							}
+						]
+					}
+				}
+			]
+		}
+	}
+}
+"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode --debug
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File <models-dir>/directory-mode/v30.0.0.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0.json",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of all products"
+      },
+      {
+        "locale": "de",
+        "text": "Liste aller Produkte"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-overview",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainProduct"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      }
+    ]
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode --debug
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File <models-dir>/directory-mode/v31.0.0-alpha-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v31.0.0-alpha-1.json",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of all products"
+      },
+      {
+        "locale": "de",
+        "text": "Liste aller Produkte"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-overview",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainProduct"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      }
+    ]
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Joe"
+  }
+}
+"
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode --debug
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/directory-mode/v31.0.0-alpha-1.json",
+  "<models-dir>/directory-mode/v30.0.0.json",
+  "<models-dir>/directory-mode/document-model.json",
+]
+`;
+
+exports[`Directory mode > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/directory-mode --debug
+Workspace:
+<models-dir>/directory-mode
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Migrating all page models in directory target/temp/directory-mode
+
+Reading target/temp/directory-mode/v31.0.0-alpha-1.json
+<color.blue>Page model found with version 31.0.0-alpha.1.</color>
+<color.blue>Migrating to version 31.0.0-alpha.2</color>
+<color.blue>Migrating to version 31.0.0</color>
+<color.blue>Migrating to version 32.0.0</color>
+Migrated model target/temp/directory-mode/v31.0.0-alpha-1.json successfully
+
+Reading target/temp/directory-mode/v30.0.0.json
+<color.blue>Page model found with version 30.0.0.</color>
+<color.blue>Migrating to version 31.0.0-alpha.1</color>
+<color.blue>Migrating to version 31.0.0-alpha.2</color>
+<color.blue>Migrating to version 31.0.0</color>
+<color.blue>Migrating to version 32.0.0</color>
+Migrated model target/temp/directory-mode/v30.0.0.json successfully
+<color.blue></color>
+<color.blue>Ignore target/temp/directory-mode/document-model.json because it is not a(n) page model file</color>
+
+
+Migration Summary
+=================
+Migrated:       2
+Skipped :       0
+Errors  :       0"
+`;

@@ -1,0 +1,111 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`backup > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --backup
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`backup > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --backup
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json_bak
+ 1`] = `
+"{
+	"header": {
+		"id": "v30.0.0-1",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"numberField": 42
+	}
+}
+"
+`;
+
+exports[`backup > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --backup
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-1.json_bak",
+  "<models-dir>/basic/v30.0.0-1.json",
+]
+`;
+
+exports[`backup > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/basic/v30.0.0-1.json --backup
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/basic/v30.0.0-1.json
+Migrated model target/temp/basic/v30.0.0-1.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;

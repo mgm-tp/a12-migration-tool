@@ -1,0 +1,201 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`force > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/do-not-migrate.json
+ 1`] = `
+"{
+	"header": {
+		"id": "do-not-migrate",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of bundles"
+			},
+			{
+				"locale": "de",
+				"text": "Paketliste"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-page",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainBundle"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			},
+			{
+				"name": "do-not-migrate",
+				"value": "true"
+			}
+		]
+	},
+	"content": {
+		"numberField": 30
+	}
+}
+"
+`;
+
+exports[`force > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/do-not-migrate.json",
+]
+`;
+
+exports[`force > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/do-not-migrate.json
+Skip target/temp/invalid-models/do-not-migrate.json because it has the 'do-not-migrate' annotation
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       1
+Errors  :       0"
+`;
+
+exports[`force > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json --force
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+File <models-dir>/invalid-models/do-not-migrate.json
+ 1`] = `
+"{
+  "header": {
+    "id": "do-not-migrate",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+      {
+        "locale": "en",
+        "text": "List of bundles"
+      },
+      {
+        "locale": "de",
+        "text": "Paketliste"
+      }
+    ],
+    "modelReferences": [
+      {
+        "purpose": "document-model-for-page",
+        "modelType": "document",
+        "alias": "DM",
+        "reference": "DomainBundle"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "roles",
+        "value": "admin"
+      },
+      {
+        "name": "do-not-migrate",
+        "value": "true"
+      }
+    ]
+  },
+  "content": {
+    "numberField": 30,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`force > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json --force
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/invalid-models/do-not-migrate.json",
+]
+`;
+
+exports[`force > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/invalid-models/do-not-migrate.json --force
+Workspace:
+<models-dir>/invalid-models/do-not-migrate.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/invalid-models/do-not-migrate.json
+Number field is not 42. Please update it to 42
+Migrated model target/temp/invalid-models/do-not-migrate.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;

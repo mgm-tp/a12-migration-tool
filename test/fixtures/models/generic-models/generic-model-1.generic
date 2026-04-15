@@ -1,0 +1,6 @@
+{
+  "id": "generic-model-1",
+  "type": "generic",
+  "version": "1.0.0",
+  "numberField": 42
+}

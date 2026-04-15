@@ -1,0 +1,51 @@
+# CI sets this to warn by default
+loglevel: info
+strictPeerDependencies: true
+lockfileIncludeTarballUrl: false
+
+packages:
+  - ./*
+  - ./test/fixtures/*
+
+catalog:
+  "@com.mgmtp.a12.base/base-model-api": 29.3.0
+  "@com.mgmtp.a12.base/base-model-migration-api": 29.3.0
+  "@com.mgmtp.a12.devtools/build-tools": 1.1.0
+  "@com.mgmtp.a12.devtools/eslint-config": 3.1.0
+  "@com.mgmtp.a12.devtools/prettier-config": 1.1.0
+  "@com.mgmtp.a12.devtools/tsconfig": 1.1.0
+  "@types/babel__register": ^7.17.3
+  "@types/fs-extra": ^11.0.1
+  "@types/git-diff": ^2.0.3
+  "@types/inquirer": ^9.0.7
+  "@types/node": ^22.13.11
+  "@types/run-parallel-limit": ^1.0.0
+  "@types/semver": ^7.5.0
+  "@types/yargs": ^17.0.24
+  "@typescript-eslint/eslint-plugin": ^8.27.0
+  "@typescript-eslint/parser": ^8.27.0
+  cypress: ^14.4.1
+  eslint-config-prettier: ^10.1.1
+  eslint-plugin-import: ^2.29.1
+  eslint-plugin-notice: ^1.0.0
+  eslint-plugin-prettier: ^5.2.3
+  eslint: ^9.22.0
+  execa: ^9.5.2
+  fs-extra: ^11.1.1
+  git-diff: ^2.0.6
+  glob: ^13.0.6
+  html-webpack-plugin: ^5.5.3
+  inquirer: ^12.5.0
+  json5: ^2.2.3
+  prettier: ^3.5.3
+  rimraf: ^6.0.1
+  shx: ^0.4.0
+  start-server-and-test: ^2.0.0
+  tcp-port-used: ^1.0.2
+  ts-node: ^10.9.1
+  typescript: 5.8.2
+  vite: ^6.3.5
+  vitest: ^3.1.4
+  webpack-cli: ^5.1.4
+  webpack-dev-server: ^4.15.1
+  webpack: ^5.88.2

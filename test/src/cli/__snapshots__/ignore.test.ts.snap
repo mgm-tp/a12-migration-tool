@@ -1,0 +1,138 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ignore > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/ignore-node-modules
+Workspace:
+<models-dir>/ignore-node-modules
+-----------------------------
+Snapshot:
+File <models-dir>/ignore-node-modules/app/node_modules/ignore-model.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "30.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [
+
+    ],
+    "modelReferences": [
+
+    ],
+    "annotations": [
+
+    ]
+  },
+  "content": {
+    "numberField": 42
+  }
+}
+"
+`;
+
+exports[`ignore > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/ignore-node-modules
+Workspace:
+<models-dir>/ignore-node-modules
+-----------------------------
+Snapshot:
+File <models-dir>/ignore-node-modules/app/not-ignore-model.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "32.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 42,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`ignore > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/ignore-node-modules
+Workspace:
+<models-dir>/ignore-node-modules
+-----------------------------
+Snapshot:
+File <models-dir>/ignore-node-modules/app/tsconfig.test.json
+ 1`] = `
+"{
+	"compilerOptions": {
+		"noEmitOnError": false
+	}
+}
+"
+`;
+
+exports[`ignore > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/ignore-node-modules
+Workspace:
+<models-dir>/ignore-node-modules
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/ignore-node-modules/app/tsconfig.test.json",
+  "<models-dir>/ignore-node-modules/app/not-ignore-model.json",
+  "<models-dir>/ignore-node-modules/app/node_modules/ignore-model.json",
+]
+`;
+
+exports[`ignore > 
+----------Test case----------
+Command:
+page-model-migration <models-dir>/ignore-node-modules
+Workspace:
+<models-dir>/ignore-node-modules
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Migrating all page models in directory target/temp/ignore-node-modules
+
+Reading target/temp/ignore-node-modules/app/not-ignore-model.json
+Migrated model target/temp/ignore-node-modules/app/not-ignore-model.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;

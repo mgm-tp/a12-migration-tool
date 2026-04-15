@@ -1,0 +1,7 @@
+**/steps/index.ts
+
+package.json
+invalid-json5.json
+invalid-json.json
+schema.json
+*.yaml

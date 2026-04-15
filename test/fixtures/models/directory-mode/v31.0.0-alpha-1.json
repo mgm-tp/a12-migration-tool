@@ -1,0 +1,43 @@
+{
+	"header": {
+		"id": "v31.0.0-alpha-1.json",
+		"modelType": "page",
+		"modelVersion": "31.0.0-alpha.1",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [
+			{
+				"locale": "en",
+				"text": "List of all products"
+			},
+			{
+				"locale": "de",
+				"text": "Liste aller Produkte"
+			}
+		],
+		"modelReferences": [
+			{
+				"purpose": "document-model-for-overview",
+				"modelType": "document",
+				"alias": "DM",
+				"reference": "DomainProduct"
+			}
+		],
+		"annotations": [
+			{
+				"name": "roles",
+				"value": "admin"
+			}
+		]
+	},
+	"content": {
+		"numberField": 42,
+		"stringField": "Joe"
+	}
+}

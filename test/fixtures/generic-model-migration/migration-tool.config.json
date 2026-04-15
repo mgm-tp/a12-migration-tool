@@ -1,0 +1,7 @@
+{
+	"$schema": "./node_modules/@com.mgmtp.a12.migrationtool/migrationtool-utils/config.schema.json",
+	"stepsDirPath": "./src/steps",
+	"referenceModelPath": "./src/generic-model.ts",
+	"stepModelFileName": "generic-model.ts",
+	"modelInterfaceName": "GenericModel"
+}

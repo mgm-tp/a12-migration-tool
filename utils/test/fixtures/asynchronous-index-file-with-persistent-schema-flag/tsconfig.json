@@ -1,0 +1,9 @@
+{
+	"include": ["src"],
+	"compilerOptions": {
+		"outDir": "lib",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"rootDir": "src"
+	}
+}

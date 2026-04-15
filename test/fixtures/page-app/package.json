@@ -1,0 +1,16 @@
+{
+	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test-page-app",
+	"private": true,
+	"version": "2.1.2-SNAPSHOT",
+	"type": "module",
+	"description": "Sample application for testing purpose",
+	"author": "mgm technology partners",
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"scripts": {
+		"start": "vite"
+	},
+	"devDependencies": {
+		"@com.mgmtp.a12.migrationtool/migrationtool-test-page-migration-tool": "workspace:*",
+		"vite": "catalog:"
+	}
+}

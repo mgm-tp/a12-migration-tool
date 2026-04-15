@@ -1,0 +1,173 @@
+THIRD_PARTY_NOTICES
+
+Component: A12 Migration Tool
+Generated: 2026-03-12 for mgm A12 Platform 2025.06-ext5
+
+The mgm A12 Platform is developed by mgm technology partners GmbH.
+
+https://www.mgm-tp.com.
+
+This file lists third-party software components included in this
+distribution of the mgm A12 Platform and the licenses that apply
+to them.
+
+Component Overview
+-------------------
+
+The following third-party components are included in this distribution:
+
+- gradle wrapper, licensed under Apache-2.0
+	Copyright © 2015-2021 the original authors
+	Source: https://github.com/gradle/gradle/
+- ajv 8.17.1, licensed under MIT
+	Copyright (c) 2015-2021 Evgeny Poberezkin
+	Source: https://github.com/ajv-validator/ajv
+- babel-plugin-transform-assets-import-to-string 1.2.0, licensed under MIT
+	Copyright (c) 2017 Gerald Yeo
+	Source: https://github.com/yeojz/babel-plugin-transform-assets-import-to-string
+- better-ajv-errors 1.2.0, licensed under Apache-2.0
+	Copyright 2018 Atlassian Pty Ltd
+	Source: https://github.com/atlassian/better-ajv-errors
+- chalk 5.6.2, licensed under MIT
+	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+	Source: https://github.com/chalk/chalk
+- @com.mgmtp.a12.base/base-model-api 29.1.0, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- @com.mgmtp.a12.base/base-model-api 29.2.0, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- @com.mgmtp.a12.base/base-model-migration-api 29.1.0, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- @com.mgmtp.a12.devtools/devtools 10.1.1, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- @com.mgmtp.a12.devtools/eslint-config 2.0.2, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- @com.mgmtp.a12.devtools/prettier-config 1.0.1, licensed under EUPL v1.2
+	Copyright (C) 2012-2026 mgm technology partners GmbH
+	Source: https://github.com/mgm-tp
+- cypress 14.5.4, licensed under MIT
+	Copyright (c) 2023 Cypress.io
+	Source: https://github.com/cypress-io/cypress
+- eslint 9.39.1, licensed under MIT
+	Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
+	Source: https://github.com/eslint/eslint
+- eslint-config-prettier 10.1.8, licensed under MIT
+	Copyright (c) 2017, 2018, 2019, 2020, 2021, 2022, 2023 Simon Lydell and contributors
+	Source: https://github.com/prettier/eslint-config-prettier
+- eslint-plugin-import 2.32.0, licensed under MIT
+	Copyright (c) 2015 Ben Mosher
+	Source: https://github.com/import-js/eslint-plugin-import
+- eslint-plugin-notice 1.0.0, licensed under MIT
+	Copyright (c) 2017 Nick Deis
+	Source: https://github.com/nickdeis/eslint-plugin-notice
+- eslint-plugin-prettier 5.5.4, licensed under MIT
+	Copyright (c) 2017 Andres Suarez and Teddy Katz
+	Source: https://github.com/prettier/eslint-plugin-prettier
+- execa 9.6.0, licensed under MIT
+	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+	Source: https://github.com/sindresorhus/execa
+- fs-extra 11.3.2, licensed under MIT
+	Copyright (c) 2011-2024 JP Richardson
+	Source: https://github.com/jprichardson/node-fs-extra
+- git-diff 2.0.6, licensed under ISC
+	Source: https://github.com/danday74/git-diff
+- glob 11.1.0, licensed under ISC
+	Copyright (c) 2009-2023 Isaac Z. Schlueter and Contributors
+	Source: https://github.com/isaacs/node-glob
+- inquirer 12.11.1, licensed under MIT
+	Copyright (c) 2025 Simon Boudrias
+	Source: https://github.com/SBoudrias/Inquirer.js
+- jiti 2.6.1, licensed under MIT
+	Copyright (c) Pooya Parsa <pooya@pi0.io>
+	Source: https://github.com/unjs/jiti
+- json5 2.2.3, licensed under MIT
+	Copyright (c) 2012-2018 Aseem Kishore, and others
+	Source: https://github.com/json5/json5
+- prettier 3.6.2, licensed under MIT
+	Copyright © James Long and contributors
+	Source: https://github.com/prettier/prettier
+- rimraf 6.1.0, licensed under ISC
+	Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
+	Source: https://github.com/isaacs/rimraf
+- run-parallel-limit 1.1.0, licensed under MIT
+	Copyright (c) Feross Aboukhadijeh
+	Source: https://github.com/feross/run-parallel-limit
+- semver 7.7.3, licensed under ISC
+	Copyright (c) Isaac Z. Schlueter and Contributors
+	Source: https://github.com/npm/node-semver
+- start-server-and-test 2.1.2, licensed under MIT
+	Copyright (c) 2022 bahmutov
+	Source: https://github.com/bahmutov/start-server-and-test
+- tcp-port-used 1.0.2, licensed under MIT
+	Copyright (c) 2013 jut-io
+	Source: https://github.com/stdarg/tcp-port-used
+- ts-json-schema-generator 2.4.0, licensed under MIT
+	Copyright (c) 2019, TypeScript JSON Schema
+	Source: https://github.com/vega/ts-json-schema-generator
+- ts-morph 25.0.1, licensed under MIT
+	Copyright (c) 2017 David Sherret
+	Source: https://github.com/dsherret/ts-morph
+- ts-node 10.9.2, licensed under MIT
+	Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
+	Source: https://github.com/TypeStrong/ts-node
+- typescript 5.8.2, licensed under Apache-2.0
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/microsoft/TypeScript
+- @typescript-eslint/eslint-plugin 8.47.0, licensed under MIT
+	Copyright (c) 2019 typescript-eslint and other contributors
+	Source: https://github.com/typescript-eslint/typescript-eslint
+- @typescript-eslint/parser 8.47.0, licensed under MIT
+	Copyright (c) 2019 typescript-eslint and other contributors
+	Source: https://github.com/typescript-eslint/typescript-eslint
+- @types/fs-extra 11.0.4, licensed under MIT
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/git-diff 2.0.7, licensed under MIT
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/node 22.19.1, licensed under MIT
+	Copyright Node.js contributors and (c) Microsoft Corporation
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/run-parallel-limit 1.0.3, licensed under MIT
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/semver 7.7.1, licensed under MIT
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- @types/yargs 17.0.35, licensed under MIT
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
+- vite 6.4.1, licensed under MIT
+	Copyright (c) 2019-present, VoidZero Inc. and Vite contributors
+	Source: https://github.com/vitejs/vite
+- vitest 3.2.4, licensed under MIT
+	Copyright (c) 2021-Present Vitest Team
+	Source: https://github.com/vitest-dev/vitest
+- yargs 17.7.2, licensed under MIT
+	Copyright 2014 Contributors (ben@npmjs.com) and Copyright 2010 James Halliday (mail@substack.net)
+	Source: https://github.com/yargs/yargs
+
+
+License Texts
+-------------
+
+Complete license texts for all included third-party components can
+be found in the licenses/ directory, attributions in file NOTICES.
+
+
+General Notice
+--------------
+
+The mgm A12 Platform is dual-licensed under the EUPL-1.2 or a
+commercial license. Third-party components remain under their
+respective licenses. For details, see the file LICENSE.
+
+“mgm A12” is a registered trademark of mgm technology partners GmbH
+(EU/DE). All other trademarks are the property of their respective
+owners.
+
+End of THIRD_PARTY_NOTICES

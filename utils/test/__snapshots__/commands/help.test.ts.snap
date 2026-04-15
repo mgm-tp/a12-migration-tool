@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`help > stdout 1`] = `
+"Usage: migration-tool-utils <command> [options]
+
+Commands:
+  migration-tool-utils compile              Compile JSON schemas and all source
+                                            files
+  migration-tool-utils generate-step        Create a new step interactively
+  migration-tool-utils validate-official-v  Validate the latest step is an offic
+  ersion                                    ial version for final release
+  migration-tool-utils validate-consistenc  Validate the model definition in the
+  y                                          latest step model is matched the on
+                                            e in core module
+
+Options:
+      --version  Show version number                                   [boolean]
+  -c, --config   Path to the config file. If not specified, the tool will look f
+                 or 'migration-tool.config.json' file in the current working dir
+                 ectory                                                 [string]
+      --help     Show help                                             [boolean]"
+`;

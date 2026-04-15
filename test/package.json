@@ -1,0 +1,35 @@
+{
+	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test",
+	"private": true,
+	"version": "2.1.2-SNAPSHOT",
+	"type": "module",
+	"description": "Migration Tool test",
+	"author": "mgm technology partners",
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"scripts": {
+		"clean": "rimraf target",
+		"start": "tsc --watch",
+		"test": "pnpm --sequential \"/^test:.*/\"",
+		"test:unit": "vitest",
+		"test:e2e": "node scripts/test-e2e.js",
+		"update": "vitest --update"
+	},
+	"devDependencies": {
+		"@com.mgmtp.a12.migrationtool/migrationtool-test-configurable-page-migration-tool": "workspace:*",
+		"@com.mgmtp.a12.migrationtool/migrationtool-test-generic-migration-tool": "workspace:*",
+		"@com.mgmtp.a12.migrationtool/migrationtool-test-page-migration-tool": "workspace:*",
+		"@types/fs-extra": "catalog:",
+		"@types/node": "catalog:",
+		"cypress": "catalog:",
+		"execa": "catalog:",
+		"fs-extra": "catalog:",
+		"glob": "catalog:",
+		"rimraf": "catalog:",
+		"start-server-and-test": "catalog:",
+		"tcp-port-used": "catalog:",
+		"ts-node": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:",
+		"vitest": "catalog:"
+	}
+}

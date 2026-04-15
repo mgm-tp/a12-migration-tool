@@ -1,0 +1,23 @@
+{
+	"header": {
+		"id": "invalid-page-model-with-do-not-migrate",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": [
+			{
+				"name": "do-not-migrate"
+			}
+		]
+	},
+	"content": {}
+}

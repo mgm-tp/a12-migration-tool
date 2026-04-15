@@ -1,0 +1,54 @@
+# Node
+node_modules
+.npm
+*.log
+npm-debug.log*
+
+# IDE (including symlinks)
+.vscode
+.idea
+.classpath
+.settings
+.metadata
+.gradle
+.project
+*.iml
+*.launch
+atlassian-ide-plugin.xml
+.serena
+
+# Other
+.DS_Store
+.nvmrc
+.envrc
+
+# Legal files copied into packages by copyLegalFiles task
+*/LICENSE
+*/NOTICE
+*/THIRD_PARTY_NOTICES
+*/licenses
+
+# Build artifact
+com.mgmtp.a12-*.tgz
+tsconfig.tsbuildinfo
+config.schema.json
+cyclonedx.json
+.eslintcache
+
+# Maven
+.maven
+
+# Build folder
+build
+lib
+target
+dist
+*/pnpm-lock.yaml
+
+# Test artifacts
+**/steps/index.ts
+**/steps/**/schema.json
+
+!**/*with-persistent-schema-flag/**/steps/index.ts
+!**/*with-persistent-schema-flag/**/steps/**/schema.json
+!test/fixtures/models/ignore-node-modules/app/node_modules

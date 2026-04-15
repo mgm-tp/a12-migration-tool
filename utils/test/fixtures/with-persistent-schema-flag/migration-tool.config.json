@@ -1,0 +1,7 @@
+{
+	"stepsDirPath": "./src/steps",
+	"referenceModelPath": "./model.ts",
+	"stepModelFileName": "page-model.ts",
+	"modelInterfaceName": "PageModel",
+	"persistentSchema": true
+}

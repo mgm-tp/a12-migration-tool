@@ -1,0 +1,10 @@
+{
+	"extends": "./node_modules/@com.mgmtp.a12.devtools/tsconfig/tsconfig.json",
+	"include": ["${configDir}/src"],
+	"compilerOptions": {
+		"outDir": "${configDir}/lib",
+		"allowJs": true,
+		"noEmitOnError": false,
+		"preserveWatchOutput": true
+	}
+}

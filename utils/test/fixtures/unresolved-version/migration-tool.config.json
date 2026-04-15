@@ -1,0 +1,9 @@
+{
+	"stepsDirPath": "./steps",
+	"referenceModelPath": "./model.ts",
+	"stepModelFileName": "model.ts",
+	"modelInterfaceName": [
+		["<=30.1.0-pre.1", "Model"],
+		["<=30.1.0-pre.3", "NewModel"]
+	]
+}

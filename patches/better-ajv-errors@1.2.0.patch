@@ -1,0 +1,79 @@
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+deleted file mode 100644
+index 14b6dfaa73957a7832335206511e764cdd2ea730..0000000000000000000000000000000000000000
+diff --git a/typings.d.ts b/lib/cjs/typings.d.ts
+similarity index 100%
+rename from typings.d.ts
+rename to lib/cjs/typings.d.ts
+diff --git a/lib/esm/typings.d.mts b/lib/esm/typings.d.mts
+new file mode 100644
+index 0000000000000000000000000000000000000000..580c56f4397ad8d7ba8a9527e95bbe3e973802b8
+--- /dev/null
++++ b/lib/esm/typings.d.mts
+@@ -0,0 +1,24 @@
++import type { ErrorObject } from 'ajv';
++
++export interface IOutputError {
++  start: { line: number; column: number; offset: number };
++  // Optional for required
++  end?: { line: number; column: number; offset: number };
++  error: string;
++  suggestion?: string;
++}
++
++export interface IInputOptions {
++  format?: 'cli' | 'js';
++  indent?: number | null;
++
++  /** Raw JSON used when highlighting error location */
++  json?: string | null;
++}
++
++export default function <S, T, Options extends IInputOptions>(
++  schema: S,
++  data: T,
++  errors: Array<ErrorObject>,
++  options?: Options
++): Options extends { format: 'js' } ? Array<IOutputError> : string;
+diff --git a/package.json b/package.json
+index baaa5940665ea50aebee3b93b822d79c62772b6b..393478d15907c2b6c3c2fd3d100f1a9c2ce7a2dc 100644
+--- a/package.json
++++ b/package.json
+@@ -6,8 +6,14 @@
+   "main": "./lib/cjs/index.js",
+   "exports": {
+     ".": {
+-      "require": "./lib/cjs/index.js",
+-      "default": "./lib/esm/index.mjs"
++      "import": {
++        "types": "./lib/esm/typings.d.mts",
++        "default": "./lib/esm/index.mjs"
++      },
++      "require": {
++        "types": "./lib/cjs/typings.d.ts",
++        "default": "./lib/cjs/index.js"
++      }
+     }
+   },
+   "module": "./lib/esm/index.mjs",
+@@ -26,10 +32,9 @@
+     "Tong Li"
+   ],
+   "license": "Apache-2.0",
+-  "types": "./typings.d.ts",
++  "types": "./lib/cjs/typings.d.ts",
+   "files": [
+-    "lib",
+-    "typings.d.ts"
++    "lib"
+   ],
+   "scripts": {
+     "prebuild": "rm -rf lib",
+@@ -64,6 +69,7 @@
+     "eslint-config-prettier": "^8.3.0",
+     "eslint-plugin-jest": "^26.0.0",
+     "eslint-plugin-prettier": "^4.0.0",
++    "esbuild-plugin-copy": "^2.1.1",
+     "fast-glob": "^3.2.7",
+     "flow-bin": "^0.175.0",
+     "git-format-staged": "^3.0.0",

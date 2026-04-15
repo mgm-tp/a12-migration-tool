@@ -1,0 +1,62 @@
+{
+	"name": "@com.mgmtp.a12.migrationtool/migrationtool-utils",
+	"version": "2.1.2-SNAPSHOT",
+	"type": "module",
+	"description": "Migration Tool utils",
+	"author": "mgm technology partners",
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"sideEffects": false,
+	"scripts": {
+		"clean": "rimraf lib test/**/lib config.schema.json",
+		"compile": "pnpm \"/^compile:.*/\"",
+		"compile:schema": "ts-json-schema-generator --path src/types.ts --type Configuration --out config.schema.json",
+		"compile:typescript": "tsc",
+		"start": "tsc --watch",
+		"test": "vitest",
+		"update": "vitest --update"
+	},
+	"bin": {
+		"migration-tool-utils": "./bin/migration-tool-utils"
+	},
+	"files": [
+		"bin",
+		"lib",
+		"config.schema.json",
+		"cyclonedx.json",
+		"LICENSE",
+		"NOTICE",
+		"THIRD_PARTY_NOTICES",
+		"licenses"
+	],
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"ajv": "^8.18.0",
+		"better-ajv-errors": "^1.2.0",
+		"git-diff": "^2.0.6",
+		"inquirer": "^12.5.0",
+		"prettier": "^3.5.3",
+		"run-parallel-limit": "^1.1.0",
+		"semver": "^7.5.4",
+		"ts-json-schema-generator": "^2.3.0",
+		"ts-morph": "^27.0.2",
+		"yargs": "^17.7.2"
+	},
+	"devDependencies": {
+		"@com.mgmtp.a12.base/base-model-api": "catalog:",
+		"@com.mgmtp.a12.migrationtool/migrationtool-core": "workspace:*",
+		"@types/git-diff": "catalog:",
+		"@types/node": "catalog:",
+		"@types/run-parallel-limit": "catalog:",
+		"@types/semver": "catalog:",
+		"@types/yargs": "catalog:",
+		"execa": "catalog:",
+		"glob": "catalog:",
+		"rimraf": "catalog:",
+		"ts-node": "catalog:",
+		"typescript": "catalog:",
+		"vite": "catalog:",
+		"vitest": "catalog:"
+	}
+}

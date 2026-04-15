@@ -1,0 +1,23 @@
+{
+	"header": {
+		"id": "up-to-date-page-model",
+		"modelType": "page",
+		"modelVersion": "32.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"numberField": 42,
+		"stringField": "ABC",
+		"numberListFields": [3, 42]
+	}
+}

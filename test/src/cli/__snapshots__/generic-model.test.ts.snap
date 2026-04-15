@@ -1,0 +1,221 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generic-model basic > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models/generic-model-1.generic
+Workspace:
+<models-dir>/generic-models/generic-model-1.generic
+-----------------------------
+Snapshot:
+File <models-dir>/generic-models/generic-model-1.generic
+ 1`] = `
+"{
+  "id": "generic-model-1",
+  "type": "generic",
+  "version": "2.0.0",
+  "numberField": 42,
+  "stringField": "Hello World"
+}
+"
+`;
+
+exports[`generic-model basic > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models/generic-model-1.generic
+Workspace:
+<models-dir>/generic-models/generic-model-1.generic
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/generic-models/generic-model-1.generic",
+]
+`;
+
+exports[`generic-model basic > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models/generic-model-1.generic
+Workspace:
+<models-dir>/generic-models/generic-model-1.generic
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"------------------------
+ GENERIC MIGRATION TOOL 
+------------------------
+
+Reading target/temp/generic-models/generic-model-1.generic
+Migrated model target/temp/generic-models/generic-model-1.generic successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`generic-model directory > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models
+Workspace:
+<models-dir>/generic-models
+-----------------------------
+Snapshot:
+File <models-dir>/generic-models/generic-model-1.generic
+ 1`] = `
+"{
+  "id": "generic-model-1",
+  "type": "generic",
+  "version": "2.0.0",
+  "numberField": 42,
+  "stringField": "Hello World"
+}
+"
+`;
+
+exports[`generic-model directory > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models
+Workspace:
+<models-dir>/generic-models
+-----------------------------
+Snapshot:
+File <models-dir>/generic-models/generic-model-2.generic
+ 1`] = `
+"{
+  "id": "generic-model-2",
+  "type": "generic",
+  "version": "1.0.0"
+}
+"
+`;
+
+exports[`generic-model directory > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models
+Workspace:
+<models-dir>/generic-models
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/generic-models/generic-model-2.generic",
+  "<models-dir>/generic-models/generic-model-1.generic",
+]
+`;
+
+exports[`generic-model directory > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models
+Workspace:
+<models-dir>/generic-models
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"------------------------
+ GENERIC MIGRATION TOOL 
+------------------------
+
+Migrating all generic models in directory target/temp/generic-models
+
+Reading target/temp/generic-models/generic-model-2.generic
+<color.red>ERROR: target/temp/generic-models/generic-model-2.generic is not a valid generic model or can not be validated</color>
+<color.red>{</color>
+<color.red>  "start": {</color>
+<color.red>    "line": 1,</color>
+<color.red>    "column": 1,</color>
+<color.red>    "offset": 0</color>
+<color.red>  },</color>
+<color.red>  "error": " must have required property 'numberField'",</color>
+<color.red>  "path": ""</color>
+<color.red>}</color>
+
+Reading target/temp/generic-models/generic-model-1.generic
+Migrated model target/temp/generic-models/generic-model-1.generic successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       1"
+`;
+
+exports[`generic-model invalid > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models/generic-model-2.generic
+Workspace:
+<models-dir>/generic-models/generic-model-2.generic
+-----------------------------
+Snapshot:
+File <models-dir>/generic-models/generic-model-2.generic
+ 1`] = `
+"{
+  "id": "generic-model-2",
+  "type": "generic",
+  "version": "1.0.0"
+}
+"
+`;
+
+exports[`generic-model invalid > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models/generic-model-2.generic
+Workspace:
+<models-dir>/generic-models/generic-model-2.generic
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/generic-models/generic-model-2.generic",
+]
+`;
+
+exports[`generic-model invalid > 
+----------Test case----------
+Command:
+generic-model-migration <models-dir>/generic-models/generic-model-2.generic
+Workspace:
+<models-dir>/generic-models/generic-model-2.generic
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"------------------------
+ GENERIC MIGRATION TOOL 
+------------------------
+
+Reading target/temp/generic-models/generic-model-2.generic
+<color.red>ERROR: target/temp/generic-models/generic-model-2.generic is not a valid generic model or can not be validated</color>
+<color.red>{</color>
+<color.red>  "start": {</color>
+<color.red>    "line": 1,</color>
+<color.red>    "column": 1,</color>
+<color.red>    "offset": 0</color>
+<color.red>  },</color>
+<color.red>  "error": " must have required property 'numberField'",</color>
+<color.red>  "path": ""</color>
+<color.red>}</color>
+
+
+Migration Summary
+=================
+Migrated:       0
+Skipped :       0
+Errors  :       1"
+`;

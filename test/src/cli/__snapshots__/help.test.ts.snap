@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`help > 
+----------Test case----------
+Command:
+page-model-migration --help
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json
+ 1`] = `
+"{
+	"header": {
+		"id": "v30.0.0-1",
+		"modelType": "page",
+		"modelVersion": "30.0.0",
+		"locales": [
+			{
+				"code": "en"
+			},
+			{
+				"code": "de"
+			}
+		],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"numberField": 42
+	}
+}
+"
+`;
+
+exports[`help > 
+----------Test case----------
+Command:
+page-model-migration --help
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-1.json",
+]
+`;
+
+exports[`help > 
+----------Test case----------
+Command:
+page-model-migration --help
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"Usage: page-model-migration <paths> [options]
+<paths> can be specified as a list
+ of files or a folder that will be searched for page model files
+
+Options:
+  -h, --help             Show help                    [boolean] [default: false]
+      --version          Show version number                           [boolean]
+  -b, --backup           Backup models before migration
+                                                      [boolean] [default: false]
+  -d, --debug            Print debug output           [boolean] [default: false]
+  -n, --next             Migrate only to the next version, not further
+                                                      [boolean] [default: false]
+  -f, --force            Force migration even if the model has 'do-not-migrate'
+                         annotation                   [boolean] [default: false]
+      --validate-schema  Enable or disable validation of models against the JSON
+                          schemas                      [boolean] [default: true]"
+`;

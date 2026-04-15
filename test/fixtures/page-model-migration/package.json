@@ -1,0 +1,24 @@
+{
+	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test-page-migration-tool",
+	"private": true,
+	"version": "2.1.2-SNAPSHOT",
+	"type": "module",
+	"description": "Sample migration tool for testing purpose",
+	"author": "mgm technology partners",
+	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"scripts": {
+		"clean": "rimraf lib",
+		"compile": "migration-tool-utils compile",
+		"start": "tsc --watch"
+	},
+	"bin": {
+		"page-model-migration": "./bin/page-model-migration"
+	},
+	"devDependencies": {
+		"@com.mgmtp.a12.base/base-model-api": "catalog:",
+		"@com.mgmtp.a12.migrationtool/migrationtool-core": "workspace:*",
+		"@com.mgmtp.a12.migrationtool/migrationtool-utils": "workspace:*",
+		"rimraf": "catalog:",
+		"typescript": "catalog:"
+	}
+}

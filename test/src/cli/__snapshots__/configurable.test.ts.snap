@@ -1,0 +1,265 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`configurable > basic > 
+----------Test case----------
+Command:
+configurable-page-model-migration --config ./page-model-migration.config.ts <models-dir>/basic/v30.0.0-1.json
+Working dir: <TEST_DIR>/fixtures/user-configs/ts
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "31.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 126,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`configurable > basic > 
+----------Test case----------
+Command:
+configurable-page-model-migration --config ./page-model-migration.config.ts <models-dir>/basic/v30.0.0-1.json
+Working dir: <TEST_DIR>/fixtures/user-configs/ts
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-1.json",
+]
+`;
+
+exports[`configurable > basic > 
+----------Test case----------
+Command:
+configurable-page-model-migration --config ./page-model-migration.config.ts <models-dir>/basic/v30.0.0-1.json
+Working dir: <TEST_DIR>/fixtures/user-configs/ts
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"box.svg
+Reading config file: <TEST_DIR>/fixtures/user-configs/ts/page-model-migration.config.ts
+---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading ../../../target/temp/basic/v30.0.0-1.json
+Migrated model ../../../target/temp/basic/v30.0.0-1.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`configurable > config > when the config argument is not given > when having no config file in the working dir > should not throw error > 
+----------Test case----------
+Command:
+configurable-page-model-migration <models-dir>/basic/v30.0.0-1.json
+Working dir: <TEST_DIR>/fixtures/user-configs/empty
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-1.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "31.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 84,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`configurable > config > when the config argument is not given > when having no config file in the working dir > should not throw error > 
+----------Test case----------
+Command:
+configurable-page-model-migration <models-dir>/basic/v30.0.0-1.json
+Working dir: <TEST_DIR>/fixtures/user-configs/empty
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-1.json",
+]
+`;
+
+exports[`configurable > config > when the config argument is not given > when having no config file in the working dir > should not throw error > 
+----------Test case----------
+Command:
+configurable-page-model-migration <models-dir>/basic/v30.0.0-1.json
+Working dir: <TEST_DIR>/fixtures/user-configs/empty
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading ../../../target/temp/basic/v30.0.0-1.json
+Migrated model ../../../target/temp/basic/v30.0.0-1.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`configurable > help > 
+----------Test case----------
+Command:
+configurable-page-model-migration --help
+Working dir: <TEST_DIR>/fixtures/user-configs/ts
+Workspace:
+<models-dir>/basic/v30.0.0-1.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"Usage: configurable-page-model-migration <paths> [options]
+<paths> can be specif
+ied as a list of files or a folder that will be searched for page model files
+
+Options:
+  -h, --help             Show help                    [boolean] [default: false]
+      --version          Show version number                           [boolean]
+  -b, --backup           Backup models before migration
+                                                      [boolean] [default: false]
+  -d, --debug            Print debug output           [boolean] [default: false]
+  -n, --next             Migrate only to the next version, not further
+                                                      [boolean] [default: false]
+  -f, --force            Force migration even if the model has 'do-not-migrate'
+                         annotation                   [boolean] [default: false]
+  -c, --config           Path to the configuration file
+                     [string] [default: <cwd>/page-model-migration.config.[tj]s]
+      --validate-schema  Enable or disable validation of models against the JSON
+                          schemas                      [boolean] [default: true]"
+`;
+
+exports[`configurable > upgrade version with skip post migration > 
+----------Test case----------
+Command:
+configurable-page-model-migration <models-dir>/basic/v30.0.0-2.json
+Workspace:
+<models-dir>/basic/v30.0.0-2.json
+-----------------------------
+Snapshot:
+File <models-dir>/basic/v30.0.0-2.json
+ 1`] = `
+"{
+  "header": {
+    "id": "v30.0.0-1",
+    "modelType": "page",
+    "modelVersion": "31.0.0",
+    "locales": [
+      {
+        "code": "en"
+      },
+      {
+        "code": "de"
+      }
+    ],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "numberField": 38,
+    "stringField": "Hello World"
+  }
+}
+"
+`;
+
+exports[`configurable > upgrade version with skip post migration > 
+----------Test case----------
+Command:
+configurable-page-model-migration <models-dir>/basic/v30.0.0-2.json
+Workspace:
+<models-dir>/basic/v30.0.0-2.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/basic/v30.0.0-2.json",
+]
+`;
+
+exports[`configurable > upgrade version with skip post migration > 
+----------Test case----------
+Command:
+configurable-page-model-migration <models-dir>/basic/v30.0.0-2.json
+Workspace:
+<models-dir>/basic/v30.0.0-2.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"---------------------
+ PAGE MIGRATION TOOL 
+---------------------
+
+Reading target/temp/basic/v30.0.0-2.json
+Migrated model target/temp/basic/v30.0.0-2.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
