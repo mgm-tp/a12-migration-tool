@@ -34,7 +34,7 @@ import { defineConfig } from "cypress";
 
 export default defineConfig({
 	e2e: {
-		baseUrl: "http://localhost:20000",
+		// baseUrl is provided at runtime by scripts/test-e2e.js (random free port)
 		supportFile: false,
 		video: false
 	}

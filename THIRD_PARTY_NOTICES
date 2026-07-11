@@ -1,7 +1,7 @@
 THIRD_PARTY_NOTICES
 
 Component: A12 Migration Tool
-Generated: 2026-03-12 for mgm A12 Platform 2025.06-ext5
+Generated: 2026-05-06 for mgm A12 Platform 2026.06
 
 The mgm A12 Platform is developed by mgm technology partners GmbH.
 
@@ -16,10 +16,11 @@ Component Overview
 
 The following third-party components are included in this distribution:
 
+
 - gradle wrapper, licensed under Apache-2.0
 	Copyright © 2015-2021 the original authors
 	Source: https://github.com/gradle/gradle/
-- ajv 8.17.1, licensed under MIT
+- ajv 8.18.0, licensed under MIT
 	Copyright (c) 2015-2021 Evgeny Poberezkin
 	Source: https://github.com/ajv-validator/ajv
 - babel-plugin-transform-assets-import-to-string 1.2.0, licensed under MIT
@@ -31,22 +32,19 @@ The following third-party components are included in this distribution:
 - chalk 5.6.2, licensed under MIT
 	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 	Source: https://github.com/chalk/chalk
-- @com.mgmtp.a12.base/base-model-api 29.1.0, licensed under EUPL v1.2
+- @com.mgmtp.a12.base/base-model-api 30.0.0, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.base/base-model-api 29.2.0, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/build-tools 1.1.1, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.base/base-model-migration-api 29.1.0, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/eslint-config 3.1.1, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/devtools 10.1.1, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/prettier-config 1.1.0, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/eslint-config 2.0.2, licensed under EUPL v1.2
-	Copyright (C) 2012-2026 mgm technology partners GmbH
-	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/prettier-config 1.0.1, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/tsconfig 2.0.0, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
 - cypress 14.5.4, licensed under MIT
@@ -75,8 +73,7 @@ The following third-party components are included in this distribution:
 	Source: https://github.com/jprichardson/node-fs-extra
 - git-diff 2.0.6, licensed under ISC
 	Source: https://github.com/danday74/git-diff
-- glob 11.1.0, licensed under ISC
-	Copyright (c) 2009-2023 Isaac Z. Schlueter and Contributors
+- glob 13.0.6, licensed under BlueOak-1.0.0
 	Source: https://github.com/isaacs/node-glob
 - inquirer 12.11.1, licensed under MIT
 	Copyright (c) 2025 Simon Boudrias
@@ -87,6 +84,9 @@ The following third-party components are included in this distribution:
 - json5 2.2.3, licensed under MIT
 	Copyright (c) 2012-2018 Aseem Kishore, and others
 	Source: https://github.com/json5/json5
+- @noble/hashes 2.2.0, licensed under MIT
+	Copyright (c) 2022 Paul Miller (https://paulmillr.com)
+	Source: https://github.com/paulmillr/noble-hashes
 - prettier 3.6.2, licensed under MIT
 	Copyright © James Long and contributors
 	Source: https://github.com/prettier/prettier
@@ -105,41 +105,41 @@ The following third-party components are included in this distribution:
 - tcp-port-used 1.0.2, licensed under MIT
 	Copyright (c) 2013 jut-io
 	Source: https://github.com/stdarg/tcp-port-used
-- ts-json-schema-generator 2.4.0, licensed under MIT
+- ts-json-schema-generator 2.9.1-next.13, licensed under MIT
 	Copyright (c) 2019, TypeScript JSON Schema
 	Source: https://github.com/vega/ts-json-schema-generator
-- ts-morph 25.0.1, licensed under MIT
+- ts-morph 27.0.2, licensed under MIT
 	Copyright (c) 2017 David Sherret
 	Source: https://github.com/dsherret/ts-morph
 - ts-node 10.9.2, licensed under MIT
 	Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
 	Source: https://github.com/TypeStrong/ts-node
-- typescript 5.8.2, licensed under Apache-2.0
+- typescript 6.0.2, licensed under Apache-2.0
 	Copyright (c) Microsoft Corporation
 	Source: https://github.com/microsoft/TypeScript
-- @typescript-eslint/eslint-plugin 8.47.0, licensed under MIT
+- @typescript-eslint/eslint-plugin 8.58.1, licensed under MIT
 	Copyright (c) 2019 typescript-eslint and other contributors
 	Source: https://github.com/typescript-eslint/typescript-eslint
-- @typescript-eslint/parser 8.47.0, licensed under MIT
+- @typescript-eslint/parser 8.58.1, licensed under MIT
 	Copyright (c) 2019 typescript-eslint and other contributors
 	Source: https://github.com/typescript-eslint/typescript-eslint
 - @types/fs-extra 11.0.4, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/git-diff 2.0.7, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/node 22.19.1, licensed under MIT
-	Copyright Node.js contributors and (c) Microsoft Corporation
+	Copyright Node.js contributors
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/run-parallel-limit 1.0.3, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/semver 7.7.1, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/yargs 17.0.35, licensed under MIT
-	Copyright (c) Microsoft Corporation
+	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - vite 6.4.1, licensed under MIT
 	Copyright (c) 2019-present, VoidZero Inc. and Vite contributors
@@ -165,8 +165,7 @@ General Notice
 The mgm A12 Platform is dual-licensed under the EUPL-1.2 or a
 commercial license. Third-party components remain under their
 respective licenses. For details, see the file LICENSE.
-
-“mgm A12” is a registered trademark of mgm technology partners GmbH
+"mgm A12" is a registered trademark of mgm technology partners GmbH
 (EU/DE). All other trademarks are the property of their respective
 owners.
 

@@ -2,10 +2,9 @@
 	"name": "root",
 	"type": "module",
 	"private": true,
-	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
 	"engines": {
 		"node": "^22",
-		"pnpm": "^10.5"
+		"pnpm": "^11.0.0"
 	},
 	"scripts": {
 		"clean": "pnpm -r --parallel clean",
@@ -23,31 +22,15 @@
 	"author": "mgm technology partners",
 	"devDependencies": {
 		"@com.mgmtp.a12.devtools/build-tools": "catalog:",
+		"@eslint/compat": "catalog:",
 		"@com.mgmtp.a12.devtools/eslint-config": "catalog:",
 		"@com.mgmtp.a12.devtools/prettier-config": "catalog:",
 		"@com.mgmtp.a12.devtools/tsconfig": "catalog:",
-		"@typescript-eslint/eslint-plugin": "catalog:",
-		"@typescript-eslint/parser": "catalog:",
 		"eslint": "catalog:",
-		"eslint-config-prettier": "catalog:",
-		"eslint-plugin-import": "catalog:",
 		"eslint-plugin-notice": "catalog:",
-		"eslint-plugin-prettier": "catalog:",
 		"prettier": "catalog:",
 		"typescript": "catalog:"
 	},
-	"a12Version": "2025.06-ext5",
-	"packageManager": "pnpm@10.5.2",
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"cypress"
-		],
-		"patchedDependencies": {
-			"better-ajv-errors@1.2.0": "patches/better-ajv-errors@1.2.0.patch"
-		},
-		"overrides": {
-			"brace-expansion@>=1.0.0 <=1.1.11": ">=1.1.12",
-			"brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2"
-		}
-	}
+	"a12Version": "2026.06-ext0",
+	"packageManager": "pnpm@11.5.2"
 }

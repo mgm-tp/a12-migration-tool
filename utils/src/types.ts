@@ -30,8 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-export interface ResolvedConfiguration
-	extends Omit<Configuration, "modelInterfaceName" | "tsConfigPath" | "stepsDirPath"> {
+export interface ResolvedConfiguration extends Omit<
+	Configuration,
+	"modelInterfaceName" | "tsConfigPath" | "stepsDirPath"
+> {
 	modelInterfaceName: (version: string) => string;
 	tsConfigPath: string;
 	stepsDirPath: string;

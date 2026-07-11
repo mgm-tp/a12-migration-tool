@@ -33,16 +33,17 @@
 import { Ajv } from "ajv";
 import * as Semver from "semver";
 
-import { GenericModel, MigrationStep, ResolvedMigrationParameters } from "../../types.js";
+import type { GenericModel, MigrationStep, MigrationStepContext, ResolvedMigrationParameters } from "../../types.js";
 
-import { ErrorMessagePayload, InternalMigrationResult } from "./migration-result.js";
+import { type ErrorMessagePayload, InternalMigrationResult } from "./migration-result.js";
 import { MigratorUtils } from "./migration-utils.js";
 
 /** @internal */
 export namespace ModelUtils {
 	export function validateModel(
 		model: GenericModel,
-		parameters: ResolvedMigrationParameters & { force?: boolean; validateSchema?: boolean }
+		parameters: ResolvedMigrationParameters & { force?: boolean; validateSchema?: boolean },
+		context: MigrationStepContext
 	): InternalMigrationResult | true {
 		const { minimumSupportedVersion, modelType, migrationSteps, force, modelAttributeAccessor } = parameters;
 
@@ -87,7 +88,7 @@ export namespace ModelUtils {
 			}
 		}
 
-		if (parameters.postMigration?.isRequired?.(model, parameters)) {
+		if (parameters.postMigration?.isRequired?.(model, { ...parameters, ...context })) {
 			return true;
 		}
 

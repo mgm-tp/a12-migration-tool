@@ -35,6 +35,10 @@ import path from "node:path";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
+	esbuild: {
+		target: "esnext",
+		tsconfigRaw: "{}"
+	},
 	test: {
 		testTimeout: 60000,
 		pool: "threads",

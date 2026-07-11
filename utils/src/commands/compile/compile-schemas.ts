@@ -36,10 +36,10 @@ import * as Fs from "node:fs/promises";
 import * as Path from "node:path";
 
 import gitDiff from "git-diff";
-import parallelLimit, { Task } from "run-parallel-limit";
+import parallelLimit, { type Task } from "run-parallel-limit";
 
 import { CHECK_MARK, SCHEMA_FILE_NAME, VERSION_PREFIX } from "../../constants.js";
-import { ResolvedConfiguration } from "../../types.js";
+import type { ResolvedConfiguration } from "../../types.js";
 import { getLatestVersion } from "../../utils.js";
 
 type CompileTask = (callback: FsSync.NoParamCallback) => void;
@@ -132,9 +132,9 @@ function createCompileTask(
 				config.output
 			]);
 
-			childProcess.stderr.on("data", (error) => {
-				console.error(Buffer.from(error).toString());
-				callback(error);
+			childProcess.stderr.on("data", (data) => {
+				const message = Buffer.from(data).toString().trim();
+				callback(new Error(message));
 			});
 
 			childProcess.on("close", () => callback(null));

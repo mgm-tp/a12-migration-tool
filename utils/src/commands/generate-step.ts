@@ -34,13 +34,14 @@
 
 import * as Fs from "node:fs/promises";
 import * as Path from "node:path";
+import { pathToFileURL } from "node:url";
 
 import inquirer from "inquirer";
 import * as Semver from "semver";
 import { IndentationText, Project } from "ts-morph";
 
 import { TRANSFORM_FILE_NAME, VERSION_PREFIX } from "../constants.js";
-import { ResolvedConfiguration } from "../types.js";
+import type { ResolvedConfiguration } from "../types.js";
 import { getLatestVersion, isOfficialVersion } from "../utils.js";
 
 export async function generateStep(config: ResolvedConfiguration) {
@@ -130,7 +131,8 @@ export async function createNewStep(answers: GenerateStepAnswers, config: Resolv
 		await Fs.writeFile(newStepModelPath, "");
 
 		project.addSourceFileAtPath(newStepModelPath).addExportDeclaration({
-			moduleSpecifier: `../${VERSION_PREFIX}${latestVersion}/${modelNameForImport}`
+			isTypeOnly: true,
+			moduleSpecifier: `../${VERSION_PREFIX}${latestVersion}/${modelNameForImport}.js`
 		});
 
 		await project.save();
@@ -145,7 +147,7 @@ export async function createNewStep(answers: GenerateStepAnswers, config: Resolv
 	project.addSourceFileAtPath(newStepModelPath);
 	const newStepModelFile = project.addSourceFileAtPath(newStepModelPath);
 	if (config.adjustModelFuncPath) {
-		const sourceModelAdjuster = await import(config.adjustModelFuncPath);
+		const sourceModelAdjuster = await import(pathToFileURL(config.adjustModelFuncPath).href);
 		sourceModelAdjuster.default(newStepModelFile);
 	}
 

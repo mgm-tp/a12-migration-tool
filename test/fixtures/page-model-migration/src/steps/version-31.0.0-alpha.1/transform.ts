@@ -30,11 +30,11 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Logger } from "@com.mgmtp.a12.migrationtool/migrationtool-core/types";
+import type { Logger } from "@com.mgmtp.a12.migrationtool/migrationtool-core/types";
 
-import { PageModel as OldModel } from "../version-30.0.0/page-model.js";
+import type { PageModel as OldModel } from "../version-30.0.0/page-model.js";
 
-import { PageModel as NewModel } from "./page-model.js";
+import type { PageModel as NewModel } from "./page-model.js";
 
 export default function transform(model: OldModel, logger: Logger): NewModel {
 	if (model.content.numberField !== 42) {

@@ -31,17 +31,27 @@
  */
 
 import { ModelUtils, createDefaultModelAttributeAccessor, migrateModel } from "../../core/shared.js";
-import { GenericModel, Logger, MigrationParameters, MigrationResult, MigrationTool } from "../../types.js";
+import type {
+	GenericModel,
+	Logger,
+	MigrationParameters,
+	MigrationResult,
+	MigrationTool,
+	Workspace
+} from "../../types.js";
 
 /** @public */
 export function createMigrationTool(parameters: MigrationParameters): MigrationTool {
 	const migrate = createMigrationAdapter(parameters);
 
-	return { migrate: (models) => models.map(migrate) };
+	return {
+		migrate: (models, workspace?) =>
+			models.map((model) => migrate(model, parameters.enabledWorkspace ? workspace : undefined))
+	};
 }
 
 function createMigrationAdapter(parameters: MigrationParameters) {
-	return (model: GenericModel): MigrationResult => {
+	return (model: GenericModel, workspace?: Workspace): MigrationResult => {
 		const {
 			modelType,
 			extension = "json",
@@ -58,14 +68,23 @@ function createMigrationAdapter(parameters: MigrationParameters) {
 			modelAttributeAccessor,
 			model: ModelUtils.deepClone(model),
 			logger,
-			validateSchema: true
+			validateSchema: true,
+			workspace
 		});
 
 		const modelId = modelAttributeAccessor.getId(model);
 
 		switch (result.type) {
 			case "success":
-				return { status: "success", model: result.getMigratedModel() };
+				return {
+					status: "success",
+					model: result.getMigratedModel(),
+					...(result.sideResources?.length ? { sideResources: result.sideResources } : {}),
+					...(result.sideModels?.length ? { sideModels: result.sideModels } : {}),
+					...(result.isDeleted ? { isDeleted: result.isDeleted } : {}),
+					...(result.deletedModels?.length ? { deletedModels: result.deletedModels } : {}),
+					...(result.deletedResources?.length ? { deletedResources: result.deletedResources } : {})
+				};
 			case "error":
 				return { status: "error", model, errorMessage: result.resolveMessage(`Model ${modelId}`) };
 			case "skip":

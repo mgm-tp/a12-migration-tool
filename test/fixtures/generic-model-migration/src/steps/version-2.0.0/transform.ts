@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { GenericModel as OldModel } from "../version-1.0.0/generic-model.js";
+import type { GenericModel as OldModel } from "../version-1.0.0/generic-model.js";
 
-import { GenericModel as NewModel } from "./generic-model.js";
+import type { GenericModel as NewModel } from "./generic-model.js";
 
 export default function transform(model: OldModel): NewModel {
 	return { ...model, stringField: "Hello World" };

@@ -90,7 +90,7 @@ class Setup {
 			result = execaSync({
 				...options,
 				env: { FORCE_COLOR: "true" }
-			})`${command.replace(MODELS_PATH_PLACEHOLDER, TEMP_PATH).replace(TEST_DIR, process.cwd()).split(" ")}`;
+			})`${command.replaceAll(MODELS_PATH_PLACEHOLDER, TEMP_PATH).replaceAll(TEST_DIR, process.cwd()).split(" ")}`;
 		} catch (e) {
 			result = e as any;
 		}
@@ -187,14 +187,17 @@ class DirectoryAssertion extends BaseAssertion {
 	matchSnapshot() {
 		const filePaths = globSync(Path.join(TEMP_PATH, "**", "*.*").split(Path.sep).join("/"));
 
-		expect(filePaths.map((e) => `${MODELS_PATH_PLACEHOLDER}/${Path.relative(TEMP_PATH, e)}`)).toMatchSnapshot(
-			getSnapshotName(this.parent.testCase, "File structure")
-		);
+		expect(
+			filePaths.map((e) => `${MODELS_PATH_PLACEHOLDER}/${Path.relative(TEMP_PATH, e).split(Path.sep).join("/")}`)
+		).toMatchSnapshot(getSnapshotName(this.parent.testCase, "File structure"));
 
 		for (const filePath of filePaths) {
 			const file = Fs.readFileSync(filePath, "utf8");
 			expect(file).toMatchSnapshot(
-				getSnapshotName(this.parent.testCase, `File ${MODELS_PATH_PLACEHOLDER}/${Path.relative(TEMP_PATH, filePath)}`)
+				getSnapshotName(
+					this.parent.testCase,
+					`File ${MODELS_PATH_PLACEHOLDER}/${Path.relative(TEMP_PATH, filePath).split(Path.sep).join("/")}`
+				)
 			);
 		}
 
@@ -207,7 +210,7 @@ export class StdoutAssertion extends BaseAssertion {
 
 	constructor(private parent: MainAssertion) {
 		super();
-		this.stdout = replaceAll(this.parent.testCase.result.stdout as string, process.cwd(), TEST_DIR);
+		this.stdout = normalizeOutput(this.parent.testCase.result.stdout as string);
 	}
 
 	matchSnapshot() {
@@ -225,7 +228,7 @@ export class StderrAssertion extends BaseAssertion {
 	private readonly stderr: string;
 	constructor(private parent: MainAssertion) {
 		super();
-		this.stderr = replaceAll(this.parent.testCase.result.stderr as string, process.cwd(), TEST_DIR);
+		this.stderr = normalizeOutput(this.parent.testCase.result.stderr as string);
 	}
 
 	matchSnapshot() {
@@ -241,12 +244,14 @@ export class StderrAssertion extends BaseAssertion {
 
 function getSnapshotName(testCase: TestCase, targetSnapshot: string) {
 	const header = "-".repeat(10) + "Test case" + "-".repeat(10);
+	// Normalize cwd path for cross-platform consistency
+	const normalizedCwd = testCase.cwd ? normalizePath(replaceAll(testCase.cwd, process.cwd(), TEST_DIR)) : undefined;
 	return [
 		"",
 		header,
 		"Command:",
 		testCase.command,
-		testCase.cwd ? `Working dir: ${replaceAll(testCase.cwd, process.cwd(), TEST_DIR)}` : undefined,
+		normalizedCwd ? `Working dir: ${normalizedCwd}` : undefined,
 		"Workspace:",
 		...testCase.files,
 		header.replace(/[^-]/g, "-"),
@@ -260,4 +265,28 @@ function getSnapshotName(testCase: TestCase, targetSnapshot: string) {
 
 const replaceAll = (str: string, search: string, replacement: string) => {
 	return str.split(search).join(replacement);
+};
+
+/**
+ * Normalize a path string for cross-platform consistency.
+ * Converts Windows backslashes to forward slashes.
+ */
+const normalizePath = (str: string) => {
+	return str.split("\\").join("/");
+};
+
+/**
+ * Normalize output for cross-platform snapshot matching:
+ * 1. Replace cwd with TEST_DIR placeholder
+ * 2. Convert Windows backslashes to forward slashes in paths
+ */
+const normalizeOutput = (str: string) => {
+	// Replace cwd (with both forward and backslash variants)
+	let result = replaceAll(str, process.cwd(), TEST_DIR);
+	result = replaceAll(result, process.cwd().split(Path.sep).join("/"), TEST_DIR);
+
+	// Normalize all backslashes to forward slashes
+	result = normalizePath(result);
+
+	return result;
 };

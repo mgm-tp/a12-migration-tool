@@ -1,0 +1,14 @@
+{
+	"header": {
+		"id": "asset-to-delete",
+		"modelType": "asset",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"title": "DELETE_ME"
+	}
+}

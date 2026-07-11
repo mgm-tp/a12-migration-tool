@@ -1,0 +1,15 @@
+{
+	"header": {
+		"id": "asset-with-extract",
+		"modelType": "asset",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"title": "Asset With Extract To Model",
+		"extractToModel": "extract into new model"
+	}
+}

@@ -35,11 +35,11 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 import { createDefaultModelAttributeAccessor } from "../../core/shared.js";
-import { Logger, MigrationParameters } from "../../types.js";
+import type { Logger, MigrationParameters } from "../../types.js";
 
 import { loadUserConfig } from "./load-user-config.js";
 import { migrateCLI } from "./process.js";
-import { CLIMigrationOptions } from "./types.js";
+import type { CLIMigrationOptions } from "./types.js";
 
 const yargsInstance = yargs(hideBin(process.argv));
 
@@ -54,7 +54,7 @@ export function createMigrationCLI(params: MigrationParameters) {
 
 	const configFileTemplate = `${params.modelType.toLowerCase()}-model-migration.config`;
 
-	const argv = (commandName ? yargsInstance.scriptName(commandName) : yargsInstance)
+	let builder = (commandName ? yargsInstance.scriptName(commandName) : yargsInstance)
 		.usage(
 			"Usage: $0 <paths> [options]\n" +
 				`<paths> can be specified as a list of files or a folder that will be searched for ${modelType} model files`
@@ -106,19 +106,58 @@ export function createMigrationCLI(params: MigrationParameters) {
 			type: "boolean",
 			default: true,
 			nargs: 0
-		})
-		.locale("en")
-		.parseSync();
+		});
+
+	if (params.enabledWorkspace) {
+		builder = builder
+			.option("workspace", {
+				alias: "w",
+				description: "Path to the workspace directory for model and resource lookup (if --resources is not specified)",
+				type: "string"
+			})
+			.option("resources", {
+				description:
+					"Path to the resources directory for resource lookup and side result output (defaults to workspace path)",
+				type: "string"
+			});
+	}
+
+	if (params.cliOptions) {
+		for (const [key, opts] of Object.entries(params.cliOptions)) {
+			builder = builder.option(key, opts);
+		}
+	}
+	const argv = builder.locale("en").parseSync();
 
 	const options: CLIMigrationOptions = {
 		...argv,
 		paths: (isExecutedByElectron() ? argv._.slice(1) : argv._).map(String),
-		nextOnly: argv.next
+		nextOnly: argv.next,
+		workspace: params.enabledWorkspace ? (argv.workspace as string | undefined) : undefined,
+		resources: params.enabledWorkspace ? (argv.resources as string | undefined) : undefined
 	};
 
 	const logger = createCLILogger(options.debug);
 
-	loadMaybeUserConfig().then((userConfig) => {
+	loadMaybeUserConfig().then((fileConfig) => {
+		const isCliArgument = (key: string): key is Extract<keyof typeof argv, string> => key in argv;
+		const isConfigObject = (value: unknown): value is Record<string, unknown> =>
+			typeof value === "object" && value !== null && !Array.isArray(value);
+
+		const customValues = params.cliOptions
+			? Object.keys(params.cliOptions).reduce<Record<string, unknown>>((acc, key) => {
+					const camelKey = key.replace(/-([a-z])/g, (_, c: string) => c.toUpperCase());
+					if (isCliArgument(camelKey)) {
+						acc[key] = argv[camelKey];
+					}
+					return acc;
+				}, {})
+			: undefined;
+
+		const userConfig = customValues
+			? { ...(isConfigObject(fileConfig) ? fileConfig : {}), ...customValues }
+			: fileConfig;
+
 		migrateCLI({
 			...options,
 			...params,
@@ -134,7 +173,7 @@ export function createMigrationCLI(params: MigrationParameters) {
 			return undefined;
 		}
 
-		return loadUserConfig(configFileTemplate, argv.config, logger);
+		return loadUserConfig(configFileTemplate, argv.config as string | undefined, logger);
 	}
 }
 

@@ -33,7 +33,6 @@
 import * as FsSync from "node:fs";
 import * as Fs from "node:fs/promises";
 import * as Path from "node:path";
-import path from "node:path";
 import * as Process from "node:process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -42,7 +41,7 @@ import betterAjvErrors from "better-ajv-errors";
 import Semver from "semver";
 
 import { INDEX_FILE_NAME, TRANSFORM_FILE_NAME, VERSION_PREFIX } from "./constants.js";
-import { ResolvedConfiguration, Configuration as UserConfiguration } from "./types.js";
+import type { ResolvedConfiguration, Configuration as UserConfiguration } from "./types.js";
 
 /** @internal */
 export async function parseConfig(configPath: string | undefined): Promise<ResolvedConfiguration> {
@@ -92,7 +91,7 @@ export function resolvePath(path: string, basePath: string): string {
 	return Path.resolve(basePath, path);
 }
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __dirname = Path.dirname(fileURLToPath(import.meta.url));
 
 async function validateConfig(config: object): Promise<UserConfiguration> {
 	const configSchemaPath = pathToFileURL(Path.join(__dirname, "..", "config.schema.json")).href;

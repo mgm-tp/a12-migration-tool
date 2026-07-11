@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { ResolvedMigrationParameters } from "../../types.js";
+import type { ResolvedMigrationParameters } from "../../types.js";
 
 /** @internal */
 export interface CLIMigrationOptions {
@@ -40,6 +40,8 @@ export interface CLIMigrationOptions {
 	readonly debug: boolean;
 	readonly force: boolean;
 	readonly validateSchema?: boolean;
+	readonly workspace?: string;
+	readonly resources?: string;
 }
 
 /** @internal */

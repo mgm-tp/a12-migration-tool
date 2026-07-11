@@ -1,0 +1,14 @@
+{
+	"header": {
+		"id": "asset-no-data",
+		"modelType": "asset",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"title": "Clean Asset"
+	}
+}

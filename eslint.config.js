@@ -33,6 +33,7 @@
 import Fs from "node:fs/promises";
 import Path from "node:path";
 
+import { fixupPluginRules } from "@eslint/compat";
 import notice from "eslint-plugin-notice";
 
 import { strict } from "@com.mgmtp.a12.devtools/eslint-config";
@@ -63,7 +64,7 @@ export default [
 			}
 		},
 		plugins: {
-			notice
+			notice: fixupPluginRules(notice)
 		},
 		rules: {
 			"no-inner-declarations": "off",

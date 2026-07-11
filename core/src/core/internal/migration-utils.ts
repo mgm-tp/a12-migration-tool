@@ -32,7 +32,7 @@
 
 import * as Semver from "semver";
 
-import { Logger, MigrationStep } from "../../types.js";
+import type { Logger, MigrationStep } from "../../types.js";
 
 /** @internal */
 export namespace MigratorUtils {

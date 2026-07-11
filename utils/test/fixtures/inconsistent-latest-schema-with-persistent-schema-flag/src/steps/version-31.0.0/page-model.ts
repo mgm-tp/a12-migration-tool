@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface PageModel {
 	readonly header: Header;

@@ -1,11 +1,11 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test-page-engine",
 	"private": true,
-	"version": "2.1.2-SNAPSHOT",
+	"version": "3.0.0",
 	"type": "module",
 	"description": "Sample engine for testing purpose",
 	"author": "mgm technology partners",
-	"license": "(EUPL-1.2 OR LicenseRef-commercial)",
+	"license": "UNLICENSED",
 	"scripts": {
 		"clean": "rimraf target lib",
 		"compile": "tsc"

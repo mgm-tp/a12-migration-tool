@@ -31,3 +31,4 @@
  */
 
 export { createMigrationCLI } from "./internal/create-migration-cli.js";
+export { generateResourceName, sha256Hex } from "../core/shared.js";

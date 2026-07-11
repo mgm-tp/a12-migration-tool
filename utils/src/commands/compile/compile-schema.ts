@@ -39,6 +39,24 @@ const [path, tsconfig, type, output] = process.argv.slice(2);
 
 const config: TsJsonSchemaGenerator.Config = { path, tsconfig, type };
 
-const schema = TsJsonSchemaGenerator.createGenerator(config).createSchema(config.type);
-Fs.mkdirSync(Path.dirname(output), { recursive: true });
-Fs.writeFileSync(output, JSON.stringify(schema, null, 2));
+try {
+	const schema = TsJsonSchemaGenerator.createGenerator(config).createSchema(config.type);
+	Fs.mkdirSync(Path.dirname(output), { recursive: true });
+	Fs.writeFileSync(output, JSON.stringify(schema, null, 2));
+} catch (error) {
+	if (error instanceof Error && "diagnostic" in error) {
+		const ts = (await import("typescript")).default;
+		const diagnostic = error.diagnostic as import("typescript").Diagnostic;
+		const allDiagnostics = [diagnostic, ...(diagnostic.relatedInformation ?? [])];
+		console.error(
+			ts.formatDiagnostics(allDiagnostics, {
+				getCanonicalFileName: (fileName) => fileName,
+				getCurrentDirectory: () => "",
+				getNewLine: () => "\n"
+			})
+		);
+	} else {
+		console.error(error instanceof Error ? error.message : error);
+	}
+	process.exit(1);
+}

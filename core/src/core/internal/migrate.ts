@@ -30,9 +30,10 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { GenericModel, Logger, ResolvedMigrationParameters } from "../../types.js";
+import type { GenericModel, Logger, ResolvedMigrationParameters, Workspace } from "../../types.js";
 
 import { InternalMigrationResult } from "./migration-result.js";
+import { createMigrationStepContext } from "./migration-step-context.js";
 import { MigratorUtils } from "./migration-utils.js";
 import { ModelUtils } from "./model-utils.js";
 
@@ -44,14 +45,28 @@ export function migrateModel(
 		nextOnly?: boolean;
 		force?: boolean;
 		validateSchema?: boolean;
+		workspace?: Workspace;
 	}
 ): InternalMigrationResult {
-	const { migrationSteps, logger, nextOnly, modelType, modelAttributeAccessor } = params;
+	const { migrationSteps, logger, nextOnly, modelType, modelAttributeAccessor, workspace } = params;
+
+	const {
+		context,
+		getOptionalSideResources,
+		getOptionalSideModels,
+		getOptionalIsDeleted,
+		getOptionalDeletedModels,
+		getOptionalDeletedResources
+	} = createMigrationStepContext({
+		logger,
+		workspace,
+		userConfig: params.userConfig
+	});
 
 	let model = ModelUtils.deepClone(params.model);
 
 	try {
-		const validationResult = ModelUtils.validateModel(model, params);
+		const validationResult = ModelUtils.validateModel(model, params, context);
 
 		if (validationResult instanceof InternalMigrationResult) {
 			return validationResult;
@@ -70,28 +85,59 @@ export function migrateModel(
 				return InternalMigrationResult.Error("Model $0 can not be migrated since no migration steps were found");
 			}
 		} else {
-			capableMigrationSteps.forEach(({ version, transform }) => {
-				logger.info(`Migrating to version ${version}`);
-				if (transform) {
-					model = transform(model, logger);
+			capableMigrationSteps.forEach((step) => {
+				if (step.isMigrated?.(model, context)) {
+					logger.info(`Skipping step ${step.version} — model already migrated`);
+					return;
 				}
-				model = modelAttributeAccessor.setVersion(model, version);
+				logger.info(`Migrating to version ${step.version}`);
+				if (step.transform) {
+					model = step.transform(model, logger, context);
+				}
+				model = modelAttributeAccessor.setVersion(model, step.version);
 			});
 		}
 
 		if (!params.postMigration?.migrate) {
-			return InternalMigrationResult.Success(`Migrated model $0 successfully`, model);
+			return InternalMigrationResult.Success(
+				`Migrated model $0 successfully`,
+				model,
+				getOptionalSideResources(),
+				getOptionalSideModels(),
+				getOptionalIsDeleted(),
+				getOptionalDeletedModels(),
+				getOptionalDeletedResources()
+			);
 		}
 
-		const postMigrationResult = params.postMigration.migrate(model, { ...params, logger });
+		const postMigrationResult = params.postMigration.migrate(model, {
+			...params,
+			...context
+		});
 
 		if (postMigrationResult.status === "success") {
-			return InternalMigrationResult.Success(`Migrated model $0 successfully`, postMigrationResult.model);
+			return InternalMigrationResult.Success(
+				`Migrated model $0 successfully`,
+				postMigrationResult.model,
+				getOptionalSideResources(),
+				getOptionalSideModels(),
+				getOptionalIsDeleted(),
+				getOptionalDeletedModels(),
+				getOptionalDeletedResources()
+			);
 		}
 
 		if (postMigrationResult.status === "skip") {
 			// It still can be a case when only the general model is migrated
-			return InternalMigrationResult.Success(`Migrated model $0 successfully`, postMigrationResult.model);
+			return InternalMigrationResult.Success(
+				`Migrated model $0 successfully`,
+				postMigrationResult.model,
+				getOptionalSideResources(),
+				getOptionalSideModels(),
+				getOptionalIsDeleted(),
+				getOptionalDeletedModels(),
+				getOptionalDeletedResources()
+			);
 		}
 
 		if (postMigrationResult.status === "error") {

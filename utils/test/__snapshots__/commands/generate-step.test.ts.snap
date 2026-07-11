@@ -162,7 +162,7 @@ export interface Model {
 `;
 
 exports[`Generate step > when latest version is a minor pre (30.1.0-pre.2) > when choose the official version > should reference to the latest pre model and not create transform file > 30.1.0/model.ts 1`] = `
-"export * from "../version-30.1.0-pre.2/model";
+"export type * from "../version-30.1.0-pre.2/model.js";
 "
 `;
 

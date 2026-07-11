@@ -1,0 +1,15 @@
+{
+	"header": {
+		"id": "asset-with-data",
+		"modelType": "asset",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"title": "Test Asset",
+		"embeddedData": "SGVsbG8="
+	}
+}

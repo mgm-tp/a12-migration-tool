@@ -136,7 +136,7 @@ export interface Model {
 		);
 
 		expect(exitCode).not.toEqual(0);
-		expect(stderr).toMatch(/Error: Inconsistency in .*src\/steps\/index\.ts/);
+		expect(stderr).toMatch(/Error: Inconsistency in .*src[/\\]steps[/\\]index\.ts/);
 	});
 
 	test("should exit non zero when the latest schema file inconsistent and enabling persistentSchema", () => {
@@ -149,7 +149,7 @@ export interface Model {
 		const { exitCode, stderr } = execute(`migration-tool-utils validate-consistency`, fixtureName);
 
 		expect(exitCode).not.toEqual(0);
-		expect(stderr).toMatch(/Error: Schema at .*\/schema\.json does not match against the generated one/);
+		expect(stderr).toMatch(/Error: Schema at .*[/\\]schema\.json does not match against the generated one/);
 
 		expect(Fs.existsSync(schemaReferenceFilePath)).toEqual(true);
 

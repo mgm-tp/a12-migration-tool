@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { ResolvedConfiguration } from "../types.js";
+import type { ResolvedConfiguration } from "../types.js";
 import { getLatestVersion, isOfficialVersion } from "../utils.js";
 
 export async function validateOfficialVersion(config: ResolvedConfiguration): Promise<void> {

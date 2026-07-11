@@ -30,13 +30,13 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { isModelInstance } from "@com.mgmtp.a12.base/base-model-api/lib/main/model/index.js";
-import { GenericModel, MigrationParameters } from "@com.mgmtp.a12.migrationtool/migrationtool-core/types";
+import { isModelInstance } from "@com.mgmtp.a12.base/base-model-api";
+import type { GenericModel, MigrationParameters } from "@com.mgmtp.a12.migrationtool/migrationtool-core/types";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { MIGRATION_STEPS } from "./steps/index.js";
-import { PageModel } from "./steps/version-30.0.0/page-model.js";
+import type { PageModel } from "./steps/version-30.0.0/page-model.js";
 
 function isRequiredMigrate(model: PageModel) {
 	return model.content.numberField > 40;

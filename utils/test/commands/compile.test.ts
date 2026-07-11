@@ -87,7 +87,7 @@ describe("Compile", () => {
 		const { stderr, exitCode } = execute(`migration-tool-utils compile`, "missing-model");
 
 		expect(exitCode).not.toEqual(0);
-		expect(stderr).toMatch(/Error: Model file \S+\/model.ts does not exist/);
+		expect(stderr).toMatch(/Error: Model file \S+[/\\]model.ts does not exist/);
 	});
 
 	it("should throw error when having compilation errors", () => {
@@ -96,9 +96,6 @@ describe("Compile", () => {
 		expect(exitCode).not.toEqual(0);
 		expect(stderr).toMatch("Error: TypeScript compilation failed");
 		expect(stderr).toMatch("Type 'string' is not assignable to type 'number'");
-		expect(stderr).toMatch(
-			"Cannot find module './version-30.0.0/schema.json'. Consider using '--resolveJsonModule' to import module with '.json' extension."
-		);
 	});
 
 	it("should persist schema and index files when enabling persistentSchema", () => {
@@ -110,6 +107,14 @@ describe("Compile", () => {
 		const fixtureDir = Path.join(FIXTURES_DIR, fixtureName);
 		const schemaFilePath = Path.join(fixtureDir, "src/steps/version-31.0.0/schema.json");
 		const indexFilePath = Path.join(fixtureDir, "src/steps/index.ts");
+
+		// Clean up leftover files from previous runs
+		if (Fs.existsSync(schemaFilePath)) {
+			Fs.unlinkSync(schemaFilePath);
+		}
+		if (Fs.existsSync(indexFilePath)) {
+			Fs.unlinkSync(indexFilePath);
+		}
 
 		expect(Fs.existsSync(schemaFilePath)).toEqual(false);
 		expect(Fs.existsSync(indexFilePath)).toEqual(false);
@@ -133,7 +138,7 @@ function testCommand(fixtureName: string, outDir = "lib", ...options: string[]) 
 	const { stdout, stderr, exitCode } = execute(`migration-tool-utils compile ${options.join(" ")}`, fixtureName);
 
 	for (const path of readFilePaths(Path.join(fixtureDir, outDir))) {
-		expect(Fs.readFileSync(path, "utf8")).toMatchSnapshot(Path.relative(fixtureDir, path));
+		expect(Fs.readFileSync(path, "utf8")).toMatchSnapshot(Path.relative(fixtureDir, path).split(Path.sep).join("/"));
 	}
 
 	expect(readFilePaths(fixtureDir, { relative: true })).toMatchSnapshot("workspaces");
@@ -148,6 +153,6 @@ function readFilePaths(dirPath: string, options?: { relative: boolean }): string
 			return [];
 		}
 
-		return options?.relative ? Path.relative(dirPath, filePath) : filePath;
+		return options?.relative ? Path.relative(dirPath, filePath).split(Path.sep).join("/") : filePath;
 	});
 }

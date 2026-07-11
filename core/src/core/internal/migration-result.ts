@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { ErrorObject } from "ajv";
+import type { ErrorObject } from "ajv";
 
-import { GenericModel, Logger } from "../../types.js";
+import type { GenericModel, Logger, SideResultModel, SideResultResource } from "../../types.js";
 
 /** @internal */
 export class MigrationResultAccumulator {
@@ -70,18 +70,41 @@ type MigrationResultType = "error" | "success" | "skip";
 
 /** @internal */
 export class InternalMigrationResult {
-	public static Success = (message: string, model: GenericModel) =>
-		new InternalMigrationResult("success", message, "", model);
-	public static Skip = (message: string) => new InternalMigrationResult("skip", message);
-	public static Ignore = (message: string) => new InternalMigrationResult("ignore", message);
-	public static Error = (message: string, details?: string | ErrorMessagePayload) =>
+	public static readonly Success = (
+		message: string,
+		model: GenericModel,
+		sideResources?: SideResultResource[],
+		sideModels?: SideResultModel[],
+		isDeleted?: boolean,
+		deletedModels?: string[],
+		deletedResources?: string[]
+	) =>
+		new InternalMigrationResult(
+			"success",
+			message,
+			"",
+			model,
+			sideResources,
+			sideModels,
+			isDeleted,
+			deletedModels,
+			deletedResources
+		);
+	public static readonly Skip = (message: string) => new InternalMigrationResult("skip", message);
+	public static readonly Ignore = (message: string) => new InternalMigrationResult("ignore", message);
+	public static readonly Error = (message: string, details?: string | ErrorMessagePayload) =>
 		new InternalMigrationResult("error", message, details);
 
 	private constructor(
 		public readonly type: MigrationResultType | "ignore",
 		public readonly message?: string,
 		public readonly details?: string | ErrorMessagePayload,
-		public readonly model?: GenericModel
+		public readonly model?: GenericModel,
+		public readonly sideResources?: SideResultResource[],
+		public readonly sideModels?: SideResultModel[],
+		public readonly isDeleted?: boolean,
+		public readonly deletedModels?: string[],
+		public readonly deletedResources?: string[]
 	) {}
 
 	getMigratedModel(): GenericModel {

@@ -1,0 +1,14 @@
+{
+	"header": {
+		"id": "other-model-type",
+		"modelType": "other",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"data": "important data to extract"
+	}
+}

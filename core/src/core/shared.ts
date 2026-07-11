@@ -37,7 +37,14 @@ export { migrateModel } from "./internal/migrate.js";
 export { ModelUtils } from "./internal/model-utils.js";
 
 /** @internal */
-export { MigrationResultAccumulator, InternalMigrationResult, MessageResolver } from "./internal/migration-result.js";
+export {
+	MigrationResultAccumulator,
+	InternalMigrationResult,
+	type MessageResolver
+} from "./internal/migration-result.js";
 
 /** @internal */
 export { createDefaultModelAttributeAccessor } from "./internal/default-model-attribute-accessor.js";
+
+/** @public */
+export { generateResourceName, sha256Hex } from "./internal/workspace-utils.js";

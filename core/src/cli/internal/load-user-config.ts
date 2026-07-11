@@ -37,7 +37,7 @@ import * as Path from "node:path";
 import transformAssets from "babel-plugin-transform-assets-import-to-string";
 import { createJiti } from "jiti";
 
-import { Logger } from "../../types.js";
+import type { Logger } from "../../types.js";
 
 const SUPPORT_CONFIG_FILE_EXTENSIONS = ["ts", "mts", "cts", "js", "mjs", "cjs"];
 export async function loadUserConfig(

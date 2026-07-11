@@ -42,9 +42,11 @@ async function main() {
 	const port = await generatePort();
 	const url = `http://localhost:${port}`;
 
+	process.env.NO_COLOR = "1";
+
 	return startAndTest({
 		services: [{ start: `pnpm -F "*-test-page-app" start --port ${port}`, url }],
-		test: `NO_COLOR=1 cypress run --headless --browser=chrome --config baseUrl="${url}"`,
+		test: `cypress run --headless --browser=chrome --config baseUrl="${url}"`,
 		namedArguments: { expect: 200 }
 	});
 }

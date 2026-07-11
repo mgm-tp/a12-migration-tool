@@ -1,0 +1,6 @@
+{
+	"$schema": "./node_modules/@com.mgmtp.a12.migrationtool/migrationtool-utils/config.schema.json",
+	"stepsDirPath": "./src/steps",
+	"stepModelFileName": "workspace-asset-model.ts",
+	"modelInterfaceName": "WorkspaceAssetModel"
+}

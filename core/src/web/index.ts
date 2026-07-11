@@ -31,3 +31,4 @@
  */
 
 export * from "./internal/create-migration-tool.js";
+export { generateResourceName, sha256Hex } from "../core/shared.js";

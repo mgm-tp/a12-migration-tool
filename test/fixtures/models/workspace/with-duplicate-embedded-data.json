@@ -1,0 +1,16 @@
+{
+	"header": {
+		"id": "asset-with-duplicate-data",
+		"modelType": "asset",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"title": "Asset With Duplicate Data",
+		"embeddedData": "SGVsbG8=",
+		"embeddedData2": "SGVsbG8="
+	}
+}

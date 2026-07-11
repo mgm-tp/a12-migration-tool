@@ -1,0 +1,650 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`workspace > should create a side model via addModel 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "extractToModel": "extract into new model",
+        "extractedText": undefined,
+        "title": "Asset With Extract To Model",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-extract",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "sideModels": [
+      {
+        "model": {
+          "content": {
+            "extractedFromModel": "extract into new model",
+          },
+          "header": {
+            "annotations": [],
+            "id": "extracted-model",
+            "labels": [],
+            "locales": [],
+            "modelReferences": [],
+            "modelType": "extracted",
+            "modelVersion": "1.0.0",
+          },
+        },
+        "path": "extracted-model.json",
+      },
+    ],
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should create a side model via addModel 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "No embedded data found, skipping extraction",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Added model as side result: extracted-model.json",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Created side model: extracted-model",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-extract'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should deduplicate when resource already exists in workspace 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "dataRef": "existing-data.bin",
+        "dataRef2": undefined,
+        "extractToModel": undefined,
+        "extractedText": undefined,
+        "title": "Test Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should deduplicate when resource already exists in workspace 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Resource already exists in workspace: existing-data.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data: existing-data.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-data'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should extract and deduplicate nested embedded data as side result 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "dataRef": "data_a591a6d4.bin",
+        "dataRef2": undefined,
+        "extractToModel": undefined,
+        "extractedText": undefined,
+        "title": "Nested Test Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "sideResources": [
+      {
+        "content": Uint8Array [
+          72,
+          101,
+          108,
+          108,
+          111,
+          32,
+          87,
+          111,
+          114,
+          108,
+          100,
+        ],
+        "hash": "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e",
+        "originalName": "data.bin",
+        "path": "data_a591a6d4.bin",
+      },
+    ],
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should extract and deduplicate nested embedded data as side result 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data as side result: data_a591a6d4.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data: data_a591a6d4.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-data'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should mark model for deletion 1`] = `
+[
+  {
+    "isDeleted": true,
+    "model": {
+      "content": {
+        "extractToModel": undefined,
+        "extractedText": undefined,
+        "title": "DELETE_ME",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-to-delete",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should mark model for deletion 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "No embedded data found, skipping extraction",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Model marked for deletion: merged into another model",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Model marked for deletion: asset-to-delete",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-to-delete'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should migrate model without embedded data 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "extractToModel": undefined,
+        "extractedText": undefined,
+        "title": "Clean Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-no-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should migrate model without embedded data 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "No embedded data found, skipping extraction",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-no-data'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should migrate without workspace and extract embedded data as side result 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "dataRef": "data_185f8db3.bin",
+        "dataRef2": undefined,
+        "extractToModel": undefined,
+        "extractedText": undefined,
+        "title": "Test Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "sideResources": [
+      {
+        "content": Uint8Array [
+          72,
+          101,
+          108,
+          108,
+          111,
+        ],
+        "hash": "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969",
+        "originalName": "data.bin",
+        "path": "data_185f8db3.bin",
+      },
+    ],
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should migrate without workspace and extract embedded data as side result 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data as side result: data_185f8db3.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data: data_185f8db3.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-data'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should produce side result with empty workspace 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "dataRef": "data_185f8db3.bin",
+        "dataRef2": undefined,
+        "extractToModel": undefined,
+        "extractedText": undefined,
+        "title": "Test Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "sideResources": [
+      {
+        "content": Uint8Array [
+          72,
+          101,
+          108,
+          108,
+          111,
+        ],
+        "hash": "185f8db32271fe25f561a6fc938b2e264306ec304eda518007d1764826381969",
+        "originalName": "data.bin",
+        "path": "data_185f8db3.bin",
+      },
+    ],
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should produce side result with empty workspace 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data as side result: data_185f8db3.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted embedded data: data_185f8db3.bin",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-data'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should resolve model content and delete source model when flagged 1`] = `
+[
+  {
+    "deletedModels": [
+      "other-model-type-delete",
+    ],
+    "model": {
+      "content": {
+        "extractToModel": undefined,
+        "extractedText": "important data to extract and then delete model",
+        "title": "Nested Test Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should resolve model content and delete source model when flagged 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "No embedded data found, skipping extraction",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted data from other model: important data to extract and then delete model",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Model queued for deletion: other-model-type-delete (data extracted into asset model)",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Marked other model for deletion: other-model-type-delete",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-data'",
+    ],
+  ],
+}
+`;
+
+exports[`workspace > should resolve model content from workspace via resolveModel 1`] = `
+[
+  {
+    "model": {
+      "content": {
+        "extractToModel": undefined,
+        "extractedText": "important data to extract",
+        "title": "Nested Test Asset",
+      },
+      "header": {
+        "annotations": [],
+        "id": "asset-with-data",
+        "labels": [],
+        "locales": [],
+        "modelReferences": [],
+        "modelType": "asset",
+        "modelVersion": "3.0.0",
+      },
+    },
+    "status": "success",
+  },
+]
+`;
+
+exports[`workspace > should resolve model content from workspace via resolveModel 2`] = `
+{
+  "error": [],
+  "info": [
+    [
+      "[Asset Migration Tool]",
+      "Asset model found with version 1.0.0.",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0-alpha.1",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "No embedded data found, skipping extraction",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 2.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Migrating to version 3.0.0",
+    ],
+    [
+      "[Asset Migration Tool]",
+      "Extracted data from other model: important data to extract",
+    ],
+  ],
+  "log": [
+    [
+      "[Asset Migration Tool]",
+      "Migrating model with id 'asset-with-data'",
+    ],
+  ],
+}
+`;

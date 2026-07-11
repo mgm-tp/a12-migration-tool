@@ -15,7 +15,7 @@ export const MIGRATION_STEPS = [{ version: "30.0.0", schema: Schema_30_0_0 }];
 exports[`Compile > should emit files in regard of tsconfig > lib/steps/index.js.map 1`] = `"{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/steps/index.ts"],"names":[],"mappings":"AAEA,OAAO,aAAa,MAAM,8BAA8B,CAAC,OAAO,IAAI,EAAE,MAAM,EAAE,CAAC;AAE/E,MAAM,CAAC,MAAM,eAAe,GAAoB,CAAC,EAAE,OAAO,EAAE,QAAQ,EAAE,MAAM,EAAE,aAAa,EAAE,CAAC,CAAC"}"`;
 
 exports[`Compile > should emit files in regard of tsconfig > lib/steps/version-30.0.0/model.d.ts 1`] = `
-"import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+"import { Header } from "@com.mgmtp.a12.base/base-model-api";
 export interface Model {
     readonly header: Header;
     readonly content: Content;
@@ -331,7 +331,7 @@ exports[`Compile > should generate new schema, index file and persist them when 
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface PageModel {
 	readonly header: Header;
@@ -592,7 +592,7 @@ exports[`Compile > should not create new schema when passing no-schema > src/ste
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface Model {
 	readonly header: Header;
@@ -675,7 +675,7 @@ exports[`Compile > should not create new schema when passing no-schema > src/ste
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface Model {
 	readonly header: Header;
@@ -770,7 +770,7 @@ exports[`Compile > should not create new schema when passing no-schema > src/ste
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface Model {
 	readonly header: Header;
@@ -862,7 +862,7 @@ exports[`Compile > should persist schema and index files when enabling persisten
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface PageModel {
 	readonly header: Header;
@@ -1067,7 +1067,7 @@ exports[`Compile > should persist schema and index files when enabling persisten
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { Header } from "@com.mgmtp.a12.base/base-model-api/lib/main/header/index.js";
+import { Header } from "@com.mgmtp.a12.base/base-model-api";
 
 export interface PageModel {
 	readonly header: Header;

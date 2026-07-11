@@ -34,7 +34,7 @@ import * as Fs from "node:fs/promises";
 import * as Path from "node:path";
 
 import { INDEX_FILE_NAME, SCHEMA_FILE_NAME } from "../../constants.js";
-import { ResolvedConfiguration } from "../../types.js";
+import type { ResolvedConfiguration } from "../../types.js";
 
 export async function clean(config: ResolvedConfiguration, options?: { force: boolean }): Promise<void> {
 	const { stepsDirPath } = config;

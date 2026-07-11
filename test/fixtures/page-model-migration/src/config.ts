@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { MigrationParameters } from "@com.mgmtp.a12.migrationtool/migrationtool-core/types";
+import type { MigrationParameters } from "@com.mgmtp.a12.migrationtool/migrationtool-core/types";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

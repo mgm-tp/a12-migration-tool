@@ -38,8 +38,8 @@ import * as Prettier from "prettier";
 import { Project, SourceFile, StructureKind, VariableDeclarationKind } from "ts-morph";
 
 import { CHECK_MARK, INDEX_FILE_NAME, SCHEMA_FILE_NAME, VERSION_PREFIX } from "../../constants.js";
-import { ResolvedConfiguration } from "../../types.js";
-import { StepInfo, extractStepInfos, getIndexFilePath } from "../../utils.js";
+import type { ResolvedConfiguration } from "../../types.js";
+import { type StepInfo, extractStepInfos, getIndexFilePath } from "../../utils.js";
 
 export async function generateIndexFile(config: ResolvedConfiguration) {
 	console.log(`\nGenerating steps index file...`);

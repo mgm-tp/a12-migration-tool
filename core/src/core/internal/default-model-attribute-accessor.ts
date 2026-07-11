@@ -30,9 +30,9 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { isModelInstance } from "@com.mgmtp.a12.base/base-model-api/lib/main/model/index.js";
+import { isModelInstance } from "@com.mgmtp.a12.base/base-model-api";
 
-import { ModelAttributeAccessor } from "../../types.js";
+import type { ModelAttributeAccessor } from "../../types.js";
 
 /** @internal */
 export function createDefaultModelAttributeAccessor(modelType: string): ModelAttributeAccessor {

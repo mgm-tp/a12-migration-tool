@@ -30,7 +30,7 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { ResolvedConfiguration } from "../../types.js";
+import type { ResolvedConfiguration } from "../../types.js";
 
 import { clean } from "./clean.js";
 import { compileSchemas } from "./compile-schemas.js";

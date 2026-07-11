@@ -34,7 +34,7 @@ import * as Path from "node:path";
 
 import ts from "typescript";
 
-import { ResolvedConfiguration } from "../../types.js";
+import type { ResolvedConfiguration } from "../../types.js";
 
 /*
  * ===== BEGIN THIRD-PARTY SOURCE: [TypeScript] (https://github.com/microsoft/TypeScript),

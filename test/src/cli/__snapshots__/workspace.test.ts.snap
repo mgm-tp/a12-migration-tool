@@ -1,0 +1,1395 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`workspace > addModel creates a side model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-extract-to-model.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-extract-to-model.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/extracted-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "extracted-model",
+		"modelType": "extracted",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"extractedFromModel": "extract into new model"
+	}
+}"
+`;
+
+exports[`workspace > addModel creates a side model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-extract-to-model.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-extract-to-model.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-extract-to-model.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-extract",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Asset With Extract To Model",
+    "extractToModel": "extract into new model"
+  }
+}
+"
+`;
+
+exports[`workspace > addModel creates a side model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-extract-to-model.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-extract-to-model.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-extract-to-model.json",
+  "<models-dir>/workspace/extracted-model.json",
+]
+`;
+
+exports[`workspace > addModel creates a side model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-extract-to-model.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-extract-to-model.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-extract-to-model.json
+Migrated model target/temp/workspace/with-extract-to-model.json successfully
+
+1/1 model(s) saved to target/temp/workspace
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/data/nested/other-existing-data.bin
+ 1`] = `"Hello World"`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/existing-data.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/extracted-model.json
+ 1`] = `
+"{
+	"header": {
+		"id": "extracted-model",
+		"modelType": "extracted",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"extractedFromModel": "extract into new model"
+	}
+}"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/models/nested/other-model-type.json
+ 1`] = `
+"{
+	"header": {
+		"id": "other-model-type",
+		"modelType": "other",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"data": "important data to extract"
+	}
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/models/nested/other-model-type-delete.json
+ 1`] = `
+"{
+	"header": {
+		"id": "other-model-type-delete",
+		"modelType": "other",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"data": "important data to extract and then delete model",
+		"delete": "true"
+	}
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/no-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-no-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Clean Asset"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-data-to-replace.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Nested Test Asset",
+    "extractedText": "important data to extract"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-duplicate-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-duplicate-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Asset With Duplicate Data",
+    "dataRef": "existing-data.bin",
+    "dataRef2": "existing-data.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Test Asset",
+    "dataRef": "existing-data.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data-duplicate.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data-duplicate",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Another Asset",
+    "dataRef": "existing-data.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-extract-to-model.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-extract",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Asset With Extract To Model",
+    "extractToModel": "extract into new model"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-nested-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Nested Test Asset",
+    "dataRef": "data/nested/other-existing-data.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-nested-embedded-data.json",
+  "<models-dir>/workspace/with-extract-to-model.json",
+  "<models-dir>/workspace/with-embedded-data.json",
+  "<models-dir>/workspace/with-embedded-data-duplicate.json",
+  "<models-dir>/workspace/with-duplicate-embedded-data.json",
+  "<models-dir>/workspace/with-data-to-replace.json",
+  "<models-dir>/workspace/no-embedded-data.json",
+  "<models-dir>/workspace/extracted-model.json",
+  "<models-dir>/workspace/existing-data.bin",
+  "<models-dir>/workspace/models/nested/other-model-type.json",
+  "<models-dir>/workspace/models/nested/other-model-type-delete.json",
+  "<models-dir>/workspace/data/nested/other-existing-data.bin",
+]
+`;
+
+exports[`workspace > auto-detect workspace from directory input > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace
+Workspace:
+<models-dir>/workspace
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Migrating all asset models in directory target/temp/workspace
+
+Reading target/temp/workspace/with-nested-embedded-data.json
+Migrated model target/temp/workspace/with-nested-embedded-data.json successfully
+
+Reading target/temp/workspace/with-extract-to-model.json
+Migrated model target/temp/workspace/with-extract-to-model.json successfully
+
+Reading target/temp/workspace/with-embedded-data.json
+Migrated model target/temp/workspace/with-embedded-data.json successfully
+
+Reading target/temp/workspace/with-embedded-data-duplicate.json
+Migrated model target/temp/workspace/with-embedded-data-duplicate.json successfully
+
+Reading target/temp/workspace/with-duplicate-embedded-data.json
+Migrated model target/temp/workspace/with-duplicate-embedded-data.json successfully
+
+Reading target/temp/workspace/with-data-to-replace.json
+Migrated model target/temp/workspace/with-data-to-replace.json successfully
+
+Reading target/temp/workspace/to-be-deleted.json
+Migrated model target/temp/workspace/to-be-deleted.json successfully
+
+Reading target/temp/workspace/no-embedded-data.json
+Migrated model target/temp/workspace/no-embedded-data.json successfully
+
+1/1 model(s) saved to target/temp/workspace
+
+1/1 model(s) deleted
+
+
+Migration Summary
+=================
+Migrated:       8
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > dedup nested resource when already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-nested-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-nested-embedded-data.json
+<models-dir>/workspace/data/nested/other-existing-data.bin
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/data/nested/other-existing-data.bin
+ 1`] = `"Hello World"`;
+
+exports[`workspace > dedup nested resource when already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-nested-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-nested-embedded-data.json
+<models-dir>/workspace/data/nested/other-existing-data.bin
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-nested-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Nested Test Asset",
+    "dataRef": "data/nested/other-existing-data.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > dedup nested resource when already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-nested-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-nested-embedded-data.json
+<models-dir>/workspace/data/nested/other-existing-data.bin
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-nested-embedded-data.json",
+  "<models-dir>/workspace/data/nested/other-existing-data.bin",
+]
+`;
+
+exports[`workspace > dedup nested resource when already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-nested-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-nested-embedded-data.json
+<models-dir>/workspace/data/nested/other-existing-data.bin
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-nested-embedded-data.json
+Migrated model target/temp/workspace/with-nested-embedded-data.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > dedup side results across two models with same embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json <models-dir>/workspace/with-embedded-data-duplicate.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/with-embedded-data-duplicate.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/data_185f8db3.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > dedup side results across two models with same embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json <models-dir>/workspace/with-embedded-data-duplicate.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/with-embedded-data-duplicate.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Test Asset",
+    "dataRef": "data_185f8db3.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > dedup side results across two models with same embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json <models-dir>/workspace/with-embedded-data-duplicate.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/with-embedded-data-duplicate.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data-duplicate.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data-duplicate",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Another Asset",
+    "dataRef": "data_185f8db3.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > dedup side results across two models with same embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json <models-dir>/workspace/with-embedded-data-duplicate.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/with-embedded-data-duplicate.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-embedded-data.json",
+  "<models-dir>/workspace/with-embedded-data-duplicate.json",
+  "<models-dir>/workspace/data_185f8db3.bin",
+]
+`;
+
+exports[`workspace > dedup side results across two models with same embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json <models-dir>/workspace/with-embedded-data-duplicate.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/with-embedded-data-duplicate.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-embedded-data.json
+Migrated model target/temp/workspace/with-embedded-data.json successfully
+
+Reading target/temp/workspace/with-embedded-data-duplicate.json
+Migrated model target/temp/workspace/with-embedded-data-duplicate.json successfully
+
+1/1 resource(s) saved to target/temp/workspace
+
+
+Migration Summary
+=================
+Migrated:       2
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > dedup side results within a single model with duplicate embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-duplicate-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-duplicate-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/data_185f8db3.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > dedup side results within a single model with duplicate embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-duplicate-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-duplicate-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-duplicate-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-duplicate-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Asset With Duplicate Data",
+    "dataRef": "data_185f8db3.bin",
+    "dataRef2": "data_185f8db3.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > dedup side results within a single model with duplicate embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-duplicate-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-duplicate-embedded-data.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-duplicate-embedded-data.json",
+  "<models-dir>/workspace/data_185f8db3.bin",
+]
+`;
+
+exports[`workspace > dedup side results within a single model with duplicate embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-duplicate-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-duplicate-embedded-data.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-duplicate-embedded-data.json
+Migrated model target/temp/workspace/with-duplicate-embedded-data.json successfully
+
+1/1 resource(s) saved to target/temp/workspace
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > dedup when resource already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/existing-data.bin
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/existing-data.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > dedup when resource already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/existing-data.bin
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Test Asset",
+    "dataRef": "existing-data.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > dedup when resource already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/existing-data.bin
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-embedded-data.json",
+  "<models-dir>/workspace/existing-data.bin",
+]
+`;
+
+exports[`workspace > dedup when resource already exists in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+<models-dir>/workspace/existing-data.bin
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-embedded-data.json
+Migrated model target/temp/workspace/with-embedded-data.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > migration of model without embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/no-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/no-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/no-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-no-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Clean Asset"
+  }
+}
+"
+`;
+
+exports[`workspace > migration of model without embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/no-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/no-embedded-data.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/no-embedded-data.json",
+]
+`;
+
+exports[`workspace > migration of model without embedded data > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/no-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/no-embedded-data.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/no-embedded-data.json
+Migrated model target/temp/workspace/no-embedded-data.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > model deletion with --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/to-be-deleted.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/to-be-deleted.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `[]`;
+
+exports[`workspace > model deletion with --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/to-be-deleted.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/to-be-deleted.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/to-be-deleted.json
+Migrated model target/temp/workspace/to-be-deleted.json successfully
+
+1/1 model(s) deleted
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > resolveModel reads content and deletes source model when flagged > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type-delete.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-data-to-replace.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Nested Test Asset",
+    "extractedText": "important data to extract and then delete model"
+  }
+}
+"
+`;
+
+exports[`workspace > resolveModel reads content and deletes source model when flagged > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type-delete.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-data-to-replace.json",
+]
+`;
+
+exports[`workspace > resolveModel reads content and deletes source model when flagged > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type-delete.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-data-to-replace.json
+Migrated model target/temp/workspace/with-data-to-replace.json successfully
+
+1/1 model(s) deleted from workspace
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > resolveModel reads content from another model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/models/nested/other-model-type.json
+ 1`] = `
+"{
+	"header": {
+		"id": "other-model-type",
+		"modelType": "other",
+		"modelVersion": "1.0.0",
+		"locales": [],
+		"labels": [],
+		"modelReferences": [],
+		"annotations": []
+	},
+	"content": {
+		"data": "important data to extract"
+	}
+}
+"
+`;
+
+exports[`workspace > resolveModel reads content from another model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-data-to-replace.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Nested Test Asset",
+    "extractedText": "important data to extract"
+  }
+}
+"
+`;
+
+exports[`workspace > resolveModel reads content from another model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-data-to-replace.json",
+  "<models-dir>/workspace/models/nested/other-model-type.json",
+]
+`;
+
+exports[`workspace > resolveModel reads content from another model in workspace > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-data-to-replace.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-data-to-replace.json
+<models-dir>/workspace/models/nested/other-model-type.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-data-to-replace.json
+Migrated model target/temp/workspace/with-data-to-replace.json successfully
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > side result extraction with --resources flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace --resources <models-dir>/output
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/output/data_185f8db3.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > side result extraction with --resources flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace --resources <models-dir>/output
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Test Asset",
+    "dataRef": "data_185f8db3.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > side result extraction with --resources flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace --resources <models-dir>/output
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-embedded-data.json",
+  "<models-dir>/output/data_185f8db3.bin",
+]
+`;
+
+exports[`workspace > side result extraction with --resources flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace --resources <models-dir>/output
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-embedded-data.json
+Migrated model target/temp/workspace/with-embedded-data.json successfully
+
+1/1 resource(s) saved to target/temp/output
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > side result extraction with --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/data_185f8db3.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > side result extraction with --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Test Asset",
+    "dataRef": "data_185f8db3.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > side result extraction with --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-embedded-data.json",
+  "<models-dir>/workspace/data_185f8db3.bin",
+]
+`;
+
+exports[`workspace > side result extraction with --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json --workspace <models-dir>/workspace
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-embedded-data.json
+Migrated model target/temp/workspace/with-embedded-data.json successfully
+
+1/1 resource(s) saved to target/temp/workspace
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;
+
+exports[`workspace > side result extraction without --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/data_185f8db3.bin
+ 1`] = `"Hello"`;
+
+exports[`workspace > side result extraction without --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File <models-dir>/workspace/with-embedded-data.json
+ 1`] = `
+"{
+  "header": {
+    "id": "asset-with-data",
+    "modelType": "asset",
+    "modelVersion": "3.0.0",
+    "locales": [],
+    "labels": [],
+    "modelReferences": [],
+    "annotations": []
+  },
+  "content": {
+    "title": "Test Asset",
+    "dataRef": "data_185f8db3.bin"
+  }
+}
+"
+`;
+
+exports[`workspace > side result extraction without --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+File structure
+ 1`] = `
+[
+  "<models-dir>/workspace/with-embedded-data.json",
+  "<models-dir>/workspace/data_185f8db3.bin",
+]
+`;
+
+exports[`workspace > side result extraction without --workspace flag > 
+----------Test case----------
+Command:
+workspace-asset-migration <models-dir>/workspace/with-embedded-data.json
+Workspace:
+<models-dir>/workspace/with-embedded-data.json
+-----------------------------
+Snapshot:
+Standard output
+ 1`] = `
+"----------------------
+ ASSET MIGRATION TOOL 
+----------------------
+
+Workspace: target/temp/workspace
+
+Reading target/temp/workspace/with-embedded-data.json
+Migrated model target/temp/workspace/with-embedded-data.json successfully
+
+1/1 resource(s) saved to target/temp/workspace
+
+
+Migration Summary
+=================
+Migrated:       1
+Skipped :       0
+Errors  :       0"
+`;

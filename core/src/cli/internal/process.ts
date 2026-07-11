@@ -41,12 +41,14 @@ import JSON5 from "json5";
 
 import {
 	InternalMigrationResult,
-	MessageResolver,
+	type MessageResolver,
 	MigrationResultAccumulator,
 	migrateModel
 } from "../../core/shared.js";
 
-import { CLIMigrationParameters } from "./types.js";
+import { toRelativePath } from "./cli-utils.js";
+import { CLIWorkspace } from "./cli-workspace.js";
+import type { CLIMigrationParameters } from "./types.js";
 
 const cliMessageResolver: MessageResolver = {
 	resolve(result: InternalMigrationResult, modelLabel: string): string {
@@ -72,12 +74,48 @@ const cliMessageResolver: MessageResolver = {
 };
 
 /** @internal */
-export async function migrateCLI(parameters: CLIMigrationParameters): Promise<void> {
+export async function migrateCLI(params: CLIMigrationParameters): Promise<void> {
+	let parameters = params;
 	const cwd = Process.cwd();
 	const accumulator = new MigrationResultAccumulator();
 	const { logger, modelType } = parameters;
 
 	logger.log(createBanner(modelType));
+
+	if (parameters.enabledWorkspace && !parameters.workspace && !parameters.resources) {
+		const candidateRoots = new Set<string>();
+		for (const path of parameters.paths) {
+			const absolutePath = Path.resolve(cwd, path);
+			try {
+				const stat = await Fs.stat(absolutePath);
+				if (stat.isDirectory()) {
+					candidateRoots.add(absolutePath);
+				} else if (stat.isFile()) {
+					candidateRoots.add(Path.dirname(absolutePath));
+				}
+			} catch {
+				// Path does not exist; will be caught later in the main loop
+			}
+		}
+		if (candidateRoots.size === 1) {
+			const [autoDetectedRoot] = candidateRoots;
+			parameters = { ...parameters, workspace: Path.relative(cwd, autoDetectedRoot) || "." };
+			logger.info(`Auto-detected workspace from input path: ${toRelativePath(autoDetectedRoot)}`);
+		}
+	}
+
+	// Scan workspace if --workspace or --resources flag is provided
+	let workspace: CLIWorkspace | undefined;
+	if (parameters.enabledWorkspace && (parameters.workspace || parameters.resources)) {
+		const workspacePath = parameters.workspace ? Path.resolve(cwd, parameters.workspace) : undefined;
+		const resourcesPath = parameters.resources ? Path.resolve(cwd, parameters.resources) : workspacePath;
+		const activeRootPath = workspacePath ?? resourcesPath ?? cwd;
+		workspace = new CLIWorkspace({ workspacePath, resourcesPath });
+		await workspace.scan(logger);
+		logger.log(`\nWorkspace: ${toRelativePath(activeRootPath)}`);
+	}
+
+	const deletedModelPaths: string[] = [];
 
 	for (const path of parameters.paths) {
 		const absolutePath = Path.resolve(cwd, path);
@@ -86,14 +124,14 @@ export async function migrateCLI(parameters: CLIMigrationParameters): Promise<vo
 			const stat = await Fs.stat(absolutePath);
 
 			if (stat.isFile()) {
-				(await processFile(absolutePath, false, parameters))
+				(await processFile(absolutePath, false, parameters, workspace, deletedModelPaths))
 					.logTo(logger, cliMessageResolver, toRelativePath(absolutePath))
 					.addTo(accumulator);
 				continue;
 			}
 
 			if (stat.isDirectory()) {
-				accumulator.add(await processDirectory(absolutePath, parameters));
+				accumulator.add(await processDirectory(absolutePath, parameters, workspace, deletedModelPaths));
 				continue;
 			}
 
@@ -108,15 +146,34 @@ export async function migrateCLI(parameters: CLIMigrationParameters): Promise<vo
 		}
 	}
 
+	// Save side results
+	if (workspace) {
+		await workspace.saveSideResources(logger);
+		await workspace.saveSideModels(logger);
+		await workspace.deleteMarkedModels(logger);
+		await workspace.deleteMarkedResources(logger);
+	}
+
+	// Delete models marked for deletion
+	if (deletedModelPaths.length > 0) {
+		let deleted = 0;
+		for (const filePath of deletedModelPaths) {
+			try {
+				await Fs.rm(filePath, { force: true });
+				logger.info("Deleted model file: " + toRelativePath(filePath));
+				deleted++;
+			} catch (error) {
+				logger.error(`Failed to delete model file ${toRelativePath(filePath)}: ${error}`);
+			}
+		}
+		logger.log(`\n${deleted}/${deletedModelPaths.length} model(s) deleted`);
+	}
+
 	logger.log("\n\n" + accumulator.summarize());
 
 	if (accumulator.hasErrors) {
 		throw new Error("Migration failed");
 	}
-}
-
-function toRelativePath(absolutePath: string): string {
-	return Path.relative(Process.cwd(), absolutePath);
 }
 
 function createBanner(modelType: string) {
@@ -127,7 +184,9 @@ function createBanner(modelType: string) {
 
 async function processDirectory(
 	directoryPath: string,
-	parameters: CLIMigrationParameters
+	parameters: CLIMigrationParameters,
+	workspace: CLIWorkspace | undefined,
+	deletedModelPaths: string[]
 ): Promise<MigrationResultAccumulator> {
 	const { logger, modelType, extension } = parameters;
 	logger.log(`\nMigrating all ${modelType} models in directory ${toRelativePath(directoryPath)}`);
@@ -136,8 +195,8 @@ async function processDirectory(
 
 	// Glob expects an "/" as separator, therefore it makes more sense to always replace OS default separator as "/"
 	const pattern = Path.join(directoryPath, "**", `*.${extension}`).split(Path.sep).join("/");
-	for await (const filePath of await glob(pattern, { ignore: "/**/node_modules/**" })) {
-		(await processFile(filePath, true, parameters))
+	for await (const filePath of await glob(pattern, { ignore: "**/node_modules/**" })) {
+		(await processFile(filePath, true, parameters, workspace, deletedModelPaths))
 			.logTo(logger, cliMessageResolver, toRelativePath(filePath))
 			.addTo(accumulator);
 	}
@@ -148,7 +207,9 @@ async function processDirectory(
 async function processFile(
 	absolutePath: string,
 	directoryMode: boolean,
-	parameters: CLIMigrationParameters
+	parameters: CLIMigrationParameters,
+	workspace: CLIWorkspace | undefined,
+	deletedModelPaths: string[]
 ): Promise<InternalMigrationResult> {
 	try {
 		const { modelType, logger, backup, modelAttributeAccessor } = parameters;
@@ -165,9 +226,14 @@ async function processFile(
 			await Fs.copyFile(absolutePath, `${absolutePath}_bak`);
 		}
 
-		const result = migrateModel({ ...parameters, model });
+		const result = migrateModel({ ...parameters, model, workspace });
+		workspace?.add(result);
 
 		if (result.type === "success") {
+			if (result.isDeleted) {
+				deletedModelPaths.push(absolutePath);
+			}
+			// Always write the migrated model — other steps may still read it; deletions are applied after all steps complete.
 			await Fs.writeFile(absolutePath, `${JSON.stringify(result.getMigratedModel(), undefined, 2)}${Os.EOL}`);
 		}
 

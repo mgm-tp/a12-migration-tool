@@ -32,12 +32,13 @@
 
 import * as Fs from "node:fs/promises";
 import * as Path from "node:path";
+import { pathToFileURL } from "node:url";
 
 import gitDiff from "git-diff";
 import { Project } from "ts-morph";
 
 import { CHECK_MARK, VERSION_PREFIX } from "../constants.js";
-import { ResolvedConfiguration } from "../types.js";
+import type { ResolvedConfiguration } from "../types.js";
 import { extractStepInfos } from "../utils.js";
 
 import { validateLatestSchema, validateSchemas } from "./compile/compile-schemas.js";
@@ -84,7 +85,7 @@ async function validateModelConsistency(config: ResolvedConfiguration) {
 
 	const coreModel = new Project().addSourceFileAtPath(config.referenceModelPath);
 	if (config.adjustModelFuncPath) {
-		const sourceModelAdjuster = await import(config.adjustModelFuncPath);
+		const sourceModelAdjuster = await import(pathToFileURL(config.adjustModelFuncPath).href);
 		sourceModelAdjuster.default(coreModel);
 	}
 
