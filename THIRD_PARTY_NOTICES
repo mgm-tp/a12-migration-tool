@@ -1,7 +1,6 @@
 THIRD_PARTY_NOTICES
 
 Component: A12 Migration Tool
-Generated: 2026-05-06 for mgm A12 Platform 2026.06
 
 The mgm A12 Platform is developed by mgm technology partners GmbH.
 
@@ -16,113 +15,26 @@ Component Overview
 
 The following third-party components are included in this distribution:
 
-
-- gradle wrapper, licensed under Apache-2.0
-	Copyright © 2015-2021 the original authors
-	Source: https://github.com/gradle/gradle/
-- ajv 8.18.0, licensed under MIT
-	Copyright (c) 2015-2021 Evgeny Poberezkin
-	Source: https://github.com/ajv-validator/ajv
-- babel-plugin-transform-assets-import-to-string 1.2.0, licensed under MIT
-	Copyright (c) 2017 Gerald Yeo
-	Source: https://github.com/yeojz/babel-plugin-transform-assets-import-to-string
-- better-ajv-errors 1.2.0, licensed under Apache-2.0
-	Copyright 2018 Atlassian Pty Ltd
-	Source: https://github.com/atlassian/better-ajv-errors
-- chalk 5.6.2, licensed under MIT
-	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
-	Source: https://github.com/chalk/chalk
-- @com.mgmtp.a12.base/base-model-api 30.0.0, licensed under EUPL v1.2
+- @com.mgmtp.a12.base/base-model-api 30.0.2, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/build-tools 1.1.1, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/build-tools 1.1.2, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/eslint-config 3.1.1, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/eslint-config 4.0.0, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/prettier-config 1.1.0, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/prettier-config 1.1.1, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- @com.mgmtp.a12.devtools/tsconfig 2.0.0, licensed under EUPL v1.2
+- @com.mgmtp.a12.devtools/tsconfig 2.0.1, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
-- cypress 14.5.4, licensed under MIT
-	Copyright (c) 2023 Cypress.io
-	Source: https://github.com/cypress-io/cypress
-- eslint 9.39.1, licensed under MIT
-	Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
-	Source: https://github.com/eslint/eslint
-- eslint-config-prettier 10.1.8, licensed under MIT
-	Copyright (c) 2017, 2018, 2019, 2020, 2021, 2022, 2023 Simon Lydell and contributors
-	Source: https://github.com/prettier/eslint-config-prettier
-- eslint-plugin-import 2.32.0, licensed under MIT
-	Copyright (c) 2015 Ben Mosher
-	Source: https://github.com/import-js/eslint-plugin-import
-- eslint-plugin-notice 1.0.0, licensed under MIT
-	Copyright (c) 2017 Nick Deis
-	Source: https://github.com/nickdeis/eslint-plugin-notice
-- eslint-plugin-prettier 5.5.4, licensed under MIT
-	Copyright (c) 2017 Andres Suarez and Teddy Katz
-	Source: https://github.com/prettier/eslint-plugin-prettier
-- execa 9.6.0, licensed under MIT
-	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
-	Source: https://github.com/sindresorhus/execa
-- fs-extra 11.3.2, licensed under MIT
-	Copyright (c) 2011-2024 JP Richardson
-	Source: https://github.com/jprichardson/node-fs-extra
-- git-diff 2.0.6, licensed under ISC
-	Source: https://github.com/danday74/git-diff
-- glob 13.0.6, licensed under BlueOak-1.0.0
-	Source: https://github.com/isaacs/node-glob
-- inquirer 12.11.1, licensed under MIT
-	Copyright (c) 2025 Simon Boudrias
-	Source: https://github.com/SBoudrias/Inquirer.js
-- jiti 2.6.1, licensed under MIT
-	Copyright (c) Pooya Parsa <pooya@pi0.io>
-	Source: https://github.com/unjs/jiti
-- json5 2.2.3, licensed under MIT
-	Copyright (c) 2012-2018 Aseem Kishore, and others
-	Source: https://github.com/json5/json5
+- @eslint/compat 2.1.0, licensed under Apache-2.0
+	Source: https://github.com/eslint/rewrite/tree/main/packages/compat
 - @noble/hashes 2.2.0, licensed under MIT
 	Copyright (c) 2022 Paul Miller (https://paulmillr.com)
 	Source: https://github.com/paulmillr/noble-hashes
-- prettier 3.6.2, licensed under MIT
-	Copyright © James Long and contributors
-	Source: https://github.com/prettier/prettier
-- rimraf 6.1.0, licensed under ISC
-	Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
-	Source: https://github.com/isaacs/rimraf
-- run-parallel-limit 1.1.0, licensed under MIT
-	Copyright (c) Feross Aboukhadijeh
-	Source: https://github.com/feross/run-parallel-limit
-- semver 7.7.3, licensed under ISC
-	Copyright (c) Isaac Z. Schlueter and Contributors
-	Source: https://github.com/npm/node-semver
-- start-server-and-test 2.1.2, licensed under MIT
-	Copyright (c) 2022 bahmutov
-	Source: https://github.com/bahmutov/start-server-and-test
-- tcp-port-used 1.0.2, licensed under MIT
-	Copyright (c) 2013 jut-io
-	Source: https://github.com/stdarg/tcp-port-used
-- ts-json-schema-generator 2.9.1-next.13, licensed under MIT
-	Copyright (c) 2019, TypeScript JSON Schema
-	Source: https://github.com/vega/ts-json-schema-generator
-- ts-morph 27.0.2, licensed under MIT
-	Copyright (c) 2017 David Sherret
-	Source: https://github.com/dsherret/ts-morph
-- ts-node 10.9.2, licensed under MIT
-	Copyright (c) 2014 Blake Embrey (hello@blakeembrey.com)
-	Source: https://github.com/TypeStrong/ts-node
-- typescript 6.0.2, licensed under Apache-2.0
-	Copyright (c) Microsoft Corporation
-	Source: https://github.com/microsoft/TypeScript
-- @typescript-eslint/eslint-plugin 8.58.1, licensed under MIT
-	Copyright (c) 2019 typescript-eslint and other contributors
-	Source: https://github.com/typescript-eslint/typescript-eslint
-- @typescript-eslint/parser 8.58.1, licensed under MIT
-	Copyright (c) 2019 typescript-eslint and other contributors
-	Source: https://github.com/typescript-eslint/typescript-eslint
 - @types/fs-extra 11.0.4, licensed under MIT
 	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -141,15 +53,88 @@ The following third-party components are included in this distribution:
 - @types/yargs 17.0.35, licensed under MIT
 	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- vite 6.4.1, licensed under MIT
+- ajv 8.20.0, licensed under MIT
+	Copyright (c) 2015-2021 Evgeny Poberezkin
+	Source: https://github.com/ajv-validator/ajv
+- babel-plugin-transform-assets-import-to-string 1.2.0, licensed under MIT
+	Copyright (c) 2017 Gerald Yeo
+	Source: https://github.com/yeojz/babel-plugin-transform-assets-import-to-string
+- better-ajv-errors 1.2.0, licensed under Apache-2.0
+	Copyright 2018 Atlassian Pty Ltd
+	Source: https://github.com/atlassian/better-ajv-errors
+- chalk 5.6.2, licensed under MIT
+	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+	Source: https://github.com/chalk/chalk
+- cypress 15.16.0, licensed under MIT
+	Copyright (c) 2023 Cypress.io
+	Source: https://github.com/cypress-io/cypress
+- eslint 10.4.1, licensed under MIT
+	Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
+	Source: https://github.com/eslint/eslint
+- eslint-plugin-notice 1.0.0, licensed under MIT
+	Copyright (c) 2017 Nick Deis
+	Source: https://github.com/nickdeis/eslint-plugin-notice
+- execa 9.6.1, licensed under MIT
+	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
+	Source: https://github.com/sindresorhus/execa
+- fs-extra 11.3.2, licensed under MIT
+	Copyright (c) 2011-2024 JP Richardson
+	Source: https://github.com/jprichardson/node-fs-extra
+- git-diff 2.0.6, licensed under ISC
+	Source: https://github.com/danday74/git-diff
+- glob 13.0.6, licensed under BlueOak-1.0.0
+	Source: https://github.com/isaacs/node-glob
+- inquirer 12.11.1, licensed under MIT
+	Copyright (c) 2025 Simon Boudrias
+	Source: https://github.com/SBoudrias/Inquirer.js
+- jiti 2.6.1, licensed under MIT
+	Copyright (c) Pooya Parsa <pooya@pi0.io>
+	Source: https://github.com/unjs/jiti
+- json5 2.2.3, licensed under MIT
+	Copyright (c) 2012-2018 Aseem Kishore, and others
+	Source: https://github.com/json5/json5
+- prettier 3.8.3, licensed under MIT
+	Copyright © James Long and contributors
+	Source: https://github.com/prettier/prettier
+- prettier 3.6.2, licensed under MIT
+	Copyright © James Long and contributors
+	Source: https://github.com/prettier/prettier
+- rimraf 6.1.3, licensed under BlueOak-1.0.0
+	Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
+	Source: https://github.com/isaacs/rimraf
+- run-parallel-limit 1.1.0, licensed under MIT
+	Copyright (c) Feross Aboukhadijeh
+	Source: https://github.com/feross/run-parallel-limit
+- semver 7.7.3, licensed under ISC
+	Copyright (c) Isaac Z. Schlueter and Contributors
+	Source: https://github.com/npm/node-semver
+- start-server-and-test 3.0.9, licensed under MIT
+	Copyright (c) 2022 bahmutov
+	Source: https://github.com/bahmutov/start-server-and-test
+- tcp-port-used 1.0.3, licensed under MIT
+	Copyright (c) 2013 jut-io
+	Source: https://github.com/stdarg/tcp-port-used
+- ts-json-schema-generator 2.9.1-next.13, licensed under MIT
+	Copyright (c) 2019, TypeScript JSON Schema
+	Source: https://github.com/vega/ts-json-schema-generator
+- ts-morph 27.0.2, licensed under MIT
+	Copyright (c) 2017 David Sherret
+	Source: https://github.com/dsherret/ts-morph
+- typescript 6.0.3, licensed under Apache-2.0
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/microsoft/TypeScript
+- vite 8.0.16, licensed under MIT
 	Copyright (c) 2019-present, VoidZero Inc. and Vite contributors
 	Source: https://github.com/vitejs/vite
-- vitest 3.2.4, licensed under MIT
+- vitest 4.1.8, licensed under MIT
 	Copyright (c) 2021-Present Vitest Team
 	Source: https://github.com/vitest-dev/vitest
 - yargs 17.7.2, licensed under MIT
 	Copyright 2014 Contributors (ben@npmjs.com) and Copyright 2010 James Halliday (mail@substack.net)
 	Source: https://github.com/yargs/yargs
+- org.gradle/gradle-wrapper 9.3.1, licensed under Apache-2.0
+	Copyright © 2015-2021 the original authors
+	Source: https://github.com/gradle/gradle/
 
 
 License Texts
@@ -170,3 +155,4 @@ respective licenses. For details, see the file LICENSE.
 owners.
 
 End of THIRD_PARTY_NOTICES
+

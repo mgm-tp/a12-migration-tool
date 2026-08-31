@@ -1,7 +1,7 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test",
 	"private": true,
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"type": "module",
 	"description": "Migration Tool test",
 	"author": "mgm technology partners",

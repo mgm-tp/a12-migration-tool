@@ -5,10 +5,11 @@ settings:
   excludeLinksFromLockfile: false
 
 catalogs:
-  default:
+  a12:
     '@com.mgmtp.a12.base/base-model-api':
-      specifier: ^30.0.1
-      version: 30.0.1
+      specifier: ^30.0.2
+      version: 30.0.2
+  default:
     '@com.mgmtp.a12.devtools/build-tools':
       specifier: ^1.1.2
       version: 1.1.2
@@ -85,7 +86,6 @@ catalogs:
 overrides:
   brace-expansion@>=1.0.0 <=1.1.11: '>=1.1.12'
   brace-expansion@>=2.0.0 <=2.0.1: '>=2.0.2'
-  '@com.mgmtp.a12.utils/utils-localization': ^8.0.1
 
 pnpmfileChecksum: sha256-inknZSs9O1bBfg6XFNfomLi6dGk71cu9woZBNL3ZWSY=
 
@@ -127,8 +127,8 @@ importers:
   core:
     dependencies:
       '@com.mgmtp.a12.base/base-model-api':
-        specifier: ^30.0.1
-        version: 30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)
+        specifier: catalog:a12
+        version: 30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)
       '@noble/hashes':
         specifier: ^2.2.0
         version: 2.2.0
@@ -219,7 +219,7 @@ importers:
         version: 3.0.9(supports-color@8.1.1)
       tcp-port-used:
         specifier: 'catalog:'
-        version: 1.0.3
+        version: 1.0.3(supports-color@8.1.1)
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -233,8 +233,8 @@ importers:
   test/fixtures/configurable-page-model-migration:
     devDependencies:
       '@com.mgmtp.a12.base/base-model-api':
-        specifier: 'catalog:'
-        version: 30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)
+        specifier: catalog:a12
+        version: 30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)
       '@com.mgmtp.a12.migrationtool/migrationtool-core':
         specifier: workspace:*
         version: link:../../../core
@@ -275,8 +275,8 @@ importers:
   test/fixtures/page-engine:
     devDependencies:
       '@com.mgmtp.a12.base/base-model-api':
-        specifier: 'catalog:'
-        version: 30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)
+        specifier: catalog:a12
+        version: 30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)
       rimraf:
         specifier: 'catalog:'
         version: 6.1.3
@@ -287,8 +287,8 @@ importers:
   test/fixtures/page-model-migration:
     devDependencies:
       '@com.mgmtp.a12.base/base-model-api':
-        specifier: 'catalog:'
-        version: 30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)
+        specifier: catalog:a12
+        version: 30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)
       '@com.mgmtp.a12.migrationtool/migrationtool-core':
         specifier: workspace:*
         version: link:../../../core
@@ -307,8 +307,8 @@ importers:
   test/fixtures/workspace-asset-model-migration:
     devDependencies:
       '@com.mgmtp.a12.base/base-model-api':
-        specifier: 'catalog:'
-        version: 30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)
+        specifier: catalog:a12
+        version: 30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)
       '@com.mgmtp.a12.migrationtool/migrationtool-core':
         specifier: workspace:*
         version: link:../../../core
@@ -356,8 +356,8 @@ importers:
         version: 17.7.2
     devDependencies:
       '@com.mgmtp.a12.base/base-model-api':
-        specifier: 'catalog:'
-        version: 30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)
+        specifier: catalog:a12
+        version: 30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)
       '@com.mgmtp.a12.migrationtool/migrationtool-core':
         specifier: workspace:*
         version: link:../core
@@ -468,8 +468,8 @@ packages:
     resolution: {integrity: sha512-LwdZHpScM4Qz8Xw2iKSzS+cfglZzJGvofQICy7W7v4caru4EaAmyUuO6BGrbyQ2mYV11W0U8j5mBhd14dd3B0A==}
     engines: {node: '>=6.9.0'}
 
-  '@com.mgmtp.a12.base/base-model-api@30.0.1':
-    resolution: {integrity: sha512-tcRJ7jy0qtxI6pE3ym/yNOqo/9V68i4p2so9cuUhampOtO4sfc40UWw5oyBRVVJvfqr0bf8m95J8E0bHokJjgQ==}
+  '@com.mgmtp.a12.base/base-model-api@30.0.2':
+    resolution: {integrity: sha512-2gDxcirTHwwLR7ZN84uOnNFGrySgPad2XmGRDggR3QYS7xE/fcujktGF2xroNQaYNPvNVe4npszVcfVEo1/kPQ==}
     peerDependencies:
       '@com.mgmtp.a12.utils/utils-localization': ^8.0.1
 
@@ -490,8 +490,8 @@ packages:
   '@com.mgmtp.a12.devtools/tsconfig@2.0.1':
     resolution: {integrity: sha512-/s4pj0c4rV4gVxpSJIi1MRZDenyHpg/PLO0wZqD8EL+dEb2Bf1NZNNJdmeGtkvHWQK7JZG0BU2RwxrkUB+CcrA==}
 
-  '@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3':
-    resolution: {integrity: sha512-szQTEzCG8ktDzpW/pHtPcHOnCsz5CX2Ie1pCkZMoHgyG5Dem7WxOLKHYhrpAuiYlGHJTIRcF9bl1QMhKE6DYZg==}
+  '@com.mgmtp.a12.utils/utils-localization@8.0.2':
+    resolution: {integrity: sha512-ojDHu4QhLRytENBlHzTzua1jQYtT+XUoxOhwHrmr+r5VfZoNeGIk8D6HENbxByAIMFxmUM1YlQf4QGbNouMhIw==}
 
   '@cypress/request@4.0.1':
     resolution: {integrity: sha512-y20e+e6dFYkOUUJLVUZTsJRuTiXZaUQ32WD+R/ux/HBybbTx4ge7cNINcua0pU8+SNkKuRbOF12mBmzuzM8n5w==}
@@ -3216,7 +3216,7 @@ snapshots:
       '@babel/code-frame': 7.29.0
       '@babel/generator': 7.29.1
       '@babel/helper-compilation-targets': 7.28.6
-      '@babel/helper-module-transforms': 7.28.6(@babel/core@7.29.0(supports-color@8.1.1))
+      '@babel/helper-module-transforms': 7.28.6(@babel/core@7.29.0(supports-color@8.1.1))(supports-color@8.1.1)
       '@babel/helpers': 7.28.6
       '@babel/parser': 7.29.0
       '@babel/template': 7.28.6
@@ -3249,17 +3249,17 @@ snapshots:
 
   '@babel/helper-globals@7.28.0': {}
 
-  '@babel/helper-module-imports@7.28.6':
+  '@babel/helper-module-imports@7.28.6(supports-color@8.1.1)':
     dependencies:
       '@babel/traverse': 7.29.0(supports-color@8.1.1)
       '@babel/types': 7.29.0
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-module-transforms@7.28.6(@babel/core@7.29.0(supports-color@8.1.1))':
+  '@babel/helper-module-transforms@7.28.6(@babel/core@7.29.0(supports-color@8.1.1))(supports-color@8.1.1)':
     dependencies:
       '@babel/core': 7.29.0(supports-color@8.1.1)
-      '@babel/helper-module-imports': 7.28.6
+      '@babel/helper-module-imports': 7.28.6(supports-color@8.1.1)
       '@babel/helper-validator-identifier': 7.28.5
       '@babel/traverse': 7.29.0(supports-color@8.1.1)
     transitivePeerDependencies:
@@ -3303,9 +3303,9 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@com.mgmtp.a12.base/base-model-api@30.0.1(@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3)':
+  '@com.mgmtp.a12.base/base-model-api@30.0.2(@com.mgmtp.a12.utils/utils-localization@8.0.2)':
     dependencies:
-      '@com.mgmtp.a12.utils/utils-localization': 8.0.0-pre.3
+      '@com.mgmtp.a12.utils/utils-localization': 8.0.2
 
   '@com.mgmtp.a12.devtools/build-tools@1.1.2(typescript@6.0.3)':
     dependencies:
@@ -3334,7 +3334,7 @@ snapshots:
 
   '@com.mgmtp.a12.devtools/tsconfig@2.0.1': {}
 
-  '@com.mgmtp.a12.utils/utils-localization@8.0.0-pre.3':
+  '@com.mgmtp.a12.utils/utils-localization@8.0.2':
     dependencies:
       big.js: 7.0.1
       luxon: 3.7.2
@@ -3806,7 +3806,7 @@ snapshots:
       '@typescript-eslint/parser': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@typescript-eslint/scope-manager': 8.61.0
       '@typescript-eslint/type-utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
-      '@typescript-eslint/utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@typescript-eslint/visitor-keys': 8.61.0
       eslint: 10.4.1(jiti@2.6.1)(supports-color@8.1.1)
       ignore: 7.0.5
@@ -3820,7 +3820,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/scope-manager': 8.61.0
       '@typescript-eslint/types': 8.61.0
-      '@typescript-eslint/typescript-estree': 8.61.0(typescript@6.0.3)
+      '@typescript-eslint/typescript-estree': 8.61.0(supports-color@8.1.1)(typescript@6.0.3)
       '@typescript-eslint/visitor-keys': 8.61.0
       debug: 4.4.3(supports-color@8.1.1)
       eslint: 10.4.1(jiti@2.6.1)(supports-color@8.1.1)
@@ -3828,7 +3828,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/project-service@8.61.0(typescript@6.0.3)':
+  '@typescript-eslint/project-service@8.61.0(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.61.0(typescript@6.0.3)
       '@typescript-eslint/types': 8.61.0
@@ -3849,8 +3849,8 @@ snapshots:
   '@typescript-eslint/type-utils@8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
       '@typescript-eslint/types': 8.61.0
-      '@typescript-eslint/typescript-estree': 8.61.0(typescript@6.0.3)
-      '@typescript-eslint/utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(typescript@6.0.3)
+      '@typescript-eslint/typescript-estree': 8.61.0(supports-color@8.1.1)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       debug: 4.4.3(supports-color@8.1.1)
       eslint: 10.4.1(jiti@2.6.1)(supports-color@8.1.1)
       ts-api-utils: 2.5.0(typescript@6.0.3)
@@ -3860,9 +3860,9 @@ snapshots:
 
   '@typescript-eslint/types@8.61.0': {}
 
-  '@typescript-eslint/typescript-estree@8.61.0(typescript@6.0.3)':
+  '@typescript-eslint/typescript-estree@8.61.0(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
-      '@typescript-eslint/project-service': 8.61.0(typescript@6.0.3)
+      '@typescript-eslint/project-service': 8.61.0(supports-color@8.1.1)(typescript@6.0.3)
       '@typescript-eslint/tsconfig-utils': 8.61.0(typescript@6.0.3)
       '@typescript-eslint/types': 8.61.0
       '@typescript-eslint/visitor-keys': 8.61.0
@@ -3875,12 +3875,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@typescript-eslint/utils@8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(typescript@6.0.3)':
+  '@typescript-eslint/utils@8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.1(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))
       '@typescript-eslint/scope-manager': 8.61.0
       '@typescript-eslint/types': 8.61.0
-      '@typescript-eslint/typescript-estree': 8.61.0(typescript@6.0.3)
+      '@typescript-eslint/typescript-estree': 8.61.0(supports-color@8.1.1)(typescript@6.0.3)
       eslint: 10.4.1(jiti@2.6.1)(supports-color@8.1.1)
       typescript: 6.0.3
     transitivePeerDependencies:
@@ -4305,9 +4305,11 @@ snapshots:
     optionalDependencies:
       supports-color: 8.1.1
 
-  debug@4.3.1:
+  debug@4.3.1(supports-color@8.1.1):
     dependencies:
       ms: 2.1.2
+    optionalDependencies:
+      supports-color: 8.1.1
 
   debug@4.4.3(supports-color@8.1.1):
     dependencies:
@@ -5844,9 +5846,9 @@ snapshots:
 
   systeminformation@5.31.7: {}
 
-  tcp-port-used@1.0.3:
+  tcp-port-used@1.0.3(supports-color@8.1.1):
     dependencies:
-      debug: 4.3.1
+      debug: 4.3.1(supports-color@8.1.1)
       is2: 2.0.1
     transitivePeerDependencies:
       - supports-color
@@ -5963,8 +5965,8 @@ snapshots:
     dependencies:
       '@typescript-eslint/eslint-plugin': 8.61.0(@typescript-eslint/parser@8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3))(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       '@typescript-eslint/parser': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
-      '@typescript-eslint/typescript-estree': 8.61.0(typescript@6.0.3)
-      '@typescript-eslint/utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(typescript@6.0.3)
+      '@typescript-eslint/typescript-estree': 8.61.0(supports-color@8.1.1)(typescript@6.0.3)
+      '@typescript-eslint/utils': 8.61.0(eslint@10.4.1(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@6.0.3)
       eslint: 10.4.1(jiti@2.6.1)(supports-color@8.1.1)
       typescript: 6.0.3
     transitivePeerDependencies:

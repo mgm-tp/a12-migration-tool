@@ -46,7 +46,7 @@ async function main() {
 
 	return startAndTest({
 		services: [{ start: `pnpm -F "*-test-page-app" start --port ${port}`, url }],
-		test: `cypress run --headless --browser=chrome --config baseUrl="${url}"`,
+		test: `cypress run --headless --browser=electron --config baseUrl="${url}"`,
 		namedArguments: { expect: 200 }
 	});
 }

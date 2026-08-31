@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-core",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"type": "module",
 	"description": "Migration Tool Core",
 	"author": "mgm technology partners",
@@ -35,7 +35,7 @@
 		"licenses"
 	],
 	"dependencies": {
-		"@com.mgmtp.a12.base/base-model-api": "^30.0.1",
+		"@com.mgmtp.a12.base/base-model-api": "catalog:a12",
 		"@noble/hashes": "^2.2.0",
 		"ajv": "^8.20.0",
 		"babel-plugin-transform-assets-import-to-string": "^1.2.0",

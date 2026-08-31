@@ -1,7 +1,7 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test-page-app",
 	"private": true,
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"type": "module",
 	"description": "Sample application for testing purpose",
 	"author": "mgm technology partners",

@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-utils",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"type": "module",
 	"description": "Migration Tool utils",
 	"author": "mgm technology partners",
@@ -44,7 +44,7 @@
 		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
-		"@com.mgmtp.a12.base/base-model-api": "catalog:",
+		"@com.mgmtp.a12.base/base-model-api": "catalog:a12",
 		"@com.mgmtp.a12.migrationtool/migrationtool-core": "workspace:*",
 		"@types/git-diff": "catalog:",
 		"@types/node": "catalog:",

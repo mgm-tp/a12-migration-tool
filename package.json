@@ -1,5 +1,6 @@
 {
 	"name": "root",
+	"version": "3.0.1",
 	"type": "module",
 	"private": true,
 	"engines": {
@@ -22,15 +23,15 @@
 	"author": "mgm technology partners",
 	"devDependencies": {
 		"@com.mgmtp.a12.devtools/build-tools": "catalog:",
-		"@eslint/compat": "catalog:",
 		"@com.mgmtp.a12.devtools/eslint-config": "catalog:",
 		"@com.mgmtp.a12.devtools/prettier-config": "catalog:",
 		"@com.mgmtp.a12.devtools/tsconfig": "catalog:",
+		"@eslint/compat": "catalog:",
 		"eslint": "catalog:",
 		"eslint-plugin-notice": "catalog:",
 		"prettier": "catalog:",
 		"typescript": "catalog:"
 	},
-	"a12Version": "2026.06-ext0",
-	"packageManager": "pnpm@11.5.2"
+	"a12Version": "2026.06-ext1",
+	"packageManager": "pnpm@11.18.0+sha512.33d83c77da82f49fba836925c6f1b841181ec3132b670639bd012f7075f5c7cf634c5f870147c19aae7478fac01df09d8892e880454896edd23ee9b33757563c"
 }

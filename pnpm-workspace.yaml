@@ -2,8 +2,10 @@ packages:
   - ./*
   - ./test/fixtures/*
 
+catalogs:
+  a12:
+    "@com.mgmtp.a12.base/base-model-api": ^30.0.2
 catalog:
-  "@com.mgmtp.a12.base/base-model-api": ^30.0.1
   "@com.mgmtp.a12.devtools/build-tools": ^1.1.2
   "@com.mgmtp.a12.devtools/eslint-config": ^4.0.0
   "@com.mgmtp.a12.devtools/prettier-config": ^1.1.1
@@ -38,12 +40,14 @@ loglevel: info
 strictPeerDependencies: true
 # Only install package versions published at least this many minutes ago (1 day)
 minimumReleaseAge: 1440
+# Internal A12 packages are consumed immediately after publish; the age gate must not apply.
+minimumReleaseAgeExclude:
+  - "@com.mgmtp.a12.*/*"
 patchedDependencies:
   "better-ajv-errors@1.2.0": patches/better-ajv-errors@1.2.0.patch
 overrides:
   "brace-expansion@>=1.0.0 <=1.1.11": ">=1.1.12"
   "brace-expansion@>=2.0.0 <=2.0.1": ">=2.0.2"
-  "@com.mgmtp.a12.utils/utils-localization": ^8.0.1
 peerDependencyRules:
   # eslint-plugin-import / -react ship stale eslint peer ranges that cap at v9;
   # they work with eslint 10 under flat config (verified via lint).

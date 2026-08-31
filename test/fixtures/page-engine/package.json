@@ -1,7 +1,7 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test-page-engine",
 	"private": true,
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"type": "module",
 	"description": "Sample engine for testing purpose",
 	"author": "mgm technology partners",
@@ -11,7 +11,7 @@
 		"compile": "tsc"
 	},
 	"devDependencies": {
-		"@com.mgmtp.a12.base/base-model-api": "catalog:",
+		"@com.mgmtp.a12.base/base-model-api": "catalog:a12",
 		"rimraf": "catalog:",
 		"typescript": "catalog:"
 	}
