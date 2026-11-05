@@ -29,32 +29,6 @@
  * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
-
-const EXPECTED_MODEL = {
-	status: "success",
-	model: {
-		header: {
-			id: "web-based-test-model",
-			modelType: "page",
-			modelVersion: "32.0.0",
-			locales: [],
-			labels: [],
-			modelReferences: [],
-			annotations: []
-		},
-		content: {
-			numberField: 42,
-			stringField: "Hello World"
-		}
-	}
-};
-
-it("should migrate model properly", () => {
-	cy.visit("/");
-
-	cy.get("#migrated-model")
-		.invoke("text")
-		.then((text) => {
-			expect(JSON.parse(text)).deep.equal([EXPECTED_MODEL]);
-		});
-});
+export interface Model {
+	readonly content: UndeclaredContent;
+}

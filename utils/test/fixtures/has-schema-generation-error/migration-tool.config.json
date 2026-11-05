@@ -1,0 +1,5 @@
+{
+	"stepsDirPath": "./src/steps",
+	"stepModelFileName": "model.ts",
+	"modelInterfaceName": "Model"
+}

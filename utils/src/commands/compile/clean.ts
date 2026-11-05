@@ -38,22 +38,19 @@ import type { ResolvedConfiguration } from "../../types.js";
 
 export async function clean(config: ResolvedConfiguration, options?: { force: boolean }): Promise<void> {
 	const { stepsDirPath } = config;
+	const schemaFilePaths = config.schema
+		? (await Fs.readdir(stepsDirPath, { withFileTypes: true }))
+				.filter((version) => version.isDirectory())
+				.map((version) => Path.join(stepsDirPath, version.name, SCHEMA_FILE_NAME))
+		: [];
 
-	try {
-		if (config.schema) {
-			for (const version of await Fs.readdir(stepsDirPath, { withFileTypes: true })) {
-				if (version.isDirectory()) {
-					await Fs.unlink(Path.join(stepsDirPath, version.name, SCHEMA_FILE_NAME));
-				}
+	for (const filePath of [...schemaFilePaths, Path.join(stepsDirPath, INDEX_FILE_NAME)]) {
+		try {
+			await Fs.unlink(filePath);
+		} catch (error: any) {
+			if (!options?.force || error.code !== "ENOENT") {
+				throw error;
 			}
 		}
-
-		await Fs.unlink(Path.join(stepsDirPath, INDEX_FILE_NAME));
-	} catch (error: any) {
-		if (options?.force && error.code === "ENOENT") {
-			return;
-		}
-
-		throw error;
 	}
 }

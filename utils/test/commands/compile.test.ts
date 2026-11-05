@@ -36,7 +36,7 @@ import * as Path from "node:path";
 import { globSync } from "glob";
 import { beforeAll, describe, expect, it } from "vitest";
 
-import { FIXTURES_DIR, execute } from "../utils.js";
+import { FIXTURES_DIR, TYPESCRIPT_7_HOST, execute } from "../utils.js";
 
 describe("Compile", () => {
 	beforeAll(() => {
@@ -130,6 +130,50 @@ describe("Compile", () => {
 
 	it("should not create new schema when passing no-schema", () => {
 		testCommand("with-no-schema", "src", "--no-schema");
+	});
+
+	it("should regenerate a schema left over by a crashed run", () => {
+		const fixtureDir = Path.join(FIXTURES_DIR, "basic");
+		Fs.writeFileSync(
+			Path.join(fixtureDir, "src/steps/version-31.0.0/schema.json"),
+			'{ "leftover": "from a crashed run" }'
+		);
+
+		const { exitCode } = execute("migration-tool-utils compile", "basic");
+
+		expect(exitCode).toEqual(0);
+		expect(Fs.readFileSync(Path.join(fixtureDir, "lib/steps/version-31.0.0/schema.json"), "utf8")).not.toContain(
+			"leftover"
+		);
+	});
+	it("should generate schemas when the consumer's TypeScript is 7", () => {
+		const fixtureDir = Path.join(FIXTURES_DIR, "basic");
+
+		const { stderr, exitCode } = execute("migration-tool-utils compile", "basic", {
+			NODE_OPTIONS: `--import=${TYPESCRIPT_7_HOST}`
+		});
+
+		expect(stderr).toEqual("");
+		expect(exitCode).toEqual(0);
+		expect(Fs.existsSync(Path.join(fixtureDir, "lib/steps/version-31.0.0/schema.json"))).toEqual(true);
+	});
+
+	it("should leave no generated files behind when compilation fails", () => {
+		const fixtureDir = Path.join(FIXTURES_DIR, "has-compile-errors");
+
+		const { exitCode } = execute("migration-tool-utils compile", "has-compile-errors");
+
+		expect(exitCode).not.toEqual(0);
+		expect(Fs.existsSync(Path.join(fixtureDir, "src/steps/index.ts"))).toEqual(false);
+		expect(Fs.existsSync(Path.join(fixtureDir, "src/steps/version-30.0.0/schema.json"))).toEqual(false);
+	});
+
+	it("should name the version whose schema generation fails", () => {
+		const { stderr, exitCode } = execute("migration-tool-utils compile", "has-schema-generation-error");
+
+		expect(exitCode).not.toEqual(0);
+		expect(stderr).toMatch("Failed to generate JSON schema for version-31.0.0");
+		expect(stderr).toMatch("Cannot find name 'UndeclaredContent'");
 	});
 });
 

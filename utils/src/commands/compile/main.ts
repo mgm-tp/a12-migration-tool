@@ -54,11 +54,13 @@ export async function main(config: ResolvedConfiguration): Promise<void> {
 	}
 	await clean(config, { force: true });
 
-	if (config.schema) {
-		await compileSchemas(config);
+	try {
+		if (config.schema) {
+			await compileSchemas(config);
+		}
+		await generateIndexFile(config);
+		compileSources(config);
+	} finally {
+		await clean(config, { force: true });
 	}
-	await generateIndexFile(config);
-	compileSources(config);
-
-	await clean(config);
 }

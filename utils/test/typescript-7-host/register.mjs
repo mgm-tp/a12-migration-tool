@@ -29,40 +29,6 @@
  * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
+import { register } from "node:module";
 
-import { startAndTest } from "start-server-and-test";
-import { check } from "tcp-port-used";
-
-main().catch((error) => {
-	console.error(error);
-	process.exit(1);
-});
-
-async function main() {
-	const port = await generatePort();
-	const url = `http://localhost:${port}`;
-
-	process.env.NO_COLOR = "1";
-
-	return startAndTest({
-		services: [{ start: `pnpm -F "*-test-page-app" start --port ${port}`, url }],
-		test: `cypress run --headless --browser=electron --config baseUrl="${url}"`,
-		namedArguments: { expect: 200 }
-	});
-}
-
-function generatePort() {
-	const port = Math.round(Math.random() * 64535) + 1000;
-	return check(port)
-		.then((inUsed) => {
-			if (inUsed === true) {
-				console.log(`Port ${port} is already in used.`);
-				return generatePort();
-			}
-			return port;
-		})
-		.catch((error) => {
-			console.error(error);
-			process.exit(1);
-		});
-}
+register("./hooks.mjs", import.meta.url);

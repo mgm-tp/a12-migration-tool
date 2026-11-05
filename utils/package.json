@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-utils",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"type": "module",
 	"description": "Migration Tool utils",
 	"author": "mgm technology partners",
@@ -29,7 +29,7 @@
 		"licenses"
 	],
 	"peerDependencies": {
-		"typescript": "^6"
+		"typescript": ">=6.0.2"
 	},
 	"dependencies": {
 		"ajv": "^8.20.0",
@@ -37,7 +37,6 @@
 		"git-diff": "^2.0.6",
 		"inquirer": "^12.5.0",
 		"prettier": "^3.5.3",
-		"run-parallel-limit": "^1.1.0",
 		"semver": "^7.5.4",
 		"ts-json-schema-generator": "2.9.1-next.13",
 		"ts-morph": "^27.0.2",
@@ -48,7 +47,6 @@
 		"@com.mgmtp.a12.migrationtool/migrationtool-core": "workspace:*",
 		"@types/git-diff": "catalog:",
 		"@types/node": "catalog:",
-		"@types/run-parallel-limit": "catalog:",
 		"@types/semver": "catalog:",
 		"@types/yargs": "catalog:",
 		"execa": "catalog:",

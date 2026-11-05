@@ -15,7 +15,7 @@ Component Overview
 
 The following third-party components are included in this distribution:
 
-- @com.mgmtp.a12.base/base-model-api 30.0.2, licensed under EUPL v1.2
+- @com.mgmtp.a12.base/base-model-api 30.1.0, licensed under EUPL v1.2
 	Copyright (C) 2012-2026 mgm technology partners GmbH
 	Source: https://github.com/mgm-tp
 - @com.mgmtp.a12.devtools/build-tools 1.1.2, licensed under EUPL v1.2
@@ -35,6 +35,9 @@ The following third-party components are included in this distribution:
 - @noble/hashes 2.2.0, licensed under MIT
 	Copyright (c) 2022 Paul Miller (https://paulmillr.com)
 	Source: https://github.com/paulmillr/noble-hashes
+- @playwright/test 1.62.1, licensed under Apache-2.0
+	Copyright (c) Microsoft Corporation
+	Source: https://github.com/microsoft/playwright
 - @types/fs-extra 11.0.4, licensed under MIT
 	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -42,10 +45,7 @@ The following third-party components are included in this distribution:
 	Copyrights are respective of each contributor listed at the beginning of each definition file
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/node 22.19.1, licensed under MIT
-	Copyright Node.js contributors
-	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
-- @types/run-parallel-limit 1.0.3, licensed under MIT
-	Copyrights are respective of each contributor listed at the beginning of each definition file
+	Copyrights are respective of each contributor listed at the beginning of each definition file.
 	Source: https://github.com/DefinitelyTyped/DefinitelyTyped
 - @types/semver 7.7.1, licensed under MIT
 	Copyrights are respective of each contributor listed at the beginning of each definition file
@@ -65,9 +65,6 @@ The following third-party components are included in this distribution:
 - chalk 5.6.2, licensed under MIT
 	Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com)
 	Source: https://github.com/chalk/chalk
-- cypress 15.16.0, licensed under MIT
-	Copyright (c) 2023 Cypress.io
-	Source: https://github.com/cypress-io/cypress
 - eslint 10.4.1, licensed under MIT
 	Copyright OpenJS Foundation and other contributors, <www.openjsf.org>
 	Source: https://github.com/eslint/eslint
@@ -102,18 +99,9 @@ The following third-party components are included in this distribution:
 - rimraf 6.1.3, licensed under BlueOak-1.0.0
 	Copyright (c) 2011-2023 Isaac Z. Schlueter and Contributors
 	Source: https://github.com/isaacs/rimraf
-- run-parallel-limit 1.1.0, licensed under MIT
-	Copyright (c) Feross Aboukhadijeh
-	Source: https://github.com/feross/run-parallel-limit
 - semver 7.7.3, licensed under ISC
 	Copyright (c) Isaac Z. Schlueter and Contributors
 	Source: https://github.com/npm/node-semver
-- start-server-and-test 3.0.9, licensed under MIT
-	Copyright (c) 2022 bahmutov
-	Source: https://github.com/bahmutov/start-server-and-test
-- tcp-port-used 1.0.3, licensed under MIT
-	Copyright (c) 2013 jut-io
-	Source: https://github.com/stdarg/tcp-port-used
 - ts-json-schema-generator 2.9.1-next.13, licensed under MIT
 	Copyright (c) 2019, TypeScript JSON Schema
 	Source: https://github.com/vega/ts-json-schema-generator
@@ -132,9 +120,19 @@ The following third-party components are included in this distribution:
 - yargs 17.7.2, licensed under MIT
 	Copyright 2014 Contributors (ben@npmjs.com) and Copyright 2010 James Halliday (mail@substack.net)
 	Source: https://github.com/yargs/yargs
-- org.gradle/gradle-wrapper 9.3.1, licensed under Apache-2.0
-	Copyright © 2015-2021 the original authors
-	Source: https://github.com/gradle/gradle/
+
+
+Embedded NOTICE Files
+---------------------
+
+NOTICE file of playwright
+---------------------------
+
+Playwright
+Copyright (c) Microsoft Corporation
+
+This software contains code derived from the Puppeteer project (https://github.com/puppeteer/puppeteer),
+available under the Apache 2.0 license (https://github.com/puppeteer/puppeteer/blob/master/LICENSE).
 
 
 License Texts

@@ -1,4 +1,4 @@
 {
 	"extends": "../tsconfig.json",
-	"include": ["src", "fixtures", "vite.config.ts", "scripts", "cypress.config.ts"]
+	"include": ["src", "fixtures", "playwright", "vite.config.ts", "playwright.config.ts"]
 }

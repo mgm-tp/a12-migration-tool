@@ -1,7 +1,7 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test-workspace-asset-migration-tool",
 	"private": true,
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"type": "module",
 	"description": "Sample migration tool for testing purpose",
 	"author": "mgm technology partners",

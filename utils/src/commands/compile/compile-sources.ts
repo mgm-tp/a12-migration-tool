@@ -30,43 +30,41 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
+import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
 import * as Path from "node:path";
-
-import ts from "typescript";
 
 import type { ResolvedConfiguration } from "../../types.js";
 
-/*
- * ===== BEGIN THIRD-PARTY SOURCE: [TypeScript] (https://github.com/microsoft/TypeScript),
- * [https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler]
- * Licensed under the Apache-2.0 License.
- * Copyright (c) Microsoft Corporation
- * Modified by mgm technology partners on [2023-08-29].
+/**
+ * Absolute path of the `tsc` the package being compiled brings along. Resolved
+ * through `typescript/package.json`, the one subpath TypeScript 7 exports —
+ * `typescript/bin/tsc` is not in its `exports` map and throws
+ * `ERR_PACKAGE_PATH_NOT_EXPORTED` there, while resolving fine under 6.
  */
+function resolveTsc(cwd: string): string {
+	const require = createRequire(Path.join(cwd, "package.json"));
+	const packagePath = require.resolve("typescript/package.json");
+	const { bin } = JSON.parse(readFileSync(packagePath, "utf8")) as {
+		bin: { tsc: string };
+	};
+
+	return Path.join(Path.dirname(packagePath), bin.tsc);
+}
+
 export function compileSources({ tsConfigPath }: ResolvedConfiguration): void {
 	console.log(`\nCompiling source files...`);
 
-	const configFile = ts.readConfigFile(tsConfigPath, ts.sys.readFile);
-	const parsedConfig = ts.parseJsonConfigFileContent(configFile.config, ts.sys, Path.dirname(tsConfigPath));
-
-	const program = ts.createProgram(parsedConfig.fileNames, parsedConfig.options);
-	const diagnostics = ts.getPreEmitDiagnostics(program).concat(program.emit().diagnostics);
-
-	diagnostics.forEach((diagnostic) => {
-		const message = ts.flattenDiagnosticMessageText(diagnostic.messageText, "\n");
-
-		if (diagnostic.file && diagnostic.start) {
-			const { line, character } = ts.getLineAndCharacterOfPosition(diagnostic.file, diagnostic.start);
-			console.error(`${diagnostic.file.fileName}:${line + 1}:${character + 1} - ${message}`);
-		} else {
-			console.error(message);
-		}
-	});
-
-	if (diagnostics.length > 0) {
+	try {
+		// tsc reports diagnostics on stdout; this command has always put them on
+		// stderr, so both of the child's streams go there.
+		execFileSync(process.execPath, [resolveTsc(process.cwd()), "--project", tsConfigPath], {
+			stdio: ["inherit", process.stderr, process.stderr]
+		});
+	} catch {
 		throw new Error("TypeScript compilation failed");
 	}
 
 	console.log(`Compiled source files successfully!`);
 }
-// ===== END THIRD-PARTY SOURCE =====

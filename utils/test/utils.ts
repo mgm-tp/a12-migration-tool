@@ -39,13 +39,14 @@ const __dirname = Path.dirname(fileURLToPath(import.meta.url));
 
 export const FIXTURES_DIR = Path.join(__dirname, "fixtures");
 export const BIN_PATH = Path.join(__dirname, "..", "bin", "migration-tool-utils");
+export const TYPESCRIPT_7_HOST = Path.join(__dirname, "typescript-7-host", "register.mjs");
 
-export function execute(command: string, fixtureName = "basic") {
+export function execute(command: string, fixtureName = "basic", env?: Record<string, string>) {
 	let result;
 
 	try {
 		const cwd = Path.join(FIXTURES_DIR, fixtureName);
-		result = execaSync({ cwd })`${command.replace("migration-tool-utils", BIN_PATH).trim().split(" ")}`;
+		result = execaSync({ cwd, env })`${command.replace("migration-tool-utils", BIN_PATH).trim().split(" ")}`;
 	} catch (error) {
 		result = error as any;
 	}

@@ -8,6 +8,10 @@ Utility commands to develop a migration tool.
 npm install --save-dev @com.mgmtp.a12.migrationtool/migrationtool-utils
 ```
 
+`typescript` is a peer dependency, declared as `>=6.0.2`: the `compile` command
+compiles your sources with the `tsc` your project brings, so the compiler is
+yours to choose and TypeScript 7 works as well as 6.
+
 ## Usage
 
 ```

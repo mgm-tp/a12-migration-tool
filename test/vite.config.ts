@@ -37,5 +37,11 @@ export default defineConfig({
 		target: "esnext",
 		tsconfigRaw: "{}"
 	},
-	test: { fileParallelism: false, setupFiles: "./src/setup.ts", testTimeout: 60000, pool: "threads" }
+	test: {
+		include: ["src/**/*.test.ts"],
+		fileParallelism: false,
+		setupFiles: "./src/setup.ts",
+		testTimeout: 60000,
+		pool: "threads"
+	}
 });

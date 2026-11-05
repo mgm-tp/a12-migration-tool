@@ -30,12 +30,6 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import { defineConfig } from "cypress";
-
-export default defineConfig({
-	e2e: {
-		// baseUrl is provided at runtime by scripts/test-e2e.js (random free port)
-		supportFile: false,
-		video: false
-	}
-});
+export const version = "7.0.2";
+export const versionMajorMinor = "7.0";
+export default { version, versionMajorMinor };

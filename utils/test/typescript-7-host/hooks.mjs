@@ -29,34 +29,12 @@
  * NON-INFRINGEMENT, EXCEPT WHERE SUCH DISCLAIMERS ARE HELD TO BE
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
+const LIB_URL = new URL("../../lib/", import.meta.url).href;
+const TYPESCRIPT_7_URL = new URL("./typescript-7.mjs", import.meta.url).href;
 
-import * as Fs from "node:fs";
-import * as Path from "node:path";
-
-import * as TsJsonSchemaGenerator from "ts-json-schema-generator";
-
-const [path, tsconfig, type, output] = process.argv.slice(2);
-
-const config: TsJsonSchemaGenerator.Config = { path, tsconfig, type };
-
-try {
-	const schema = TsJsonSchemaGenerator.createGenerator(config).createSchema(config.type);
-	Fs.mkdirSync(Path.dirname(output), { recursive: true });
-	Fs.writeFileSync(output, JSON.stringify(schema, null, 2));
-} catch (error) {
-	if (error instanceof Error && "diagnostic" in error) {
-		const ts = (await import("typescript")).default;
-		const diagnostic = error.diagnostic as import("typescript").Diagnostic;
-		const allDiagnostics = [diagnostic, ...(diagnostic.relatedInformation ?? [])];
-		console.error(
-			ts.formatDiagnostics(allDiagnostics, {
-				getCanonicalFileName: (fileName) => fileName,
-				getCurrentDirectory: () => "",
-				getNewLine: () => "\n"
-			})
-		);
-	} else {
-		console.error(error instanceof Error ? error.message : error);
-	}
-	process.exit(1);
+// Hands utils the `typescript` a TypeScript 7 consumer brings as the peer, which has no compiler API.
+export async function resolve(specifier, context, nextResolve) {
+	return specifier === "typescript" && context.parentURL?.startsWith(LIB_URL)
+		? { url: TYPESCRIPT_7_URL, shortCircuit: true }
+		: nextResolve(specifier, context);
 }

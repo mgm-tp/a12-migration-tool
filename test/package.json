@@ -1,7 +1,7 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-test",
 	"private": true,
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"type": "module",
 	"description": "Migration Tool test",
 	"author": "mgm technology partners",
@@ -11,7 +11,8 @@
 		"start": "tsc --watch",
 		"test": "pnpm --sequential \"/^test:.*/\"",
 		"test:unit": "vitest",
-		"test:e2e": "node scripts/test-e2e.js",
+		"pretest:e2e": "playwright install chromium",
+		"test:e2e": "playwright test",
 		"update": "vitest --update"
 	},
 	"devDependencies": {
@@ -20,15 +21,13 @@
 		"@com.mgmtp.a12.migrationtool/migrationtool-test-generic-migration-tool": "workspace:*",
 		"@com.mgmtp.a12.migrationtool/migrationtool-test-page-migration-tool": "workspace:*",
 		"@com.mgmtp.a12.migrationtool/migrationtool-test-workspace-asset-migration-tool": "workspace:*",
+		"@playwright/test": "catalog:",
 		"@types/fs-extra": "catalog:",
 		"@types/node": "catalog:",
-		"cypress": "catalog:",
 		"execa": "catalog:",
 		"fs-extra": "catalog:",
 		"glob": "catalog:",
 		"rimraf": "catalog:",
-		"start-server-and-test": "catalog:",
-		"tcp-port-used": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",
 		"vitest": "catalog:"

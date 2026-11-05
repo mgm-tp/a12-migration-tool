@@ -1,6 +1,6 @@
 {
 	"name": "@com.mgmtp.a12.migrationtool/migrationtool-core",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"type": "module",
 	"description": "Migration Tool Core",
 	"author": "mgm technology partners",

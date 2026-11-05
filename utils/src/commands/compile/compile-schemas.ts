@@ -30,26 +30,48 @@
  * LEGALLY INVALID. SEE THE RESPECTIVE LICENSE TEXT FOR DETAILS.
  */
 
-import * as ChildProcess from "node:child_process";
 import * as FsSync from "node:fs";
 import * as Fs from "node:fs/promises";
+import { createRequire } from "node:module";
 import * as Path from "node:path";
 
 import gitDiff from "git-diff";
-import parallelLimit, { type Task } from "run-parallel-limit";
+import {
+	DEFAULT_CONFIG,
+	SchemaGenerator,
+	createFormatter,
+	createParser,
+	createProgram
+} from "ts-json-schema-generator";
+import type ts from "typescript";
 
 import { CHECK_MARK, SCHEMA_FILE_NAME, VERSION_PREFIX } from "../../constants.js";
 import type { ResolvedConfiguration } from "../../types.js";
 import { getLatestVersion } from "../../utils.js";
 
-type CompileTask = (callback: FsSync.NoParamCallback) => void;
+const REFERENCE_SCHEMA_FILE_NAME = "schema.ref.json";
+
+// The program comes from ts-json-schema-generator's own TypeScript; the host's may be TypeScript 7, which has no compiler API.
+const generatorTypeScript: typeof ts = createRequire(import.meta.resolve("ts-json-schema-generator"))("typescript");
+
+interface SchemaSource {
+	generator: SchemaGenerator;
+	program: ts.Program;
+}
+
+interface SchemaTarget {
+	version: string;
+	modelFilePath: string;
+	typeName: string;
+}
 
 export async function validateLatestSchema(config: ResolvedConfiguration) {
 	const latestVersion = `${VERSION_PREFIX}${await getLatestVersion(config)}`;
 	const latestSchemaPath = Path.join(config.stepsDirPath, latestVersion, SCHEMA_FILE_NAME);
-	const referenceSchemaPath = Path.join(config.stepsDirPath, latestVersion, "schema.ref.json");
+	const referenceSchemaPath = Path.join(config.stepsDirPath, latestVersion, REFERENCE_SCHEMA_FILE_NAME);
+	const [target] = resolveTargets(config, [latestVersion]);
 
-	await parallelLimitPromise([createCompileTask(latestVersion, config, referenceSchemaPath, true)], 1);
+	await writeSchema(referenceSchemaPath, createSchema(createGenerator(config), target, config));
 
 	const diff = gitDiff(await Fs.readFile(referenceSchemaPath, "utf-8"), await Fs.readFile(latestSchemaPath, "utf-8"), {
 		color: false,
@@ -80,78 +102,157 @@ export async function validateSchemas(config: ResolvedConfiguration) {
 }
 
 export async function compileSchemas(config: ResolvedConfiguration) {
-	const compileTasks: CompileTask[] = [];
+	const versions: string[] = [];
 
 	for (const version of await Fs.readdir(config.stepsDirPath)) {
 		if (!FsSync.lstatSync(Path.join(config.stepsDirPath, version)).isDirectory()) {
 			continue;
 		}
-		const schemaFilePath = Path.join(config.stepsDirPath, version, SCHEMA_FILE_NAME);
-		if (FsSync.existsSync(schemaFilePath)) {
+		if (config.persistentSchema && FsSync.existsSync(Path.join(config.stepsDirPath, version, SCHEMA_FILE_NAME))) {
 			console.log(`Schema file for ${version} already exists`);
 			continue;
 		}
-		compileTasks.push(createCompileTask(version, config));
+		versions.push(version);
 	}
 
-	await parallelLimitPromise(compileTasks, 4);
+	const targets = resolveTargets(config, versions);
+
+	if (targets.length > 0) {
+		const generator = createGenerator(config);
+
+		for (const target of targets) {
+			console.log(`Compiling JSON schema for ${target.version}`);
+			await writeSchema(
+				Path.join(config.stepsDirPath, target.version, SCHEMA_FILE_NAME),
+				createSchema(generator, target, config)
+			);
+		}
+	}
 
 	console.log("Compiled JSON schemas successfully!");
 }
 
-function createCompileTask(
-	version: string,
-	resolvedConfig: ResolvedConfiguration,
-	output?: string,
-	silent?: boolean
-): CompileTask {
-	return (callback) => {
-		try {
-			if (!silent) {
-				console.log(`Compiling JSON schema for ${version}`);
-			}
+function resolveTargets(config: ResolvedConfiguration, versions: string[]): SchemaTarget[] {
+	return versions.map((version) => {
+		const modelFilePath = Path.join(config.stepsDirPath, version, config.stepModelFileName);
 
-			const modelFilePath = Path.join(resolvedConfig.stepsDirPath, version, resolvedConfig.stepModelFileName);
-			if (!FsSync.existsSync(modelFilePath)) {
-				callback(new Error(`Model file ${modelFilePath} does not exist`));
-				return;
-			}
-
-			const config = {
-				tsconfig: resolvedConfig.tsConfigPath,
-				type: resolvedConfig.modelInterfaceName(version.replace(VERSION_PREFIX, "")),
-				path: Path.join(resolvedConfig.stepsDirPath, version, resolvedConfig.stepModelFileName),
-				output: output ?? Path.join(resolvedConfig.stepsDirPath, version, SCHEMA_FILE_NAME)
-			};
-
-			const childProcess = ChildProcess.spawn("node", [
-				Path.join(import.meta.dirname, "compile-schema"),
-				config.path,
-				config.tsconfig,
-				config.type,
-				config.output
-			]);
-
-			childProcess.stderr.on("data", (data) => {
-				const message = Buffer.from(data).toString().trim();
-				callback(new Error(message));
-			});
-
-			childProcess.on("close", () => callback(null));
-		} catch (error) {
-			callback(error as any);
+		if (!FsSync.existsSync(modelFilePath)) {
+			throw new Error(`Model file ${modelFilePath} does not exist`);
 		}
+
+		return { version, modelFilePath, typeName: config.modelInterfaceName(version.replace(VERSION_PREFIX, "")) };
+	});
+}
+
+/**
+ * Builds a single TypeScript program covering every step model, so that each schema is generated
+ * from the shared program instead of paying for a full program per version.
+ */
+function createGenerator(config: ResolvedConfiguration): SchemaSource {
+	const generatorConfig = {
+		...DEFAULT_CONFIG,
+		path: Path.join(config.stepsDirPath, "*", config.stepModelFileName),
+		tsconfig: config.tsConfigPath
+	};
+
+	let program: ts.Program;
+
+	try {
+		program = createProgram(generatorConfig);
+	} catch (error) {
+		throw toSchemaError(error, config);
+	}
+
+	return {
+		program,
+		generator: new SchemaGenerator(
+			program,
+			createParser(program, generatorConfig),
+			createFormatter(generatorConfig),
+			generatorConfig
+		)
 	};
 }
 
-function parallelLimitPromise<T>(tasks: Task<T>[], limit: number): Promise<void> {
-	return new Promise((resolve, reject) => {
-		parallelLimit(tasks, limit, (error) => {
-			if (error) {
-				reject(error);
-			} else {
-				resolve();
-			}
-		});
-	});
+function createSchema(
+	{ generator, program }: SchemaSource,
+	target: SchemaTarget,
+	config: ResolvedConfiguration
+): unknown {
+	const node = findModelNode(program, target);
+
+	if (node === undefined) {
+		throw new Error(`Type ${target.typeName} for ${target.version} does not exist in ${target.modelFilePath}`);
+	}
+
+	try {
+		return generator.createSchemaFromNodes([node]);
+	} catch (error) {
+		throw toSchemaError(error, config, [target.version]);
+	}
+}
+
+/**
+ * Resolves the model type through the type checker rather than the file's own statements, because a
+ * step model may re-export the type of an earlier step instead of declaring it.
+ */
+function findModelNode(program: ts.Program, target: SchemaTarget): ts.Node | undefined {
+	const checker = program.getTypeChecker();
+	const sourceFile = program
+		.getSourceFiles()
+		.find((file) => Path.resolve(file.fileName) === Path.resolve(target.modelFilePath));
+	const moduleSymbol = sourceFile && checker.getSymbolAtLocation(sourceFile);
+
+	if (moduleSymbol === undefined) {
+		return undefined;
+	}
+
+	const exportedSymbol = checker.getExportsOfModule(moduleSymbol).find((symbol) => symbol.name === target.typeName);
+
+	if (exportedSymbol === undefined) {
+		return undefined;
+	}
+
+	const declaredSymbol =
+		exportedSymbol.flags & generatorTypeScript.SymbolFlags.Alias
+			? checker.getAliasedSymbol(exportedSymbol)
+			: exportedSymbol;
+
+	return declaredSymbol.declarations?.[0];
+}
+
+async function writeSchema(filePath: string, schema: unknown): Promise<void> {
+	const temporaryFilePath = `${filePath}.tmp`;
+
+	await Fs.writeFile(temporaryFilePath, JSON.stringify(schema, null, 2));
+	await Fs.rename(temporaryFilePath, filePath);
+}
+
+function toSchemaError(error: unknown, config: ResolvedConfiguration, versions?: string[]): unknown {
+	if (!(error instanceof Error) || !("diagnostic" in error)) {
+		return error;
+	}
+
+	const diagnostic = error.diagnostic as ts.Diagnostic;
+	const diagnostics = [diagnostic, ...((diagnostic.relatedInformation ?? []) as ts.Diagnostic[])];
+	const failingVersions = versions ?? resolveVersions(diagnostics, config);
+	const subject = failingVersions.length > 0 ? failingVersions.join(", ") : "the step models";
+
+	return new Error(
+		`Failed to generate JSON schema for ${subject}\n${generatorTypeScript.formatDiagnostics(diagnostics, {
+			getCanonicalFileName: (fileName) => fileName,
+			getCurrentDirectory: () => "",
+			getNewLine: () => "\n"
+		})}`
+	);
+}
+
+function resolveVersions(diagnostics: ts.Diagnostic[], config: ResolvedConfiguration): string[] {
+	const versions = diagnostics
+		.map((diagnostic) => diagnostic.file?.fileName)
+		.filter((fileName) => fileName !== undefined)
+		.map((fileName) => Path.relative(config.stepsDirPath, fileName).split(Path.sep)[0])
+		.filter((version) => version?.startsWith(VERSION_PREFIX));
+
+	return [...new Set(versions)];
 }
